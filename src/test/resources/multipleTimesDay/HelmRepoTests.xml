@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AWS Host Group And Managed Cluster">
+<!--    <listeners>-->
+<!--        <listener class-name="utils.NirmataReportListener"></listener>-->
+<!--    </listeners>-->
+
+    <parameter name="helmChartName" value="regression-helm-repo" />
+    <parameter name="newHelmChartName" value="regression-helm-repo" />
+    <parameter name="catalogName" value="regression-catalog3" />
+
+    <test name="Test Add Helm Repo">
+        <classes>
+            <class name="catalog.HelmChartsTests">
+                <methods>
+                    <include name = "testHelmChartsPagePanelTitle"/>
+                    <include name = "testAddHelmRepository"/>
+                    <include name = "testInsideHelmChartsPagePanelTitle"/>
+                    <include name = "testEditHelmChart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Test Add Catalog">
+        <classes>
+            <class name="catalog.CatalogTests">
+                <methods>
+                    <include name = "testCreateNewCatalog"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Test Import App From Helm Repo">
+        <classes>
+            <class name="catalog.HelmChartsTests">
+                <methods>
+                    <include name = "testImportApplication"/>
+                    <include name = "testDeleteHelmRepository"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Test Delete Catalog">
+        <classes>
+            <class name="catalog.CatalogTests">
+                <methods>
+                    <include name = "testDeleteCatalog"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

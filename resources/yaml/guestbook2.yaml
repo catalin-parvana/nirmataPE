@@ -1,0 +1,261 @@
+apiVersion: v1
+data:
+  password: ZGVmYXVsdA==
+kind: Secret
+metadata:
+  annotations: {}
+  labels:
+    nirmata.io/secret.name: db-secret
+  name: db-secret
+type: Opaque
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    nirmata.io/component: frontend
+    nirmata.io/service.name: frontend
+  name: frontend
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  ports:
+    - port: 80
+      protocol: TCP
+  selector:
+    nirmata.io/component: frontend
+    nirmata.io/service.name: frontend
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    nirmata.io/component: redis-master
+    nirmata.io/service.name: redis-master
+  name: redis-master
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  ports:
+    - port: 6379
+      protocol: TCP
+  selector:
+    nirmata.io/component: redis-master
+    nirmata.io/service.name: redis-master
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    nirmata.io/component: redis-slave
+    nirmata.io/service.name: redis-slave
+  name: redis-slave
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  ports:
+    - port: 6379
+      protocol: TCP
+  selector:
+    nirmata.io/component: redis-slave
+    nirmata.io/service.name: redis-slave
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations: {}
+  labels:
+    nirmata.io/component: frontend
+    nirmata.io/deployment.name: frontend
+    nirmata.io/service.name: frontend
+    nirmata.io/test: testLabel
+  name: frontend
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchExpressions: []
+    matchLabels:
+      app: guestbook
+      nirmata.io/component: frontend
+      nirmata.io/service.name: frontend
+      tier: frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 2
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: guestbook
+        nirmata.io/component: frontend
+        nirmata.io/deployment.name: frontend
+        nirmata.io/service.name: frontend
+        tier: frontend
+    spec:
+      affinity:
+        podAntiAffinity: {}
+      containers:
+        - args: []
+          command: []
+          env:
+            - name: GET_HOSTS_FROM
+              value: dns
+            - name: test
+              value: ""
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: db-secret
+          image: registry-v2.nirmata.io/nirmata/gb-frontend:v70
+          name: php-redis
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              memory: 400Mi
+            requests:
+              memory: 100Mi
+      nodeSelector: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations: {}
+  labels:
+    nirmata.io/component: redis-master
+    nirmata.io/deployment.name: redis-master
+    nirmata.io/service.name: redis-master
+    nirmata.io/test: testLabel
+  name: redis-master
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchExpressions: []
+    matchLabels:
+      app: redis
+      nirmata.io/component: redis-master
+      nirmata.io/service.name: redis-master
+      role: master
+      tier: backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 2
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: redis
+        nirmata.io/component: redis-master
+        nirmata.io/deployment.name: redis-master
+        nirmata.io/service.name: redis-master
+        role: master
+        tier: backend
+    spec:
+      containers:
+        - args: []
+          command: []
+          image: k8s.gcr.io/redis:latest
+          imagePullPolicy: Always
+          name: master
+          ports:
+            - containerPort: 6379
+              name: tcp
+              protocol: TCP
+          resources:
+            limits:
+              memory: 500Mi
+            requests:
+              memory: 500Mi
+      nodeSelector: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations: {}
+  labels:
+    nirmata.io/component: redis-slave
+    nirmata.io/deployment.name: redis-slave
+    nirmata.io/service.name: redis-slave
+    nirmata.io/test: testLabel
+  name: redis-slave
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchExpressions: []
+    matchLabels:
+      app: redis
+      nirmata.io/component: redis-slave
+      nirmata.io/service.name: redis-slave
+      role: slave
+      tier: backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: redis
+        nirmata.io/component: redis-slave
+        nirmata.io/deployment.name: redis-slave
+        nirmata.io/service.name: redis-slave
+        role: slave
+        tier: backend
+    spec:
+      containers:
+        - args: []
+          command: []
+          env:
+            - name: GET_HOSTS_FROM
+              value: dns
+          image: gcr.io/google_samples/gb-redisslave:v1
+          name: slave
+          ports:
+            - containerPort: 6379
+              protocol: TCP
+          resources:
+            limits:
+              memory: 500Mi
+            requests:
+              memory: 500Mi
+      nodeSelector: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+  labels:
+    nirmata.io/ingress.name: frontend
+  name: frontend
+spec:
+  backend:
+    serviceName: frontend
+    servicePort: 80
+  rules:
+    - host: gbk.new.nirmata.io
+      http:
+        paths:
+          - backend:
+              serviceName: frontend
+              servicePort: 80
+            path: /

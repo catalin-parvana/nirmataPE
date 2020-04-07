@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AWS Host Group And Managed Cluster">
+<!--    <listeners>-->
+<!--        <listener class-name="utils.NirmataReportListener"></listener>-->
+<!--    </listeners>-->
+
+    <parameter name="catalogName" value="regression-catalog" />
+    <parameter name="newCatalogName" value="regression-catalog" />
+
+    <test name="Test Catalog Page Title">
+        <classes>
+            <class name="catalog.CatalogTests">
+                <methods>
+                    <include name = "testCreateNewCatalog"/>
+                    <include name = "testInsideCatalogsPageTitle"/>
+                    <include name = "testRenameCatalog"/>
+                    <include name = "testDeleteCatalog"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

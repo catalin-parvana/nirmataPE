@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Add And Delete GKE Cluster ">
+<!--    <listeners>-->
+<!--        <listener class-name="utils.NirmataReportListener"></listener>-->
+<!--    </listeners>-->
+
+    <parameter name="gkeClusterName" value="gke-regression-cluster" />
+    <parameter name="cloudProviderName" value="regression-gcp-cloud-provider" />
+
+
+    <test name="Test Add GCP Cloud Provider">
+        <classes>
+            <class name="cloudProvider.CloudProviderTests">
+                <methods>
+                    <include name = "testAddGcpCloudProvider"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Test Add GKE Cluster">
+        <classes>
+            <class name="cluster.create.GKEClusterTests">
+                <methods>
+                    <include name = "testCreateGKECluster"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Test Delete GKE Cluster">
+        <classes>
+            <class name="cluster.create.GKEClusterTests">
+                <methods>
+                    <include name = "testDeleteGKECluster"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Test Delete GCP Cloud Provider">
+        <classes>
+            <class name="cloudProvider.CloudProviderTests">
+                <methods>
+                    <include name = "testDeleteCloudProvider"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

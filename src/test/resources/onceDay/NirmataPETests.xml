@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AWS Cloud Provider, Host Group And Managed Cluster">
+<!--    <listeners>-->
+<!--        <listener class-name="utils.NirmataReportListener"></listener>-->
+<!--    </listeners>-->
+
+    <parameter name="templateName" value="NirmataPE-template" />
+
+    <test name="Create EC2 Instance From Template">
+        <classes>
+            <class name="NirmataPE.EC2Instance">
+            <methods>
+                    <include name = "createEC2InstanceFromTemplate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Get Instance IP">
+        <classes>
+            <class name="NirmataPE.EC2Instance">
+            <methods>
+                    <include name = "getInstanceIP"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+    <test name="Delete EC2 Instance">
+        <classes>
+            <class name="NirmataPE.EC2Instance">
+                <methods>
+                    <include name = "deleteEC2Instance"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

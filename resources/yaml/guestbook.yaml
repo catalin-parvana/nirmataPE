@@ -1,0 +1,298 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  uid: "48692664-3f90-4f7e-bf64-fce000599cb9"
+  name: "frontend"
+  labels:
+    app: "guestbook"
+    tier: "frontend"
+    nirmata.io/service.name: "frontend"
+    nirmata.io/component: "frontend"
+spec:
+  clusterIP: "10.10.97.74"
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  sessionAffinity: "None"
+  type: "ClusterIP"
+  selector:
+    app: "guestbook"
+    tier: "frontend"
+    nirmata.io/component: "frontend"
+  ports:
+    - port: 80
+      protocol: "TCP"
+      targetPort: 80
+
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  uid: "23619a76-5532-4b56-b705-f0e50af8fc12"
+  name: "redis-slave"
+  labels:
+    app: "redis"
+    role: "slave"
+    tier: "backend"
+    nirmata.io/service.name: "redis-slave"
+    nirmata.io/component: "redis-slave"
+spec:
+  clusterIP: "10.10.114.104"
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  sessionAffinity: "None"
+  type: "ClusterIP"
+  selector:
+    app: "redis"
+    role: "slave"
+    tier: "backend"
+    nirmata.io/component: "redis-slave"
+  ports:
+    - port: 6379
+      protocol: "TCP"
+      targetPort: 6379
+
+---
+kind: "Secret"
+apiVersion: "v1"
+data:
+  .dockercfg: "eyJrOHMuZ2NyLmlvIjp7InBhc3N3b3JkIjoiIiwiZW1haWwiOiJudWxsQHJlZ2lzdHJ5LmNvbSIsInVzZXJuYW1lIjpudWxsfX0="
+type: "kubernetes.io/dockercfg"
+metadata:
+  annotations:
+    nirmata.io/addedBy: "nirmata"
+  uid: "f2027794-ff99-4595-ba9e-a208a69c0b69"
+  name: "k8s.gcr.io"
+  labels:
+
+---
+kind: "Deployment"
+apiVersion: "apps/v1"
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    policies.kyverno.patches: "[{\"policyname\":\"require-pod-requests-limits\",\"\
+      patches\":[{\"rulename\":\"autogen-annotate-podtemplate\",\"op\":\"add\",\"\
+      path\":\"/spec/template/metadata/annotations\"}]}]"
+  uid: "86843706-f678-4106-9ccb-b80366e4d107"
+  name: "frontend"
+  labels:
+    nirmata.io/deployment.name: "frontend"
+    nirmata.io/component: "frontend"
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: "guestbook"
+      tier: "frontend"
+      nirmata.io/component: "frontend"
+    matchExpressions: []
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations:
+        pod-policies.kyverno.io/autogen-applied: "true"
+      labels:
+        app: "guestbook"
+        nirmata.io/deployment.name: "frontend"
+        tier: "frontend"
+        nirmata.io/component: "frontend"
+    spec:
+      restartPolicy: "Always"
+      terminationGracePeriodSeconds: 30
+      nodeSelector: {}
+      schedulerName: "default-scheduler"
+      dnsPolicy: "ClusterFirst"
+      containers:
+        - name: "php-redis"
+          image: "gcr.io/google-samples/gb-frontend:v4"
+          command: []
+          args: []
+          terminationMessagePath: "/dev/termination-log"
+          terminationMessagePolicy: "File"
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 80
+              protocol: "TCP"
+          env:
+            - name: "GET_HOSTS_FROM"
+              value: "dns"
+          resources:
+            limits: {}
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+      securityContext:
+        supplementalGroups: []
+
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  uid: "2e1eb332-4dbb-447c-8cdb-a0359f0bea21"
+  name: "redis-master"
+  labels:
+    app: "redis"
+    role: "master"
+    tier: "backend"
+    nirmata.io/service.name: "redis-master"
+    nirmata.io/component: "redis-master"
+spec:
+  clusterIP: "10.10.179.44"
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  sessionAffinity: "None"
+  type: "ClusterIP"
+  selector:
+    app: "redis"
+    role: "master"
+    tier: "backend"
+    nirmata.io/component: "redis-master"
+  ports:
+    - port: 6379
+      protocol: "TCP"
+      targetPort: 6379
+
+---
+kind: "Deployment"
+apiVersion: "apps/v1"
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    policies.kyverno.patches: "[{\"policyname\":\"disallow-bind-mounts\",\"patches\"\
+      :[{\"rulename\":\"autogen-annotate-podtemplate\",\"op\":\"add\",\"path\":\"\
+      /spec/template/metadata/annotations\"}]}]"
+  uid: "1e7ef42c-f952-4970-bb81-d4204eca326b"
+  name: "redis-master"
+  labels:
+    nirmata.io/deployment.name: "redis-master"
+    nirmata.io/component: "redis-master"
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: "redis"
+      role: "master"
+      tier: "backend"
+      nirmata.io/component: "redis-master"
+    matchExpressions: []
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations:
+        pod-policies.kyverno.io/autogen-applied: "true"
+      labels:
+        app: "redis"
+        nirmata.io/deployment.name: "redis-master"
+        role: "master"
+        tier: "backend"
+        nirmata.io/component: "redis-master"
+    spec:
+      restartPolicy: "Always"
+      terminationGracePeriodSeconds: 30
+      nodeSelector: {}
+      schedulerName: "default-scheduler"
+      dnsPolicy: "ClusterFirst"
+      containers:
+        - name: "master"
+          image: "k8s.gcr.io/redis:e2e"
+          command: []
+          args: []
+          terminationMessagePath: "/dev/termination-log"
+          terminationMessagePolicy: "File"
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 6379
+              protocol: "TCP"
+          resources:
+            limits: {}
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+      securityContext:
+        supplementalGroups: []
+      imagePullSecrets:
+        - name: "k8s.gcr.io"
+
+---
+kind: "Deployment"
+apiVersion: "apps/v1"
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    policies.kyverno.patches: "[{\"policyname\":\"require-pod-requests-limits\",\"\
+      patches\":[{\"rulename\":\"autogen-annotate-podtemplate\",\"op\":\"add\",\"\
+      path\":\"/spec/template/metadata/annotations\"}]}]"
+  uid: "69c834ba-9977-4340-8f93-accb18a8f1ba"
+  name: "redis-slave"
+  labels:
+    nirmata.io/deployment.name: "redis-slave"
+    nirmata.io/component: "redis-slave"
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: "redis"
+      role: "slave"
+      tier: "backend"
+      nirmata.io/component: "redis-slave"
+    matchExpressions: []
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations:
+        pod-policies.kyverno.io/autogen-applied: "true"
+      labels:
+        app: "redis"
+        nirmata.io/deployment.name: "redis-slave"
+        role: "slave"
+        tier: "backend"
+        nirmata.io/component: "redis-slave"
+    spec:
+      restartPolicy: "Always"
+      terminationGracePeriodSeconds: 30
+      nodeSelector: {}
+      schedulerName: "default-scheduler"
+      dnsPolicy: "ClusterFirst"
+      containers:
+        - name: "slave"
+          image: "gcr.io/google_samples/gb-redisslave:v1"
+          command: []
+          args: []
+          terminationMessagePath: "/dev/termination-log"
+          terminationMessagePolicy: "File"
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 6379
+              protocol: "TCP"
+          env:
+            - name: "GET_HOSTS_FROM"
+              value: "dns"
+          resources:
+            limits: {}
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+      securityContext:
+        supplementalGroups: []

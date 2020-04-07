@@ -1,0 +1,93 @@
+---
+kind: "ConfigMap"
+apiVersion: "v1"
+data:
+  resourceFilters: "[Event,*,*][*,kube-system,*][*,kube-public,*][*,kube-node-lease,*][Node,*,*][APIService,*,*][TokenReview,*,*][SubjectAccessReview,*,*][*,kyverno,*]"
+binaryData: {}
+metadata:
+  namespace: "kyverno"
+  annotations: {}
+  name: "init-config"
+  labels: {}
+
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  namespace: "kyverno"
+  annotations: {}
+  name: "kyverno-svc"
+  labels:
+    app: "kyverno"
+    nirmata.io/component: "kyverno"
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  type: "ClusterIP"
+  selector:
+    app: "kyverno"
+    nirmata.io/component: "kyverno"
+  ports:
+  - port: 443
+    targetPort: 443
+
+---
+apiVersion: "v1"
+kind: "ServiceAccount"
+metadata:
+  namespace: "kyverno"
+  name: "kyverno-service-account"
+  labels: {}
+
+---
+kind: "Deployment"
+apiVersion: "apps/v1"
+metadata:
+  namespace: "kyverno"
+  annotations: {}
+  name: "kyverno"
+  labels:
+    app: "kyverno"
+    nirmata.io/component: "kyverno"
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: "kyverno"
+      nirmata.io/component: "kyverno"
+    matchExpressions: []
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: "kyverno"
+        nirmata.io/application.addon.type: "Security"
+        nirmata.io/application.type: "cluster-addon"
+        nirmata.io/component: "kyverno"
+    spec:
+      terminationGracePeriodSeconds: 30
+      nodeSelector: {}
+      serviceAccountName: "kyverno-service-account"
+      containers:
+      - name: "kyverno"
+        image: "nirmata/kyverno:v1.1.2"
+        command: []
+        args:
+        - "--filterK8Resources=[Event,*,*][*,kube-system,*][*,kube-public,*][*,kube-node-lease,*][Node,*,*][APIService,*,*][TokenReview,*,*][SubjectAccessReview,*,*][*,kyverno,*]"
+        ports:
+        - containerPort: 443
+          protocol: "TCP"
+        env:
+        - name: "INIT_CONFIG"
+          value: "init-config"
+      initContainers:
+      - name: "kyverno-pre"
+        image: "nirmata/kyvernopre:v1.1.2"
+        command: []
+        args: []

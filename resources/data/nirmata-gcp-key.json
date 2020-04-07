@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "nirmata-test",
+  "private_key_id": "1111861d934ce340c0bf9b10bde5e625a55d880a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDC4/rlIhAz0ffA\n1Rwyabk+5wd0wQrdvpJOBi0i5EjbknnbEWxbFkC7ZUZG+IRk/vFrPoRwcJlKDIJU\nwDWMAnbF6s35pZN7DuH+6jA3m/TREsn+9t2uUkuIZKKcDokclRucfTQwxOHAO1ST\nlBauPls/hroFUQTnlYM7zPz+OQSediC54ElxSLbBFAtiLRUc4wouydC4/7PiBqT+\nF9+JPN/K8di++VE6p2yYNLvMXe6QSfhSQiqHf8uKHHkbpUgBNomOiwtbP2WmLvqh\n/CRCQbhaoBR8h/Epyode/XtFV/gwgEo4ze/uqpSnQzYiqwef5rLGWVFY/ABtt2NR\nie7BCKrXAgMBAAECggEAPbMHXzslfgJfOUE+qAcoim2BwsjKs+D9WI5EA+PZ3QnG\nYkBl2YB2Bd3OHfHXmFHOBHHKY/6ByRukt0gSq7yr9YScqQhuZGsVySpDEZfiLb6R\nDJMDI4kSOKADivxfFBlwoF5TA42RGtats/sSIx/Cq53vjndT4i1HWstO3P0YJUIb\nDieU1Ikowko5nfCUefJehi7bebzw7/MJXkclyQfE2bsB4v6T6vR61GTjD8Nv8lUK\nraRz+TRfc9ObL8Hy5ifeb9XP3je3A+DSIj//9/3nUuev5f0oDtJ9p/PimRFqRk4K\nvJuAE9FBx5py1MbCG7jYUg2h8/eHtnyJErxxM1HK4QKBgQDp1dBODcovSy7Dohjz\nB+M3CtSMIh6WLjiZaoMcwSu2NfwIUdJ7ZpRyJDp6IH9CPiXZXw5nEookDCwmdwB+\ngdTwiTcn6ZRRvIxI+PJ7bDEDGqv0zbrSKq3NC4oD5xNUQBi4w3dimO2Kyro7neri\nZBw1tsJBFN4Gqlelu6qu3tAN5QKBgQDVXSUeOzJcFcQqL2T+qfbix2bo+xAquIsO\nLRDvZT2oG4BbIt4zChyt2DgnQkU8EVOvkuxHXC31kVi4EuMKDTDgvG20T3iSwgGT\nw13UkGdInIE99zDXL750m5Z57EKGuZF0/2dGUpzXBB1B/jEIO2i3qGpygq4LW5RC\nQiYS04aqCwKBgCAYE54S8HQrSoDZZ7k7lOkCGIgfSrlsIKKV5ub0cG5y3GO77zq2\nqps787a9bRoHc6RxEoX9Gm62KP0iijPS2AonmyVkPtI1IcAGQynDgLqfV4ijEAg2\niWJCOjAs8A85OOtrEKC8wqWxC3yRQSLPgLuymNjb51lc2ejKaDPWKxItAoGAILPn\nJYwTOvQHHiQnibUJZ1cC2gDpSHMCtUiJCPhui96zPMTKY+5P2QGEEdhhfkR1nDqb\nxpBFZxdBDu2uKPM+o6Od+P4ZT/02eqx+LD955TI/yPyjWsgxm/PhC4z/4WB9//3J\nmYi+C2LRDTVl1Ioukb/ZmPWYsZr2zXUQGuCbCmMCgYBEOZT2q0lsid/UZNPSbgjf\nFdwznHwouRNM7VnTYGPNHO6nm7aGiyhmx3/qM0AdlsGYrG/Ae9jLMRoWcD5c4AUp\nhM3ORcJ9AxFPg3gQ/4yOyLIEKksiNUoNKUaPxdOu1gG9fE/E6h7D/7cSiG1Yboln\n7Y7Cd5lcrApOXEkV9UlqHg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "catalin-tests@nirmata-test.iam.gserviceaccount.com",
+  "client_id": "105123939381553296598",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/catalin-tests%40nirmata-test.iam.gserviceaccount.com"
+}
