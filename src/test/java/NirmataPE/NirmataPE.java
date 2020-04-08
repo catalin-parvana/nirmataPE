@@ -75,8 +75,8 @@ public class NirmataPE extends NirmataSetup {
             }
 
             try{
-         //       channel.disconnect();
-         //       session.disconnect();
+                channel.disconnect();
+                session.disconnect();
             }catch(Exception ex){
                 ex.printStackTrace();
             }
