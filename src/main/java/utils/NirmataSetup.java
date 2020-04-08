@@ -85,8 +85,8 @@ public class NirmataSetup {
 		browserVersion = cap.getVersion();
 
 //		loginPage = new LoginPage(driver);
-//		overviewPage = loginPage
-//				.setEmailInputField(email)
+//		overviewPage=loginPage
+//				 .setEmailInputField(email)
 //				.setPasswordInputField(password)
 //				.clickLoginButton();
 	}

@@ -1,23 +1,43 @@
 package NirmataPE;
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import utils.NirmataSetup;
+import utils.Highlighter;
+import utils.NirmataApplicationProperties;
+import utils.NirmataCustomWebDriverProvider;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.addListener;
 
 
-public class EC2Instance  extends NirmataSetup {
+public class EC2Instance   {
 
+    protected NirmataApplicationProperties appProperties = new NirmataApplicationProperties();
     private String awsAccount = appProperties.properties.getProperty("awsAccount");
     private String awsUsername = appProperties.properties.getProperty("awsUsername");
     private String awsPassword = appProperties.properties.getProperty("awsPassword");
     private String instanceIP = appProperties.properties.getProperty("instanceIP");
     private String ip;
     private PropertiesConfiguration config;
+
+    @BeforeSuite
+    public void driverSetup(){
+        Configuration.browser= NirmataCustomWebDriverProvider.class.getName();
+        addListener(new Highlighter());
+    }
+
+    @AfterMethod
+    public void getResult(ITestResult result) {
+        WebDriverRunner.getWebDriver().close();
+    }
 
     @Test(description = "Test Create EC2 Instance From Template")
     @Parameters({"templateName"})

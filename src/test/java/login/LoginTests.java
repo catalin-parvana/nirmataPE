@@ -45,8 +45,8 @@ public class LoginTests extends NirmataSetup {
 		while(true){
 			String dateName=getNewDate();
 			loginPage.clickSignUpLink();
-			loginPage.setInputName("and14ever"+dateName);
-			loginPage.setInputEmail("and14eve"+ dateName+"@mail.ru");
+			loginPage.setNameInputField("and14ever"+dateName);
+			loginPage.setEmailInputField("and14eve"+ dateName+"@mail.ru");
 			loginPage.clickSignUpButton();
 			loginPage.clickAcceptAndProceed();
 			loginPage.waitForConfirmationMessage();

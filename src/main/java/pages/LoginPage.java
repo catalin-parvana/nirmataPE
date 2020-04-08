@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
+import pages.admin.TenantsPage;
 import pages.dashboards.OverviewPage;
 import utils.LibraryUtils;
 
@@ -16,15 +17,14 @@ public class LoginPage extends LibraryUtils {
     private SelenideElement emailInputField = $x("//input[@id='email']");
     private SelenideElement passwordInputField = $x("//input[@id='password']");
     private SelenideElement loginButton = $x("//button[@id='btnLogin']");
-    private SelenideElement welcomeMessage=$x("//*[@id='user-welcome']");
     private SelenideElement signUpLink=$x("//a[@id='showSignup']");
 
 
-    private SelenideElement inputNameField=$x("//input[@id='name']");
-    private SelenideElement inputEmailField=$x("//input[@id='email']");
+    private SelenideElement nameInputField=$x("//input[@id='name']");
     private SelenideElement signUpButton=$x("//button[@id='btnSignupEmail']");
     private SelenideElement acceptAndProceed=$x("//button[contains(.,'Accept and Proceed')]");
     private SelenideElement confirmationMessage=$x("//div[@class='login-title']");
+    private SelenideElement signInAsNirmataAdministratorButton=$x("//*[text()='Sign in as Nirmata Administrator']");
     private WebDriver driver;
 
 
@@ -52,20 +52,26 @@ public class LoginPage extends LibraryUtils {
         return new OverviewPage(driver);
     }
 
+    public TenantsPage clickLoginAsAdminButton() {
+        click("Login Button",loginButton);
+        return new TenantsPage(driver);
+    }
+
     public LoginPage clickSignUpLink(){
         click("Sign Up Link",signUpLink);
         return this;
     }
 
-    public LoginPage setInputName(String name){
-        type("Input Name Field",inputNameField,name);
+    public LoginPage clickSignInAsNirmataAdministratorButton(){
+        click("Sign In As Nirmata Administrator Button",signInAsNirmataAdministratorButton);
         return this;
     }
 
-    public LoginPage setInputEmail(String email){
-        type("Input Email Field",inputEmailField,email);
+    public LoginPage setNameInputField(String name){
+        type("Name Input Field",nameInputField,name);
         return this;
     }
+
 
 
     public LoginPage clickSignUpButton(){

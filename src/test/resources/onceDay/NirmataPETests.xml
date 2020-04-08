@@ -27,6 +27,31 @@
         </classes>
     </test>
 
+    <test name="Install Nirmata PE">
+        <classes>
+            <class name="NirmataPE.NirmataPE">
+            <methods>
+                    <include name = "installNirmataPE"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Nirmata PE Admin Panel Tests">
+        <classes>
+            <class name="NirmataPE.AdminPanelTests">
+            <methods>
+                    <include name = "createNirmataPEAdmin"/>
+                    <include name = "loginNirmataPEAdminAccount"/>
+                    <include name = "createNewTenant"/>
+                    <include name = "createNewUser"/>
+                    <include name = "editUser"/>
+                    <include name = "deleteUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 
 
     <test name="Delete EC2 Instance">
