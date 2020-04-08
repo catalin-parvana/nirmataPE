@@ -17,7 +17,7 @@ public class NirmataPE extends NirmataSetup {
     private String echourl = "echo \"$urladdress\"";
     private String nadmfile=nadmVersion+".tar.gz";
     private String changedir= "cd " + nadmVersion;
-
+    private String getConfig= "wget " + appProperties.properties.getProperty("nadmconfigURL");
 
 
     @Test(description = "Install NirmataPE")
@@ -38,6 +38,7 @@ public class NirmataPE extends NirmataSetup {
             session.setUserInfo(ui);
             session.connect();
             System.out.println("Connected");
+            System.out.println("IP address: " +instanceIP );
 
             Channel channel=session.openChannel("shell");
             channel.setInputStream(System.in);
@@ -45,16 +46,15 @@ public class NirmataPE extends NirmataSetup {
 
             channel.connect();
 
-            System.out.println(changedir);
-            System.out.println(echourl);
+
             String script ="sudo swapoff -a\n" +
                     "sudo apt update -y && sudo apt install -y docker.io\n" +
                     "curl -LO https://nadm-release.s3-us-west-1.amazonaws.com/nadm-2.9.5.tar.gz\n" +
                     "ls\n" +
                     "tar -xf " + nadmfile + "\n" +
-                    changedir + "\n" + "pwd\n";
-         /*           "openssl req -subj '/O=Nirmata/CN=nirmata.local/C=US' -new -newkey rsa:2048 -days 3650 -sha256 -nodes -x509 -keyout server.key -out server.crt\n" +
-                    "wget https://raw.githubusercontent.com/cynthiaLeung/nadm/master/config\n" +
+                    changedir + "\n" + "pwd\n"+
+                    "openssl req -subj '/O=Nirmata/CN=nirmata.local/C=US' -new -newkey rsa:2048 -days 3650 -sha256 -nodes -x509 -keyout server.key -out server.crt\n" +
+                    getConfig + "\n"+
                     seturladdress +"\n" + echourl + "\n" +
                     "sed \"s/%urladdress/${urladdress}/\" config > nadmconfig\n" +
                     "echo \"y\" | sudo ./nadm install --quiet --nadmconfig config\n" +
@@ -62,7 +62,6 @@ public class NirmataPE extends NirmataSetup {
                     "sudo cp -i /opt/nirmata/.nirmata-nadm/.kube/config $HOME/.kube/config\n" +
                     "sudo chown $(id -u):$(id -g) $HOME/.kube/config\n";
 
-        */
 
             ChannelExec channelExec = (ChannelExec) session.openChannel("exec");
             channelExec.setCommand(script+"\n");
