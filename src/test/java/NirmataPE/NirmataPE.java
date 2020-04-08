@@ -17,6 +17,7 @@ public class NirmataPE extends NirmataSetup {
     private String echourl = "echo \"$urladdress\"";
     private String nadmfile=nadmVersion+".tar.gz";
     private String changedir= "cd " + nadmVersion;
+    private String downloadNadm = "curl -LO " + appProperties.properties.getProperty("nadmURL");
     private String getConfig= "wget " + appProperties.properties.getProperty("nadmconfigURL");
 
 
@@ -49,11 +50,11 @@ public class NirmataPE extends NirmataSetup {
 
             String script ="sudo swapoff -a\n" +
                     "sudo apt update -y && sudo apt install -y docker.io\n" +
-                    "curl -LO https://nadm-release.s3-us-west-1.amazonaws.com/nadm-2.9.5.tar.gz\n" +
+                    downloadNadm +"\n" +
                     "ls\n" +
                     "tar -xf " + nadmfile + "\n" +
                     changedir + "\n" + "pwd\n"+
-                    "openssl req -subj '/O=Nirmata/CN=nirmata.local/C=US' -new -newkey rsa:2048 -days 3650 -sha256 -nodes -x509 -keyout server.key -out server.crt\n" +
+                   "openssl req -subj '/O=Nirmata/CN=nirmata.local/C=US' -new -newkey rsa:2048 -days 3650 -sha256 -nodes -x509 -keyout server.key -out server.crt\n" +
                     getConfig + "\n"+
                     seturladdress +"\n" + echourl + "\n" +
                     "sed \"s/%urladdress/${urladdress}/\" config > nadmconfig\n" +
