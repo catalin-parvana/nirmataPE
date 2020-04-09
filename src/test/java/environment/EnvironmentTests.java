@@ -17,6 +17,7 @@ public class EnvironmentTests extends NirmataSetup {
     @Test(description = "Test Add Environment")
     @Parameters({"environmentName","clusterName"})
     public void testAddEnvironment(String environmentName, String clusterName){
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         environmentsPage.clickAddEnvironment()
                 .setInputFieldName(environmentName)
@@ -36,6 +37,7 @@ public class EnvironmentTests extends NirmataSetup {
     @Test(description = "Test Delete Environment")
     @Parameters({ "environmentName"})
     public void testDeleteEnvironment(String environmentName){
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         insideEnvironmentPage=environmentsPage.clickOnEnvironmentWithName(environmentName);
         insideEnvironmentPage
@@ -54,6 +56,7 @@ public class EnvironmentTests extends NirmataSetup {
     @Test(description = "Test Add Multiple Environments")
     @Parameters({ "environmentName","clusterName","nr"})
     public void testAddMultipleCatalogs(String environmentName,String clusterName,int nr) {
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         for (int i = 1; i <= nr; i++) {
             String environment = environmentName + i;
@@ -75,6 +78,7 @@ public class EnvironmentTests extends NirmataSetup {
     @Test(description = "Test Delete Multiple Environments")
     @Parameters({ "environmentName","nr"})
     public void testDeleteMultipleCatalogs(String environmentName, int nr) {
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         for (int i = 1; i <= nr; i++) {
             String environment = environmentName + i;

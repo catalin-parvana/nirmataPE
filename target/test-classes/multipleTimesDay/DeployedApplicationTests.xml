@@ -12,7 +12,7 @@
     <parameter name="newAppName" value="regression-app" />
     <parameter name="catalogName2" value="regression-catalog5" />
     <parameter name="clonedAppName" value="regression-app-cloned" />
-    <parameter name="appDeployName" value="regression-deployed-app" />
+    <parameter name="runningApplicationName" value="regression-deployed-app" />
 
     <test name="Test Add Environment">
             <classes>
@@ -66,11 +66,11 @@
     </test>
 
 
-    <test name="Test Delete Deployment From Catalog">
+    <test name="Test Delete Running Application From Catalog">
         <classes>
             <class name="application.ApplicationDeploymentTests">
                 <methods>
-                    <include name = "testDeleteDeployedApplication"/>
+                    <include name = "testDeleteRunningApplication"/>
                 </methods>
             </class>
         </classes>

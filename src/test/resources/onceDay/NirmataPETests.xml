@@ -17,7 +17,7 @@
         </classes>
     </test>
 
-    <test name="Get Instance IP">
+    <test name="Get EC2 Instance IP">
         <classes>
             <class name="NirmataPE.EC2Instance">
             <methods>

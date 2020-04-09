@@ -1,6 +1,5 @@
 package pages.environment;
 
-import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import utils.LibraryUtils;
@@ -11,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.title;
 import static org.testng.Assert.*;
 
-public class InsideDeployedApplicationPage extends LibraryUtils {
+public class InsideRunningApplicationPage extends LibraryUtils {
 
 
     private SelenideElement actionButton= $x("//a[@class='btn btn-default dropdown-toggle']");
@@ -34,39 +33,41 @@ public class InsideDeployedApplicationPage extends LibraryUtils {
     private SelenideElement cloneApplicationButton=$x("//a[@id='cloneApplication']");
     private SelenideElement targetEnvironmentDropdown=$x("//select[@id='environment']");
     private SelenideElement cloneButton=$x("//button[contains(.,'Clone Application')]");
+    private SelenideElement runningApplicationLabel=$x("//div[@class='pull-left model-index-name'][contains(.,'Running Application')]");
 
     private SelenideElement deployment;
     private WebDriver driver;
 
-    public InsideDeployedApplicationPage(WebDriver driver){
+    public InsideRunningApplicationPage(WebDriver driver){
         this.driver=driver;
+        runningApplicationLabel.shouldBe(visible);
         actionButton.shouldBe(visible);
         modelContentPanelTitle.shouldBe(visible);
 
     }
 
-    public InsideDeployedApplicationPage verifyPanelTitle(String appDeployName){
+    public InsideRunningApplicationPage verifyPanelTitle(String appDeployName){
         waitFor("Content Panel Title",modelContentPanelTitle);
         assertEquals(modelContentPanelTitle.text(),appDeployName,"Incorrect deployed application title");
         return this;
     }
 
-    public InsideDeployedApplicationPage verifyPageTitle(String environmentName, String appDeployName){
+    public InsideRunningApplicationPage verifyPageTitle(String environmentName, String appDeployName){
         assertEquals(title(), "Nirmata | Environments | "+environmentName+" | "+appDeployName+" | Workloads", "Incorrect Page Title");
         return this;
     }
 
-    public InsideDeployedApplicationPage clickActionButton(){
+    public InsideRunningApplicationPage clickActionButton(){
         click("Action Button",actionButton);
         return this;
     }
 
-    public InsideDeployedApplicationPage clickDeleteApplicationButton(){
+    public InsideRunningApplicationPage clickDeleteApplicationButton(){
         click("Delete Application Button",deleteApplicationButton);
         return this;
     }
 
-    public InsideDeployedApplicationPage checkDeleteOnClusterIfNecessary(){
+    public InsideRunningApplicationPage checkDeleteOnClusterIfNecessary(){
         deleteButton.shouldBe(visible);
         if(deleteOnClusterCheckbox.exists()){
             click("Delete On Cluster Checkbox",deleteOnClusterCheckbox);
@@ -74,7 +75,7 @@ public class InsideDeployedApplicationPage extends LibraryUtils {
         return this;
     }
 
-    public InsideDeployedApplicationPage setApplicationNameToDeleteIfNecessary(String applicationName){
+    public InsideRunningApplicationPage setApplicationNameToDeleteIfNecessary(String applicationName){
         deleteButton.shouldBe(visible);
         if(nameInputField.exists()){
             type("Application Name",nameInputField,applicationName);
@@ -89,102 +90,99 @@ public class InsideDeployedApplicationPage extends LibraryUtils {
         return new InsideEnvironmentPage(driver);
     }
 
-    public InsideDeployedApplicationPage waitForDegradedApplicationState(){
+    public InsideRunningApplicationPage waitForDegradedApplicationState(){
         waitFor("Degraded Application State",degradedDeploymentState,120);
         return this;
     }
 
-    public InsideDeployedApplicationPage waitForRunningApplicationState(){
+    public InsideRunningApplicationPage waitForRunningApplicationState(){
         waitFor("Running Application State",runningDeploymentState,150);
         return this;
     }
 
-    public InsideDeployedApplicationPage waitForExecutingApplicationState(){
+    public InsideRunningApplicationPage waitForExecutingApplicationState(){
         waitFor("Running Application State",executingDeploymentState,120);
         return this;
     }
 
-    public InsideDeployedApplicationPage clickImportToApplicationButton(){
+    public InsideRunningApplicationPage clickImportToApplicationButton(){
         click("Import To Application Button",importToApplicationButton);
         return this;
     }
 
-    public InsideDeployedApplicationPage setYamlFile(String yamlName){
+    public InsideRunningApplicationPage setYamlFile(String yamlName){
         absolutePathOfFile+="/resources/yaml/"+ yamlName+".yaml";
         upload("Yaml File "+yamlName+".yaml",yamlInputField,absolutePathOfFile);
         return this;
     }
 
-    public InsideDeployedApplicationPage clickImportButton(){
+    public InsideRunningApplicationPage clickImportButton(){
         click("Import Button",importButton);
+        importButton.should(disappear);
         return this;
     }
 
-    public InsideDeployedApplicationPage waitForExecutingDeploymentState(String deploymentName){
-        deployment=$x("//tr[contains(.,'"+deploymentName+"')][contains(.,'Executing')]");
+    public InsideRunningApplicationPage seeDeploymentDetails(String deploymentName){
+        deployment=$x("//*[text()='"+deploymentName+"']/../../..");
+        click("Deployment Details",deployment);
+        return this;
+    }
+
+    public InsideRunningApplicationPage waitForUnknownDeploymentState(String deploymentName){
+        deployment=$x("//*[text()='"+deploymentName+"']/../..//*[contains(text(),'Unknown')]");
         waitFor("Executing Deployment State", deployment,120);
         return this;
     }
 
-    public InsideDeployedApplicationPage waitForRunningDeploymentState(String deploymentName){
-        deployment=$x("//tr[contains(.,'"+deploymentName+"')][contains(.,'Running')]");
-        waitFor("Running Deployment State", deployment,120);
+    public InsideRunningApplicationPage waitForRunningDeploymentState(String deploymentName){
+        deployment=$x("//*[text()='"+deploymentName+"']/../..//*[contains(text(),'Running')]");
+        waitFor("Executing Deployment State", deployment,120);
         return this;
     }
 
-    public InsideDeployedApplicationPage clickOnDeployment(String deploymentName){
+    public InsideDeploymentPage clickOnDeployment(String deploymentName){
         deployment=$x("//tr//a[contains(text(),'"+deploymentName+"')]");
         click("Deployment "+deploymentName,deployment);
-        return this;
+        return new InsideDeploymentPage(driver);
     }
 
-    public InsideDeployedApplicationPage clickDeleteDeploymentButton(){
+    public InsideRunningApplicationPage clickDeleteDeploymentButton(){
         click("Delete Deployment Button",deleteDeploymentButton);
         return this;
     }
 
-    public InsideDeployedApplicationPage setDeploymentNameToDelete(String deploymentName){
-        type("Name Input Field",deploymentNameInputField,deploymentName);
-        return this;
-    }
-
-    public InsideDeployedApplicationPage clickDelete(){
-        click("Delete Button",deleteButton);
-        return this;
-    }
-
-    public InsideDeployedApplicationPage isCreatedDeploymentDisplayed(String deploymentName){
-        deployment=$x("//tr//a[contains(text(),'"+deploymentName+"')]");
-        assertTrue(deployment.exists(),"Yaml File Was Not Applied");
-        return this;
-    }
-
-    public InsideDeployedApplicationPage isDeletedDeploymentDisplayed(String deploymentName){
-        deployment=$x("//tr//a[contains(text(),'"+deploymentName+"')]");
-        deployment.shouldNotBe(visible);
-        assertFalse(deployment.exists(),"Deployment was not deleted");
-        return this;
-    }
-
-    public InsideDeployedApplicationPage clickCloneApplicationButton(){
+    public InsideRunningApplicationPage clickCloneApplicationButton(){
         click("Clone Application Button",cloneApplicationButton);
         return this;
     }
 
-    public InsideDeployedApplicationPage setNewNameForClonedApplication(String clonedApplicationName){
+    public InsideRunningApplicationPage setNewNameForClonedApplication(String clonedApplicationName){
         type("Clone Application Name Input Field",nameInputField,clonedApplicationName);
         return this;
     }
 
-    public InsideDeployedApplicationPage selectEnvironmentFromDropdown(String environmentName){
+    public InsideRunningApplicationPage selectEnvironmentFromDropdown(String environmentName){
         selectOptionByText("Environment Dropdown",targetEnvironmentDropdown,environmentName);
         return this;
     }
 
-    public InsideDeployedApplicationPage clickCloneButton(){
+    public InsideRunningApplicationPage clickCloneButton(){
         click("Clone Button", cloneButton);
         return this;
     }
 
+    public InsideRunningApplicationPage isDeletedDeploymentDisplayed(String deploymentName){
+        deployment = $x("//*[text()='"+deploymentName+"']/../../..");
+        deployment.shouldNotBe(visible);
+        assertFalse(deployment.exists(),"Deployment Was Not Deleted");
+        return this;
+    }
+
+    public InsideRunningApplicationPage isCreatedDeploymentDisplayed(String deploymentName){
+        deployment = $x("//*[text()='"+deploymentName+"']/../../..");
+        deployment.shouldBe(visible);
+        assertTrue(deployment.exists(),"Deployment Was Not Created");
+        return this;
+    }
 
 }

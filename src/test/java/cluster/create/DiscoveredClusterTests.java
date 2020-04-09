@@ -11,6 +11,7 @@ public class DiscoveredClusterTests extends NirmataSetup {
 
     @Test(description = "Test Install Managed Cluster")
     public void testInstallAndManageExistingKubernetesCluster(){
+        login();
         clustersPage=overviewPage.clickClusters();
         clustersPage
                 .clickAddClusterButton()
@@ -39,6 +40,7 @@ public class DiscoveredClusterTests extends NirmataSetup {
 
     @Test(description = "Test Delete Managed Cluster")
     public void testDeleteCluster(){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName("discovered-regression-cluster");
         insideClusterPage

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import pages.catalog.catalog.CatalogsPage;
 import pages.catalog.catalog.InsideApplicationPage;
 import pages.catalog.catalog.InsideCatalogPage;
-import pages.environment.InsideDeployedApplicationPage;
+import pages.environment.InsideRunningApplicationPage;
 import pages.environment.InsideEnvironmentPage;
 import utils.NirmataSetup;
 
@@ -15,43 +15,45 @@ public class ApplicationDeploymentTests extends NirmataSetup {
     private CatalogsPage catalogsPage;
     private InsideCatalogPage insideCatalogPage;
     private InsideApplicationPage insideApplicationPage;
-    private InsideDeployedApplicationPage insideDeployedApplicationPage;
+    private InsideRunningApplicationPage insideRunningApplicationPage;
     private InsideEnvironmentPage insideEnvironmentPage;
 
     @Test(description = "Run Application On Environment")
-    @Parameters({ "catalogName","appName","appDeployName","environmentName"})
-    public void testRunApplicationOnEnvironment(String catalogName,String appName,String appDeployName,String environmentName){
+    @Parameters({ "catalogName","appName","runningApplicationName","environmentName"})
+    public void testRunApplicationOnEnvironment(String catalogName,String appName,String runningApplicationName,String environmentName){
+        login();
         catalogsPage=overviewPage.clickCatalog();
         insideCatalogPage=catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
         insideApplicationPage
                 .clickRunApplication()
-                .setRunName(appDeployName)
+                .setRunName(runningApplicationName)
                 .selectEnvironmentFromDropdown(environmentName);
-        insideDeployedApplicationPage=insideApplicationPage.clickRunApplicationOnEnvironment();
-        insideDeployedApplicationPage
+        insideRunningApplicationPage =insideApplicationPage.clickRunApplicationOnEnvironment();
+        insideRunningApplicationPage
                 .waitForExecutingApplicationState()
 //                .waitForDegradedApplicationState()
                 .waitForRunningApplicationState()
-                .verifyPanelTitle(appDeployName);
+                .verifyPanelTitle(runningApplicationName);
     }
 
     @Test(description = "Delete Deployed Application")
-    @Parameters({ "catalogName","appName","appDeployName","environmentName"})
-    public void testDeleteDeployedApplication(String catalogName,String appName,String appDeployName,String environmentName){
+    @Parameters({ "catalogName","appName","runningApplicationName","environmentName"})
+    public void testDeleteRunningApplication(String catalogName,String appName,String runningApplicationName,String environmentName){
+        login();
         catalogsPage=overviewPage.clickCatalog();
         insideCatalogPage=catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
         insideApplicationPage
                 .clickToViewLaunchedApplication();
-        insideDeployedApplicationPage=insideApplicationPage.clickRunningApplicationLink(appDeployName);
-        insideDeployedApplicationPage
+        insideRunningApplicationPage =insideApplicationPage.clickRunningApplicationLink(runningApplicationName);
+        insideRunningApplicationPage
                 .clickActionButton()
                 .clickDeleteApplicationButton()
                 .checkDeleteOnClusterIfNecessary()
-                .setApplicationNameToDeleteIfNecessary(appDeployName);
-        insideEnvironmentPage=insideDeployedApplicationPage.clickDeleteButton();
+                .setApplicationNameToDeleteIfNecessary(runningApplicationName);
+        insideEnvironmentPage= insideRunningApplicationPage.clickDeleteButton();
         insideEnvironmentPage
-                .isDeletedDeploymentDisplayed(appDeployName);
+                .isDeletedDeploymentDisplayed(runningApplicationName);
     }
 }

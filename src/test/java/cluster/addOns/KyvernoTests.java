@@ -13,6 +13,7 @@ public class KyvernoTests extends NirmataSetup {
     @Test(description = "Test Install Kyverno")
     @Parameters({"clusterName"})
     public void testInstallKyverno(String clusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(clusterName);
         insideClusterPage
@@ -29,6 +30,7 @@ public class KyvernoTests extends NirmataSetup {
     @Test(description = "Test Delete Kyverno")
     @Parameters({"clusterName"})
     public void testDeleteKyverno(String clusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(clusterName);
         insideClusterPage

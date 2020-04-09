@@ -13,6 +13,7 @@ public class KubeappsTests extends NirmataSetup {
     @Test(description = "Test Install Kubeapps")
     @Parameters({"clusterName"})
     public void testInstallKubeapps(String clusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(clusterName);
         insideClusterPage
@@ -29,6 +30,7 @@ public class KubeappsTests extends NirmataSetup {
     @Test(description="Test Delete Kubeapps")
     @Parameters({"clusterName"})
     public void testDeleteKubeapps(String clusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(clusterName);
         insideClusterPage

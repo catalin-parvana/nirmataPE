@@ -13,6 +13,7 @@ public class WorkloadPolicyTests extends NirmataSetup {
 
     @Test(description = "Test Import Workload Policy Yaml")
     public void testImportWorkloadPolicyYaml(){
+        login();
         workloadPoliciesPage=overviewPage.clickPolicies();
         workloadPoliciesPage
                 .clickActionButton()
@@ -24,6 +25,7 @@ public class WorkloadPolicyTests extends NirmataSetup {
 
     @Test(description = "Test Delete Imported Workload Policy")
     public void testDeleteImportedWorkloadPolicy(){
+        login();
         workloadPoliciesPage=overviewPage.clickPolicies();
         workloadPoliciesPage
                 .clickDeleteWorkloadPolicyButton("require-pod-requests-limits")
@@ -34,6 +36,7 @@ public class WorkloadPolicyTests extends NirmataSetup {
     @Test(description = "Test Add Workload Policy")
     @Parameters({ "workloadPolicyName"})
     public void testAddWorkloadPolicy(String workloadPolicyName){
+        login();
         workloadPoliciesPage=overviewPage.clickPolicies();
         workloadPoliciesPage
                 .clickAddPolicyButton()
@@ -53,6 +56,7 @@ public class WorkloadPolicyTests extends NirmataSetup {
     @Test(description = "Test Clone Workload Policy")
     @Parameters({ "workloadPolicyName"})
     public void testCloneWorkloadPolicy(String workloadPolicyName){
+        login();
         workloadPoliciesPage=overviewPage.clickPolicies();
         workloadPoliciesPage
                 .clickAddPolicyButton()
@@ -72,6 +76,7 @@ public class WorkloadPolicyTests extends NirmataSetup {
     @Test(description = "Test Delete Workload Policy")
     @Parameters({ "workloadPolicyName"})
     public void testDeleteWorkloadPolicy(String workloadPolicyName){
+        login();
         insideWorkloadPolicyPage=overviewPage.clickPolicies().clickOnWorkloadPolicyWithName(workloadPolicyName);
         insideWorkloadPolicyPage
                 .verifyModelContentPanelTitle(workloadPolicyName)

@@ -18,7 +18,8 @@ public class TenantsPage extends LibraryUtils {
     private SelenideElement switchAccountsButton=$x("//a[contains(.,'Switch Accounts')]");
     private SelenideElement logOutButton=$x("//a[contains(.,'Log Out')]");
     private SelenideElement tenantsPage=$x("//li[@id='menu-tenant']");
-    private SelenideElement administratorsLink=$x("//li[@id='menu-admin']");
+    private SelenideElement administratorsPage=$x("//li[@id='menu-admin']");
+    private SelenideElement settingsPage=$x("//li[@id='menu-settings']");
     private SelenideElement emailServicePage=$x("//li[@id='menu-smtp']");
     private SelenideElement licencePage=$x("//li[@id='menu-license']");
     private SelenideElement modelContentPanelTitle=$x("//div[@id='model-content-panel-actions']");
@@ -35,7 +36,8 @@ public class TenantsPage extends LibraryUtils {
     public TenantsPage(WebDriver driver){
         this.driver=driver;
         tenantsPage.shouldBe(visible);
-        administratorsLink.shouldBe(visible);
+        administratorsPage.shouldBe(visible);
+        settingsPage.shouldBe(visible);
         emailServicePage.shouldBe(visible);
         licencePage.shouldBe(visible);
     }

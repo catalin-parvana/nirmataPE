@@ -34,7 +34,8 @@ public class InsideEnvironmentPage extends LibraryUtils {
     private SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
     private SelenideElement modalDialog=$x("//div[@class='modal-dialog']");
     private SelenideElement applicationButton=$x("//li[@id='applications']");
-    private SelenideElement deployment, application, runningApplicationLink;
+    private SelenideElement environmentLabel=$x("//div[@class='pull-left model-index-name'][contains(.,'Environment')]");
+    private SelenideElement deployment, runningApplicationLink;
     private boolean found=false;
 
 
@@ -43,6 +44,7 @@ public class InsideEnvironmentPage extends LibraryUtils {
 
     public InsideEnvironmentPage(WebDriver driver){
         this.driver=driver;
+        environmentLabel.shouldBe(visible);
         actionButton.shouldBe(visible);
         modelContentPanelTitle.shouldBe(visible);
         applicationButton.shouldBe(visible)
@@ -74,33 +76,10 @@ public class InsideEnvironmentPage extends LibraryUtils {
         return this;
     }
 
-    public InsideDeployedApplicationPage clickRunApplicationButton(){
+    public InsideRunningApplicationPage clickRunApplicationButton(){
         click("Run Application Button",runApplicationButton);
         runAnApplicationButton.should(disappear);
-        return new InsideDeployedApplicationPage(driver);
-    }
-
-    public InsideApplicationPage clickOnApplicationWithName(String applicationName){
-        if(toggleTableView.exists()){
-            application=$x("//div[contains(@class,'card-title')]//*[text()='"+applicationName+"']");
-        }else if(toggleCardView.exists()){
-            application=$("//div[@class='runningAppName']//*[text()='"+applicationName+"']");
-        }
-
-        if (application.exists()){
-            click("Application "+applicationName,application);
-        }else
-            if(nextButtonEnabled.exists())
-                do{
-                    nextButton.click();
-                    modelContentPanelTitle.shouldBe(visible).scrollIntoView(true);
-                    if(application.exists()){
-                        click("Application "+applicationName,application);
-                        break;
-                    }
-                }
-            while(nextButtonEnabled.exists());
-        return new InsideApplicationPage(driver);
+        return new InsideRunningApplicationPage(driver);
     }
 
     public InsideEnvironmentPage clickActionButton(){
@@ -178,16 +157,16 @@ public class InsideEnvironmentPage extends LibraryUtils {
     }
 
 
-    public InsideDeployedApplicationPage clickRunningApplicationLink(String deploymentName){
+    public InsideRunningApplicationPage clickRunningApplicationWithName(String runningApplicationName){
         actionButton.shouldBe(visible);
 
         if(toggleTableView.exists()){
-            runningApplicationLink=$x("//div[@class='card-title']//*[text()='"+deploymentName+"']");
+            runningApplicationLink=$x("//div[@class='card-title']//*[text()='"+runningApplicationName+"']");
         }else if(toggleCardView.exists()){
-            runningApplicationLink=$x("//div[@class='application-name']//*[text()='"+deploymentName+"']");
+            runningApplicationLink=$x("//div[@class='application-name']//*[text()='"+runningApplicationName+"']");
         }
-        click("Running Application Link: "+deploymentName,runningApplicationLink);
-        return new InsideDeployedApplicationPage(driver);
+        click("Running Application Link: "+runningApplicationName,runningApplicationLink);
+        return new InsideRunningApplicationPage(driver);
     }
 
 

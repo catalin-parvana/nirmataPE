@@ -18,6 +18,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Inside Application Page Title")
     @Parameters({ "catalogName","appName"})
     public void testInsideApplicationPageTitle(String catalogName, String appName){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage= catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
@@ -28,6 +29,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Create Application")
     @Parameters({ "catalogName","appName"})
     public void testCreateApplication(String catalogName, String appName){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage= catalogsPage.clickOnCatalogWithName(catalogName);
         insideCatalogPage
@@ -47,6 +49,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Delete Application")
     @Parameters({ "catalogName","appName"})
     public void testDeleteApplication(String catalogName, String appName){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage= catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
@@ -63,6 +66,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Rename Application")
     @Parameters({ "catalogName","appName","newAppName"})
     public void testRenameApplication( String catalogName,String appName, String newAppName){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage= catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
@@ -78,6 +82,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Import YAML In Application")
     @Parameters({"appName","catalogName"})
     public void testImportYamlInApplication(String appName, String catalogName){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage= catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
@@ -93,6 +98,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Delete Imported YAML Application")
     @Parameters({ "catalogName","appName"})
     public void testDeleteImportedYamlApplication(String catalogName, String appName){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage= catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
@@ -105,6 +111,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Recent Visited Application")
     @Parameters({ "catalogName","appName"})
     public void testRecentVisitedApplication(String catalogName, String appName){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage= catalogsPage.clickOnCatalogWithName(catalogName);
         insideCatalogPage
@@ -118,6 +125,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Clone Application")
     @Parameters({ "catalogName","appName","clonedAppName","catalogName2"})
     public void testCloneApplication(String catalogName, String appName, String clonedAppName, String catalogName2){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage= catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
@@ -134,6 +142,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Move Application")
     @Parameters({ "catalogName","appName","catalogName2"})
     public void testMoveApplication(String catalogName, String appName, String catalogName2){
+        login();
         catalogsPage =overviewPage.clickCatalog();
         insideCatalogPage=catalogsPage.clickOnCatalogWithName(catalogName);
         insideApplicationPage=insideCatalogPage.clickOnApplicationWithName(appName);
@@ -148,6 +157,7 @@ public class ApplicationTests extends NirmataSetup {
     @Test(description = "Test Create Multiple Applications")
     @Parameters({ "catalogName","appName","nr"})
     public void testCreateMultipleApplications(String catalogName,String appName,int nr) {
+        login();
         catalogsPage = overviewPage.clickCatalog();
         insideCatalogPage = catalogsPage.clickOnCatalogWithName(catalogName);
 
@@ -172,8 +182,9 @@ public class ApplicationTests extends NirmataSetup {
         @Test(description = "Test Remove Multiple Applications")
         @Parameters({ "catalogName","appName","nr"})
         public void testRemoveMultipleApplications(String catalogName,String appName,int nr){
-        catalogsPage=overviewPage.clickCatalog();
-        insideCatalogPage = catalogsPage.clickOnCatalogWithName(catalogName);
+            login();
+            catalogsPage=overviewPage.clickCatalog();
+            insideCatalogPage = catalogsPage.clickOnCatalogWithName(catalogName);
             for (int i=1;i<=nr;i++) {
                 refresh();
                 String app=appName+i;

@@ -14,6 +14,7 @@ public class ImageRegistriesTests extends NirmataSetup {
     @Test(description = "Test Add Image Registry")
     @Parameters({ "imageRegistryName"})
     public void testAddImageRegistry(String imageRegistryName){
+        login();
         imageRegistriesPage=overviewPage.clickImageRegistries();
         imageRegistriesPage
                 .clickAddImageRegistryButton()
@@ -31,6 +32,7 @@ public class ImageRegistriesTests extends NirmataSetup {
     @Test(description = "Test Delete Image Registry")
     @Parameters({ "imageRegistryName"})
     public void testDeleteImageRegistry(String imageRegistryName){
+        login();
         imageRegistriesPage=overviewPage.clickImageRegistries();
         insideImageRegistryPage=imageRegistriesPage.clickOnImageRegistry(imageRegistryName);
         insideImageRegistryPage

@@ -2,10 +2,8 @@ package NirmataPE;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import pages.LoginPage;
 import pages.admin.CreateAdminPage;
 import pages.admin.InsideTenantPage;
-import pages.admin.TenantsPage;
 import utils.NirmataApplicationProperties;
 import utils.NirmataSetup;
 
@@ -17,8 +15,6 @@ public class AdminPanelTests extends NirmataSetup {
     private String email = appProperties.properties.getProperty("email");
     private String password = appProperties.properties.getProperty("password");
     private CreateAdminPage createAdminPage;
-    private TenantsPage tenantsPage;
-    private LoginPage loginPage;
     private InsideTenantPage insideTenatPage;
     private WebDriver driver;
 
@@ -35,19 +31,9 @@ public class AdminPanelTests extends NirmataSetup {
                .clickSetupAdminButton();
     }
 
-    @Test(description = "Test Login NirmataPE Admin Account")
-    public void loginNirmataPEAdminAccount()  {
-        loginPage = new LoginPage(driver);
-        loginPage
-                .setEmailInputField(email)
-                .clickSignInAsNirmataAdministratorButton()
-                .setPasswordInputField(password);
-        tenantsPage=loginPage.clickLoginAsAdminButton();
-    }
-
     @Test(description = "Create New Tenant")
     public void createNewTenant()  {
-        loginNirmataPEAdminAccount();
+        loginNirmataPEAdminDashboard();
         tenantsPage
                 .clickAddTenantButton()
                 .setNameInputField("regression-tenant")
@@ -59,7 +45,7 @@ public class AdminPanelTests extends NirmataSetup {
 
     @Test(description = "Create New User")
     public void createNewUser()  {
-        loginNirmataPEAdminAccount();
+        loginNirmataPEAdminDashboard();
         insideTenatPage=tenantsPage.clickOnTenant("nirmata");
         insideTenatPage
                 .clickAddUserButton()
@@ -73,7 +59,7 @@ public class AdminPanelTests extends NirmataSetup {
 
     @Test(description = "Edit User")
     public void editUser()  {
-        loginNirmataPEAdminAccount();
+        loginNirmataPEAdminDashboard();
         insideTenatPage=tenantsPage.clickOnTenant("nirmata");
         insideTenatPage
                 .clickEditUserButton("regression-user@gmail.com")
@@ -104,7 +90,7 @@ public class AdminPanelTests extends NirmataSetup {
 
     @Test(description = "Delete User")
     public void deleteUser()  {
-        loginNirmataPEAdminAccount();
+        loginNirmataPEAdminDashboard();
         insideTenatPage=tenantsPage.clickOnTenant("nirmata");
         insideTenatPage
                 .clickDeleteUserButton("regression-user@gmail.com")

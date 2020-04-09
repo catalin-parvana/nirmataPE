@@ -8,9 +8,14 @@ public class ProfilePageTests extends NirmataSetup {
 
 
     private ProfilePage profilePage;
+    private String password=appProperties.properties.getProperty("password");
+    private String email=appProperties.properties.getProperty("email");
+
+
 
     @Test(description = "Test Copy API Key")
     public void testCopyApiKey(){
+        login();
         profilePage=overviewPage.clickSettings();
         profilePage
                 .clickCopyApiKeyButton()
@@ -20,7 +25,7 @@ public class ProfilePageTests extends NirmataSetup {
 
     @Test(description = "Test Generate API Key")
     public void testGenerateApiKey(){
-        String password=appProperties.properties.getProperty("password");
+        login();
         profilePage=overviewPage.clickSettings();
         profilePage
                 .clickGenerateNewApiKeyButton()
@@ -34,8 +39,7 @@ public class ProfilePageTests extends NirmataSetup {
 
     @Test(description = "Test Change Password")
     public void testChangePassword(){
-        String password=appProperties.properties.getProperty("password");
-        String email=appProperties.properties.getProperty("email");
+        login();
         profilePage=overviewPage.clickSettings();
         profilePage
                 .clickChangePasswordButton()
@@ -54,6 +58,7 @@ public class ProfilePageTests extends NirmataSetup {
 
     @Test(description = "Test Download Kubeconfig File")
     public void testDownloadKubeconfigFile()  {
+        login();
         profilePage=overviewPage.clickSettings();
         profilePage
                 .clickDownloadKubeconfigFileButton()

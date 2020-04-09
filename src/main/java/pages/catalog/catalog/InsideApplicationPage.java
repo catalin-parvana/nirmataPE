@@ -1,9 +1,8 @@
 package pages.catalog.catalog;
 
-import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
-import pages.environment.InsideDeployedApplicationPage;
+import pages.environment.InsideRunningApplicationPage;
 import utils.LibraryUtils;
 
 import static com.codeborne.selenide.Condition.disappear;
@@ -226,10 +225,10 @@ public class InsideApplicationPage extends LibraryUtils {
         return this;
     }
 
-    public InsideDeployedApplicationPage clickRunApplicationOnEnvironment(){
+    public InsideRunningApplicationPage clickRunApplicationOnEnvironment(){
         click("Run Application On Environment Button",runApplicationOnEnvironmentButton);
         runApplicationOnEnvironmentButton.waitUntil(disappear,20000);
-        return new InsideDeployedApplicationPage(driver);
+        return new InsideRunningApplicationPage(driver);
     }
 
     public InsideApplicationPage clickToViewLaunchedApplication(){
@@ -237,10 +236,10 @@ public class InsideApplicationPage extends LibraryUtils {
         return this;
     }
 
-    public InsideDeployedApplicationPage clickRunningApplicationLink(String deploymentName){
+    public InsideRunningApplicationPage clickRunningApplicationLink(String deploymentName){
         SelenideElement runningApplicationLink=$x("//tbody//*[contains(text(),'"+deploymentName+"')]");
         click("Running Application"+deploymentName,runningApplicationLink);
-        return new InsideDeployedApplicationPage(driver);
+        return new InsideRunningApplicationPage(driver);
     }
 
 }

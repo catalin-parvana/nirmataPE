@@ -17,6 +17,7 @@ public class CatalogTests extends NirmataSetup {
     @Test(description = "Inside Catalog Page Title Test")
     @Parameters({ "catalogName"})
     public void testInsideCatalogsPageTitle(String catalogName){
+        login();
         catalogPage=overviewPage.clickCatalog();
         insideCatalogPage=catalogPage.clickOnCatalogWithName(catalogName);
         insideCatalogPage
@@ -26,6 +27,7 @@ public class CatalogTests extends NirmataSetup {
     @Test(description = "Create New Catalog Test")
     @Parameters({ "catalogName"})
     public void testCreateNewCatalog(String catalogName){
+        login();
         catalogPage=overviewPage.clickCatalog()
                 .clickAddCatalogButton()
                 .setNewCatalogName(catalogName);
@@ -42,6 +44,7 @@ public class CatalogTests extends NirmataSetup {
     @Test(description = "Delete Catalog Test")
     @Parameters({ "catalogName"})
     public void testDeleteCatalog(String catalogName){
+        login();
         catalogPage=overviewPage.clickCatalog();
         insideCatalogPage=catalogPage.clickOnCatalogWithName(catalogName);
         insideCatalogPage.clickActionButton()
@@ -55,6 +58,7 @@ public class CatalogTests extends NirmataSetup {
     @Test(description = "Rename Catalog Test")
     @Parameters({ "catalogName","newCatalogName"})
     public void testRenameCatalog(String catalogName, String newCatalogName){
+        login();
         catalogPage=overviewPage.clickCatalog();
         insideCatalogPage=catalogPage.clickOnCatalogWithName(catalogName);
         insideCatalogPage
@@ -69,6 +73,7 @@ public class CatalogTests extends NirmataSetup {
     @Test(description = "Test Add Multiple Catalogs")
     @Parameters({ "catalogName","nr"})
     public void testAddMultipleCatalogs(String catalogName,int nr) {
+        login();
         catalogPage = overviewPage.clickCatalog();
         for (int i = 1; i <= nr; i++) {
             String catalog  = catalogName + i;
@@ -89,6 +94,7 @@ public class CatalogTests extends NirmataSetup {
     @Test(description = "Test Delete Multiple Catalogs")
     @Parameters({ "catalogName","nr"})
     public void testDeleteMultipleCatalogs(String catalogName, int nr) {
+        login();
         catalogPage = overviewPage.clickCatalog();
         for (int i = 1; i <= nr; i++) {
             String catalog = catalogName + i;

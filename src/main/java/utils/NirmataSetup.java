@@ -15,6 +15,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import pages.LoginPage;
+import pages.admin.TenantsPage;
 import pages.dashboards.OverviewPage;
 
 import java.lang.reflect.Method;
@@ -27,6 +28,7 @@ public class NirmataSetup {
 
 	protected LoginPage loginPage;
 	protected OverviewPage overviewPage;
+	protected TenantsPage tenantsPage;
 	private WebDriver driver;
 	protected  NirmataApplicationProperties appProperties = new NirmataApplicationProperties();
 
@@ -36,7 +38,6 @@ public class NirmataSetup {
 	public static ExtentTest test;
 	public static ExtentTest methodInfo;
 
-	private String url = appProperties.properties.getProperty("url");
 	private String email = appProperties.properties.getProperty("email");
 	private String password = appProperties.properties.getProperty("password");
 	private String reportDirectory = appProperties.properties.getProperty("ReportDirectory");
@@ -78,17 +79,13 @@ public class NirmataSetup {
 
 	@BeforeMethod
 	public void logIn(Method method, ITestResult result) {
+		appProperties = new NirmataApplicationProperties();
+		String url = appProperties.properties.getProperty("url");
 		test = extent.createTest(result.getMethod().getDescription()).assignCategory(result.getMethod().getGroups());
 		open(url);
 		cap = ((EventFiringWebDriver) WebDriverRunner.getWebDriver()).getCapabilities();
 		browserName = cap.getBrowserName().toLowerCase();
 		browserVersion = cap.getVersion();
-
-//		loginPage = new LoginPage(driver);
-//		overviewPage=loginPage
-//				 .setEmailInputField(email)
-//				.setPasswordInputField(password)
-//				.clickLoginButton();
 	}
 
 
@@ -116,6 +113,29 @@ public class NirmataSetup {
 	public void tearDown() {
 		extent.setSystemInfo("Browser", browserName+" "+browserVersion);
 		extent.flush();
+	}
+
+	@Test(description = "Test Login Nirmata")
+	public void login(){
+		loginPage = new LoginPage(driver);
+		overviewPage=loginPage
+				.setEmailInputField(email)
+				.choseAccountIfExists("nirmata",email)
+				.setPasswordInputField(password)
+				.clickLoginButton();
+		overviewPage=new OverviewPage(driver);
+	}
+
+	@Test(description = "Test Login NirmataPE Admin Dashboard")
+	public void loginNirmataPEAdminDashboard()  {
+		loginPage = new LoginPage(driver);
+		tenantsPage=loginPage
+				.setEmailInputField(email)
+				.clickSignInAsNirmataAdministratorButton()
+				.setPasswordInputField(password)
+				.clickLoginAsAdminButton();
+		tenantsPage=new TenantsPage(driver);
+
 	}
 
 

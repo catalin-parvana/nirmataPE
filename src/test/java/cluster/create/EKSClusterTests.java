@@ -18,6 +18,7 @@ public class EKSClusterTests extends NirmataSetup {
     @Test(description = "Test Create EKS Cluster")
     @Parameters({"eksClusterName","cloudProviderName"})
     public void testCreateEKSCluster(String eksClusterName, String cloudProviderName){
+        login();
         clustersPage=overviewPage.clickClusters();
         clustersPage
                 .clickAddClusterButton()
@@ -64,6 +65,7 @@ public class EKSClusterTests extends NirmataSetup {
     @Test(description = "Test Delete EKS Cluster")
     @Parameters({"eksClusterName"})
     public void testDeleteEKSCluster(String eksClusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(eksClusterName);
         insideClusterPage

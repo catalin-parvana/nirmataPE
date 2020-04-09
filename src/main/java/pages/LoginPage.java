@@ -6,13 +6,16 @@ import pages.admin.TenantsPage;
 import pages.dashboards.OverviewPage;
 import utils.LibraryUtils;
 
-import static com.codeborne.selenide.Condition.visible;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage extends LibraryUtils {
 
     private SelenideElement titleSignUp = $x("//div[contains(text(),'Sign in to Nirmata')]");
-    private SelenideElement nirmataLogo = $x("//div[@class='logo']//a//img");
+    private SelenideElement nirmataLogo = $x("//div[@class='logo']");
+    private SelenideElement nirmataWhiteLogo = $x("//a[@class='navbar-brand']//img");
+    private SelenideElement skipSetupButton = $x("//a[@id='skipSetup']");
 
     private SelenideElement emailInputField = $x("//input[@id='email']");
     private SelenideElement passwordInputField = $x("//input[@id='password']");
@@ -49,6 +52,7 @@ public class LoginPage extends LibraryUtils {
 
     public OverviewPage clickLoginButton() {
         click("Login Button",loginButton);
+        clickSkipIntroIfExists();
         return new OverviewPage(driver);
     }
 
@@ -87,5 +91,22 @@ public class LoginPage extends LibraryUtils {
     public LoginPage waitForConfirmationMessage(){
         confirmationMessage.shouldBe(visible);
         return this;
+    }
+
+    public LoginPage choseAccountIfExists(String accountName, String userEmail){
+       SelenideElement email=$x("//*[contains(.,'"+userEmail+"')]");
+       email.shouldBe(visible);
+        SelenideElement account=$x("//*[text()='"+accountName+"']/../../../..");
+            if(account.exists()){
+                account.click();
+            }
+        return this;
+    }
+
+    private void clickSkipIntroIfExists(){
+        nirmataWhiteLogo.shouldBe(visible);
+        if(skipSetupButton.exists()){
+            skipSetupButton.click();
+        }
     }
 }

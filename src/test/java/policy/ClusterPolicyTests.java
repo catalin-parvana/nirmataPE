@@ -17,6 +17,7 @@ public class ClusterPolicyTests extends NirmataSetup {
     @Test(description = "Test Create Cluster Policy")
     @Parameters({ "clusterPolicyName"})
     public void testCreateClusterPolicy(String clusterPolicyName){
+        login();
         clusterPoliciesPage=overviewPage.clickPolicies().clickClusterPolicies();
         clusterPoliciesPage
                 .clickAddClusterPolicy()
@@ -37,6 +38,7 @@ public class ClusterPolicyTests extends NirmataSetup {
     @Test(description = "Test Delete Cluster Policy")
     @Parameters({ "clusterPolicyName"})
     public void testDeleteClusterPolicy(String clusterPolicyName){
+        login();
         clusterPoliciesPage=overviewPage.clickPolicies().clickClusterPolicies();
         insideClusterPolicyPage=clusterPoliciesPage.clickClusterPolicyWithName(clusterPolicyName);
         insideClusterPolicyPage

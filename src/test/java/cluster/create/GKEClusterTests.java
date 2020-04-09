@@ -18,6 +18,7 @@ public class GKEClusterTests extends NirmataSetup {
     @Test(description = "Test Create GKE Cluster")
     @Parameters({"gkeClusterName","cloudProviderName"})
     public void testCreateGKECluster(String gkeClusterName, String cloudProviderName){
+        login();
         clustersPage=overviewPage.clickClusters();
         clustersPage
                 .clickAddClusterButton()
@@ -46,6 +47,7 @@ public class GKEClusterTests extends NirmataSetup {
     @Test(description = "Test Delete GKE Cluster")
     @Parameters({"gkeClusterName"})
     public void testDeleteGKECluster(String gkeClusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(gkeClusterName);
         insideClusterPage

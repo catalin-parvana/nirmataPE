@@ -15,6 +15,7 @@ public class HelmChartsTests extends NirmataSetup {
 
     @Test(description = "Test Helm Chart Page Panel Title")
     public void testHelmChartsPagePanelTitle(){
+        login();
         helmChartsPage=overviewPage.clickCatalog().clickHelmCharts();
         helmChartsPage
                 .verifyPanelTitle();
@@ -23,6 +24,7 @@ public class HelmChartsTests extends NirmataSetup {
     @Test(description = "Test Add Helm Repository")
     @Parameters({ "helmChartName"})
     public void testAddHelmRepository(String helmChartName){
+        login();
         helmChartsPage=overviewPage.clickCatalog().clickHelmCharts();
         helmChartsPage
                 .clickAddHelmRepository()
@@ -36,6 +38,7 @@ public class HelmChartsTests extends NirmataSetup {
     @Test(description = "Test Inside Helm Chart Page Panel Title")
     @Parameters({ "helmChartName"})
     public void testInsideHelmChartsPagePanelTitle(String helmChartName){
+        login();
         helmChartsPage=overviewPage.clickCatalog().clickHelmCharts();
         insideHelmChartPage=helmChartsPage.clickOnHelmChartRepo(helmChartName);
         insideHelmChartPage
@@ -45,6 +48,7 @@ public class HelmChartsTests extends NirmataSetup {
     @Test(description = "Test Edit Helm Chart")
     @Parameters({ "helmChartName","newHelmChartName"})
     public void testEditHelmChart(String helmChartName, String newHelmChartName){
+        login();
         helmChartsPage=overviewPage.clickCatalog().clickHelmCharts();
         insideHelmChartPage=helmChartsPage.clickOnHelmChartRepo(helmChartName);
         insideHelmChartPage
@@ -61,6 +65,7 @@ public class HelmChartsTests extends NirmataSetup {
     @Test(description = "Test Delete Helm Chart Repository")
     @Parameters({ "helmChartName"})
     public void testDeleteHelmRepository(String helmChartName){
+        login();
         helmChartsPage=overviewPage.clickCatalog().clickHelmCharts();
         insideHelmChartPage=helmChartsPage.clickOnHelmChartRepo(helmChartName);
         insideHelmChartPage
@@ -74,6 +79,7 @@ public class HelmChartsTests extends NirmataSetup {
     @Test(description = "Test Import Application From Helm Chart")
     @Parameters({ "helmChartName","catalogName"})
     public void testImportApplication(String helmChartName, String catalogName){
+        login();
         helmChartsPage=overviewPage.clickCatalog().clickHelmCharts();
         insideHelmChartPage=helmChartsPage.clickOnHelmChartRepo(helmChartName);
         insideHelmChartPage

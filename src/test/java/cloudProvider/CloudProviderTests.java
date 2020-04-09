@@ -15,6 +15,7 @@ public class CloudProviderTests extends NirmataSetup {
     @Test(description = "Test Add AWS Cloud Provider")
     @Parameters({"cloudProviderName"})
     public void testAddAwsCloudProvider(String cloudProviderName){
+        login();
         cloudProvidersPage=overviewPage.clickCloudProviders();
         cloudProvidersPage
                 .clickAddCloudProviderButton()
@@ -32,6 +33,7 @@ public class CloudProviderTests extends NirmataSetup {
     @Test(description = "Test Add GCP Cloud Provider")
     @Parameters({"cloudProviderName"})
     public void testAddGcpCloudProvider(String cloudProviderName){
+        login();
         cloudProvidersPage=overviewPage.clickCloudProviders();
         cloudProvidersPage
                 .clickAddCloudProviderButton()
@@ -49,6 +51,7 @@ public class CloudProviderTests extends NirmataSetup {
     @Test(description = "Test Add AKS Cloud Provider")
     @Parameters({"cloudProviderName"})
     public void testAddAksCloudProvider(String cloudProviderName){
+        login();
         cloudProvidersPage=overviewPage.clickCloudProviders();
         cloudProvidersPage
                 .clickAddCloudProviderButton()
@@ -68,6 +71,7 @@ public class CloudProviderTests extends NirmataSetup {
     @Test(description = "Test Delete Cloud Provider")
     @Parameters({"cloudProviderName"})
     public void testDeleteCloudProvider(String cloudProviderName){
+        login();
         cloudProvidersPage=overviewPage.clickCloudProviders();
         cloudProvidersPage
                 .hoverCloudProviderAndClickDeleteButton(cloudProviderName)

@@ -16,6 +16,7 @@ public class ManagedClusterTests extends NirmataSetup {
 
     @Test(description = "Test Cluster Page Title")
     public void testClustersPageTitle(){
+        login();
         clustersPage=overviewPage.clickClusters();
         String pageTitle=clustersPage.getPageTitle();
         assertEquals(pageTitle, "Nirmata | Clusters", "Incorrect Page Title");
@@ -23,6 +24,7 @@ public class ManagedClusterTests extends NirmataSetup {
 
     @Test(description = "Test Cluster Page Panel Title")
     public void testClustersPagePanelTitle(){
+        login();
         clustersPage=overviewPage.clickClusters();
         String panelTitle=clustersPage.getPanelTitle();
         assertEquals(panelTitle, "Clusters", "Incorrect Panel Title");
@@ -31,6 +33,7 @@ public class ManagedClusterTests extends NirmataSetup {
     @Test(description = "Test Install And Manage New Kubernetes Cluster")
     @Parameters({ "awsHostGroupName", "clusterName","clusterPolicyName"})
     public void testInstallAndManageNewKubernetesCluster(String awsHostGroupName,String clusterName,String clusterPolicyName){
+        login();
         clustersPage=overviewPage.clickClusters();
         clustersPage
                 .clickAddClusterButton()
@@ -56,6 +59,7 @@ public class ManagedClusterTests extends NirmataSetup {
     @Test(description = "Test Delete Managed Cluster")
     @Parameters({"clusterName"})
     public void testDeleteManagedCluster(String clusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(clusterName);
         insideClusterPage

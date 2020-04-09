@@ -12,6 +12,7 @@ public class ConfigMapPolicyTests  extends NirmataSetup {
     @Test(description = "Test Create Config Map Policy")
     @Parameters({ "configMapPolicyName"})
     public void testCreateConfigMapPolicy(String configMapPolicyName){
+        login();
         configMapsPage=overviewPage.clickPolicies().clickConfigMaps();
         configMapsPage
                 .clickAddConfigMapPolicyButton()
@@ -25,6 +26,7 @@ public class ConfigMapPolicyTests  extends NirmataSetup {
     @Test(description = "Test Delete Config Map Policy")
     @Parameters({ "configMapPolicyName"})
     public void testDeleteConfigMapPolicy(String configMapPolicyName){
+        login();
         configMapsPage=overviewPage.clickPolicies().clickConfigMaps();
         configMapsPage
                 .clickDeleteConfigMapButton(configMapPolicyName)

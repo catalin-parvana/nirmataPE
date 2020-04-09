@@ -17,8 +17,8 @@
         <classes>
             <class name="policy.WorkloadPolicyTests">
                 <methods>
-<!--                    <include name = "testImportWorkloadPolicyYaml"/>-->
-<!--                    <include name = "testDeleteImportedWorkloadPolicy"/>-->
+                    <include name = "testImportWorkloadPolicyYaml"/>
+                    <include name = "testDeleteImportedWorkloadPolicy"/>
                     <include name = "testAddWorkloadPolicy"/>
                     <include name = "testDeleteWorkloadPolicy"/>
                 </methods>
@@ -26,70 +26,70 @@
         </classes>
     </test>
 
-<!--    <test name="Clone/Remove Workload Policy">-->
-<!--        <classes>-->
-<!--            <class name="policy.WorkloadPolicyTests">-->
-<!--                <methods>-->
-<!--                    <include name = "testCloneWorkloadPolicy"/>-->
-<!--                    <include name = "testDeleteWorkloadPolicy"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Clone/Remove Workload Policy">
+        <classes>
+            <class name="policy.WorkloadPolicyTests">
+                <methods>
+                    <include name = "testCloneWorkloadPolicy"/>
+                    <include name = "testDeleteWorkloadPolicy"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Add/Remove Cluster Policy">-->
-<!--        <classes>-->
-<!--            <class name="policy.ClusterPolicyTests">-->
-<!--                <methods>-->
-<!--                    <include name = "testCreateClusterPolicy"/>-->
-<!--                    <include name = "testDeleteClusterPolicy"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Add/Remove Cluster Policy">
+        <classes>
+            <class name="policy.ClusterPolicyTests">
+                <methods>
+                    <include name = "testCreateClusterPolicy"/>
+                    <include name = "testDeleteClusterPolicy"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Add/Remove Environment Type">-->
-<!--        <classes>-->
-<!--            <class name="policy.EnvironmentTypesTests">-->
-<!--                <methods>-->
-<!--                    <include name = "testCreateEnvironmentType"/>-->
-<!--                    <include name = "testDeleteEnvironmentType"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Add/Remove Environment Type">
+        <classes>
+            <class name="policy.EnvironmentTypesTests">
+                <methods>
+                    <include name = "testCreateEnvironmentType"/>
+                    <include name = "testDeleteEnvironmentType"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Add/Remove Patch Policy">-->
-<!--        <classes>-->
-<!--            <class name="policy.PatchPoliciesTests">-->
-<!--                <methods>-->
-<!--                    <include name = "testCreatePatchPolicy"/>-->
-<!--                    <include name = "testDeletePatchPolicy"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Add/Remove Patch Policy">
+        <classes>
+            <class name="policy.PatchPoliciesTests">
+                <methods>
+                    <include name = "testCreatePatchPolicy"/>
+                    <include name = "testDeletePatchPolicy"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Add/Remove Secret Policy">-->
-<!--        <classes>-->
-<!--            <class name="policy.SecretPolicyTests">-->
-<!--                <methods>-->
-<!--                    <include name = "testCreateSecretPolicy"/>-->
-<!--                    <include name = "testDeleteSecretPolicy"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Add/Remove Secret Policy">
+        <classes>
+            <class name="policy.SecretPolicyTests">
+                <methods>
+                    <include name = "testCreateSecretPolicy"/>
+                    <include name = "testDeleteSecretPolicy"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Add/Remove Config Map Policy">-->
-<!--        <classes>-->
-<!--            <class name="policy.ConfigMapPolicyTests">-->
-<!--                <methods>-->
-<!--                    <include name = "testCreateConfigMapPolicy"/>-->
-<!--                    <include name = "testDeleteConfigMapPolicy"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Add/Remove Config Map Policy">
+        <classes>
+            <class name="policy.ConfigMapPolicyTests">
+                <methods>
+                    <include name = "testCreateConfigMapPolicy"/>
+                    <include name = "testDeleteConfigMapPolicy"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 </suite>

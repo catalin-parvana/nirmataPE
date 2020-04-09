@@ -12,6 +12,7 @@ public class SecretPolicyTests extends NirmataSetup {
     @Test(description = "Test Create Secret Policy")
     @Parameters({ "secretPolicyName"})
     public void testCreateSecretPolicy(String secretPolicyName){
+        login();
         secretsPage=overviewPage.clickPolicies().clickSecrets();
         secretsPage
                 .clickAddSecretPolicyButton()
@@ -27,6 +28,7 @@ public class SecretPolicyTests extends NirmataSetup {
     @Test(description = "Test Delete Secret Policy")
     @Parameters({ "secretPolicyName"})
     public void testDeleteSecretPolicy(String secretPolicyName){
+        login();
         secretsPage=overviewPage.clickPolicies().clickSecrets();
         secretsPage
                 .clickDeleteSecretPolicyButton(secretPolicyName)

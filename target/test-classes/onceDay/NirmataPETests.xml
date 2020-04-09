@@ -17,11 +17,36 @@
         </classes>
     </test>
 
-    <test name="Get Instance IP">
+    <test name="Get EC2 Instance IP">
         <classes>
             <class name="NirmataPE.EC2Instance">
             <methods>
                     <include name = "getInstanceIP"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Install Nirmata PE">
+        <classes>
+            <class name="NirmataPE.NirmataPE">
+            <methods>
+                    <include name = "installNirmataPE"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Nirmata PE Admin Panel Tests">
+        <classes>
+            <class name="NirmataPE.AdminPanelTests">
+            <methods>
+                    <include name = "createNirmataPEAdmin"/>
+                    <include name = "loginNirmataPEAdminAccount"/>
+                    <include name = "createNewTenant"/>
+                    <include name = "createNewUser"/>
+                    <include name = "editUser"/>
+                    <include name = "deleteUser"/>
                 </methods>
             </class>
         </classes>

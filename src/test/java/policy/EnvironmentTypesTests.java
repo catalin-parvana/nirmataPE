@@ -12,6 +12,7 @@ public class EnvironmentTypesTests extends NirmataSetup {
     @Test(description = "Test Create Environment Type")
     @Parameters({ "environmentTypeName"})
     public void testCreateEnvironmentType(String environmentTypeName){
+        login();
         environmentTypesPage=overviewPage.clickPolicies().clickEnvironmentTypes();
         environmentTypesPage
                 .clickAddEnvironmentTypeButton()
@@ -25,6 +26,7 @@ public class EnvironmentTypesTests extends NirmataSetup {
     @Test(description = "Test Delete Environment Type")
     @Parameters({ "environmentTypeName"})
     public void testDeleteEnvironmentType(String environmentTypeName){
+        login();
         environmentTypesPage=overviewPage.clickPolicies().clickEnvironmentTypes();
         environmentTypesPage
                 .clickDeleteEnvironmentType(environmentTypeName)

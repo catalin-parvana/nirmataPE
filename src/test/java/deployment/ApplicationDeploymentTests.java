@@ -3,7 +3,8 @@ package deployment;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.environment.EnvironmentsPage;
-import pages.environment.InsideDeployedApplicationPage;
+import pages.environment.InsideDeploymentPage;
+import pages.environment.InsideRunningApplicationPage;
 import pages.environment.InsideEnvironmentPage;
 import utils.NirmataSetup;
 
@@ -11,102 +12,111 @@ import utils.NirmataSetup;
 public class ApplicationDeploymentTests  extends NirmataSetup {
     private EnvironmentsPage environmentsPage;
     private InsideEnvironmentPage insideEnvironmentPage;
-    private InsideDeployedApplicationPage insideDeployedApplicationPage;
+    private InsideRunningApplicationPage insideRunningApplicationPage;
+    private InsideDeploymentPage insideDeploymentPage;
 
     @Test(description = "Test Deployment Page Title")
-    @Parameters({ "environmentName","appDeployName"})
-    public void testDeploymentPageTitle(String environmentName, String appDeployName) {
+    @Parameters({ "environmentName","runningApplicationName"})
+    public void testDeploymentPageTitle(String environmentName, String runningApplicationName) {
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         insideEnvironmentPage=environmentsPage.clickOnEnvironmentWithName(environmentName);
-        insideDeployedApplicationPage=insideEnvironmentPage.clickRunningApplicationLink(appDeployName);
-        insideDeployedApplicationPage.verifyPageTitle(environmentName,appDeployName);
+        insideRunningApplicationPage =insideEnvironmentPage.clickRunningApplicationWithName(runningApplicationName);
+        insideRunningApplicationPage.verifyPageTitle(environmentName,runningApplicationName);
     }
 
     @Test(description = "Test Deployment Page Panel Title")
-    @Parameters({ "environmentName","appDeployName"})
-    public void testDeploymentPagePanelTitle(String environmentName, String appDeployName) {
+    @Parameters({ "environmentName","runningApplicationName"})
+    public void testDeploymentPagePanelTitle(String environmentName, String runningApplicationName) {
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         insideEnvironmentPage=environmentsPage.clickOnEnvironmentWithName(environmentName);
-        insideDeployedApplicationPage=insideEnvironmentPage.clickRunningApplicationLink(appDeployName);
-        insideDeployedApplicationPage
-                .verifyPanelTitle(appDeployName);
+        insideRunningApplicationPage =insideEnvironmentPage.clickRunningApplicationWithName(runningApplicationName);
+        insideRunningApplicationPage
+                .verifyPanelTitle(runningApplicationName);
     }
 
     @Test(description = "Test Run An Application")
-    @Parameters({ "environmentName","appDeployName","appName"})
-    public void testRunAnApplication(String environmentName,String appDeployName,String appName){
+    @Parameters({ "environmentName","runningApplicationName","appName"})
+    public void testRunAnApplication(String environmentName,String runningApplicationName,String appName){
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         insideEnvironmentPage=environmentsPage.clickOnEnvironmentWithName(environmentName);
         insideEnvironmentPage
                 .clickActionButton()
                 .clickRunAnApplicationButton()
-                .setNameInputField(appDeployName)
+                .setNameInputField(runningApplicationName)
                 .selectUpstreamTypeFromDropdown("Catalog")
                 .selectCatalogApplicationFromDropdown(appName);
-        insideDeployedApplicationPage=insideEnvironmentPage.clickRunApplicationButton();
-        insideDeployedApplicationPage
+        insideRunningApplicationPage =insideEnvironmentPage.clickRunApplicationButton();
+        insideRunningApplicationPage
                 .waitForExecutingApplicationState()
 //                .waitForDegradedApplicationState()
                 .waitForRunningApplicationState()
-                .verifyPanelTitle(appDeployName);
+                .verifyPanelTitle(runningApplicationName);
     }
 
     @Test(description = "Test Delete Deployed Application")
-    @Parameters({ "environmentName","appDeployName"})
-    public void testDeleteDeployedApplication(String environmentName,String appDeployName) {
+    @Parameters({ "environmentName","runningApplicationName"})
+    public void testDeleteDeployedApplication(String environmentName,String runningApplicationName) {
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         insideEnvironmentPage=environmentsPage.clickOnEnvironmentWithName(environmentName);
-        insideDeployedApplicationPage=insideEnvironmentPage.clickRunningApplicationLink(appDeployName);
-        insideDeployedApplicationPage
+        insideRunningApplicationPage =insideEnvironmentPage.clickRunningApplicationWithName(runningApplicationName);
+        insideRunningApplicationPage
                 .clickActionButton()
                 .clickDeleteApplicationButton()
                 .checkDeleteOnClusterIfNecessary()
-                .setApplicationNameToDeleteIfNecessary(appDeployName);
-        insideEnvironmentPage=insideDeployedApplicationPage.clickDeleteButton();
+                .setApplicationNameToDeleteIfNecessary(runningApplicationName);
+        insideEnvironmentPage= insideRunningApplicationPage.clickDeleteButton();
         insideEnvironmentPage
                 .verifyPanelTitle(environmentName)
-                .isDeletedDeploymentDisplayed(appDeployName);
+                .isDeletedDeploymentDisplayed(runningApplicationName);
     }
 
 
     @Test(description = "Test Import Yaml To Deployed Application")
-    @Parameters({ "environmentName","appDeployName"})
-    public void testImportYamlToDeployedApplication(String environmentName, String appDeployName){
+    @Parameters({ "environmentName","runningApplicationName"})
+    public void testImportYamlToDeployedApplication(String environmentName, String runningApplicationName){
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         insideEnvironmentPage=environmentsPage.clickOnEnvironmentWithName(environmentName);
-        insideDeployedApplicationPage=insideEnvironmentPage.clickRunningApplicationLink(appDeployName);
-        insideDeployedApplicationPage
+        insideRunningApplicationPage =insideEnvironmentPage.clickRunningApplicationWithName(runningApplicationName);
+        insideRunningApplicationPage
                 .clickActionButton()
                 .clickImportToApplicationButton()
                 .setYamlFile("app")
                 .clickImportButton()
-                .waitForExecutingDeploymentState("hello-deployment")
+                .isCreatedDeploymentDisplayed("hello-deployment")
+                .seeDeploymentDetails("hello-deployment")
+                .waitForUnknownDeploymentState("hello-deployment")
                 .waitForRunningDeploymentState("hello-deployment")
                 .isCreatedDeploymentDisplayed("hello-deployment");
     }
 
     @Test(description = "Test Delete Deployment Applied")
-    @Parameters({ "environmentName","appDeployName"})
-    public void testDeleteDeployment(String environmentName, String appDeployName){
+    @Parameters({ "environmentName","runningApplicationName"})
+    public void testDeleteDeployment(String environmentName, String runningApplicationName){
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         insideEnvironmentPage=environmentsPage.clickOnEnvironmentWithName(environmentName);
-        insideDeployedApplicationPage=insideEnvironmentPage.clickRunningApplicationLink(appDeployName);
-        insideDeployedApplicationPage
-                .clickOnDeployment("hello-deployment")
-                .clickActionButton()
+        insideRunningApplicationPage =insideEnvironmentPage.clickRunningApplicationWithName(runningApplicationName);
+        insideDeploymentPage=insideRunningApplicationPage.clickOnDeployment("hello-deployment");
+        insideDeploymentPage.clickActionButton()
                 .clickDeleteDeploymentButton()
                 .setDeploymentNameToDelete("hello-deployment")
-                .clickDelete()
+                .clickDeleteButton()
                 .isDeletedDeploymentDisplayed("hello-deployment");
     }
 
     @Test(description = "Test Clone Deployed Application")
-    @Parameters({ "environmentName","appDeployName","environmentName2"})
-    public void testCloneDeployedApplication(String environmentName, String appDeployName, String environmentName2) {
+    @Parameters({ "environmentName","runningApplicationName","environmentName2"})
+    public void testCloneDeployedApplication(String environmentName, String runningApplicationName, String environmentName2) {
+        login();
         environmentsPage=overviewPage.clickEnvironments();
         insideEnvironmentPage=environmentsPage.clickOnEnvironmentWithName(environmentName);
-        insideDeployedApplicationPage=insideEnvironmentPage.clickRunningApplicationLink(appDeployName);
-        insideDeployedApplicationPage.clickActionButton()
+        insideRunningApplicationPage =insideEnvironmentPage.clickRunningApplicationWithName(runningApplicationName);
+        insideRunningApplicationPage.clickActionButton()
                 .clickCloneApplicationButton()
                 .setNewNameForClonedApplication("regression-deployed-app-clone")
                 .selectEnvironmentFromDropdown(environmentName2)

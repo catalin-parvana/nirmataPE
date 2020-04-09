@@ -26,7 +26,6 @@ public class EnvironmentsPage extends LibraryUtils {
     private SelenideElement nextButtonEnabled=$x("(//button[contains(text(),'Next')][not(@disabled)])[2]");
     private SelenideElement nextButton = $x("(//button[contains(text(),'Next')])[2]");
     private SelenideElement actionButton= $x("//a[@class='btn  dropdown-toggle']");
-    private SelenideElement filterButton= $x("//span[@id='filter-toggle-button']");
 
 
     private SelenideElement environment;
@@ -38,10 +37,8 @@ public class EnvironmentsPage extends LibraryUtils {
     public EnvironmentsPage(WebDriver driver){
         this.driver=driver;
         addEnvironmentButton.shouldBe(visible);
-        filterButton.shouldBe(visible);
         modelContentPanelTitle.shouldBe(visible);
         assertEquals(modelContentPanelTitle.getText(), "Environments", "Incorrect Panel Title");
-//        assertEquals(title(), "Nirmata | Environments", "Incorrect Page Title");
     }
 
     public EnvironmentsPage clickAddEnvironment(){

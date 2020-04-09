@@ -12,9 +12,9 @@ public class OverviewPageTests  extends NirmataSetup {
 
     @Test(description = "Login Nirmata Test")
     public void testLogo(){
+        login();
         test.log(Status.PASS, MarkupHelper.createLabel("Logo Test Started", ExtentColor.GREEN));
 		overviewPage.nirmataLogo.shouldBe(visible);
 		test.log(Status.PASS, "Test Logo");
-
     }
 }

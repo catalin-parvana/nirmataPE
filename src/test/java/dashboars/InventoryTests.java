@@ -10,6 +10,7 @@ public class InventoryTests extends NirmataSetup {
 
     @Test(description = "Test Download PDF File")
     public void testDownloadPdfFile() {
+        login();
         inventoryPage=overviewPage.clickInventory();
         inventoryPage
                 .clickExportButton()

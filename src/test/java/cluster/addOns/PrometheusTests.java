@@ -14,6 +14,7 @@ public class PrometheusTests extends NirmataSetup {
     @Test(description = "Test Install Prometheus")
     @Parameters({"clusterName"})
     public void testInstallPrometheus(String clusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(clusterName);
         insideClusterPage
@@ -30,6 +31,7 @@ public class PrometheusTests extends NirmataSetup {
     @Test(description = "Test Prometheus Delete")
     @Parameters({"clusterName"})
     public void testDeletePrometheus(String clusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(clusterName);
         insideClusterPage

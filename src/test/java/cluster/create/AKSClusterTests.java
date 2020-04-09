@@ -17,6 +17,7 @@ public class AKSClusterTests extends NirmataSetup {
     @Test(description = "Test Create AKS Cluster")
     @Parameters({"aksClusterName","cloudProviderName"})
     public void testCreateAKSCluster(String aksClusterName, String cloudProviderName){
+        login();
         clustersPage=overviewPage.clickClusters();
         clustersPage
                 .clickAddClusterButton()
@@ -52,6 +53,7 @@ public class AKSClusterTests extends NirmataSetup {
     @Test(description = "Test Delete AKS Cluster")
     @Parameters({"aksClusterName"})
     public void testDeleteAKSCluster(String aksClusterName){
+        login();
         clustersPage=overviewPage.clickClusters();
         insideClusterPage=clustersPage.clickOnClusterWithName(aksClusterName);
         insideClusterPage
