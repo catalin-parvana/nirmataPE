@@ -46,7 +46,7 @@ public class NirmataCustomWebDriverProvider implements WebDriverProvider {
                 if (osName.toLowerCase().contains("mac")){System.setProperty("webdriver.chrome.driver", absolutePath + "/resources/driver/mac/operadriver");}
                 else{System.setProperty("webdriver.chrome.driver", absolutePath + "/resources/driver/linux/operadriver");}
                 ChromeOptions operaOptions = new ChromeOptions()
-                        .setHeadless(true)
+             //           .setHeadless(true)
                         .merge(capabilities);
                 driver = new ChromeDriver(operaOptions);
                 break;
@@ -55,7 +55,7 @@ public class NirmataCustomWebDriverProvider implements WebDriverProvider {
                 if (osName.toLowerCase().contains("mac")){System.setProperty("webdriver.chrome.driver", absolutePath + "/resources/driver/mac/chromedriver");}
                 else{System.setProperty("webdriver.chrome.driver", absolutePath + "/resources/driver/linux/chromedriver");}
                 ChromeOptions chromeOptions = new ChromeOptions()
-                        .setHeadless(true)
+                //        .setHeadless(true)
                         .addArguments("--disable-infobars")
                         .addArguments("--no-sandbox")
                         .addArguments("--disable-dev-shm-usage")

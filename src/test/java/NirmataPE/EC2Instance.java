@@ -57,7 +57,7 @@ public class EC2Instance   {
         $x("//*[@data-id='summaryContainer'][contains(.,'Successfully initiated launch of instance')]").shouldBe(visible);
         $x("//*[@data-id='summaryContainer']/a").shouldBe(visible).click();
         try {
-            Thread.sleep(180000);
+            Thread.sleep(120000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -100,7 +100,11 @@ public class EC2Instance   {
             e.printStackTrace();
         }
         System.out.println("instanceIP= "+ip);
-
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 

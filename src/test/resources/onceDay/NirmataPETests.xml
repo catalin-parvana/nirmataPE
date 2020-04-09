@@ -27,10 +27,20 @@
         </classes>
     </test>
 
+    <test name="Hello">
+        <classes>
+            <class name="NirmataPE.Hello">
+                <methods>
+                    <include name = "Hello"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
     <test name="Install Nirmata PE">
         <classes>
             <class name="NirmataPE.NirmataPE">
-            <methods>
+                <methods>
                     <include name = "installNirmataPE"/>
                 </methods>
             </class>

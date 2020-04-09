@@ -22,7 +22,7 @@ public class NirmataPE  {
 
 
     @Test(description = "Install NirmataPE")
-    public void installNirmataPE()  {
+    public void installNirmataPE(){
 
         try{
             JSch jsch=new JSch();

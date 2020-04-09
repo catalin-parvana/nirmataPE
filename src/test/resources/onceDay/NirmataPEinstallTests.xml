@@ -7,35 +7,35 @@
 
     <parameter name="templateName" value="NirmataPE-template" />
 
-    <test name="Create EC2 Instance From Template">
-        <classes>
-            <class name="NirmataPE.EC2Instance">
-            <methods>
-                    <include name = "createEC2InstanceFromTemplate"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="Create EC2 Instance From Template">-->
+<!--        <classes>-->
+<!--            <class name="NirmataPE.EC2Instance">-->
+<!--            <methods>-->
+<!--                    <include name = "createEC2InstanceFromTemplate"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Get Instance IP">
-        <classes>
-            <class name="NirmataPE.EC2Instance">
-            <methods>
-                    <include name = "getInstanceIP"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="Get Instance IP">-->
+<!--        <classes>-->
+<!--            <class name="NirmataPE.EC2Instance">-->
+<!--            <methods>-->
+<!--                    <include name = "getInstanceIP"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Hello">
-        <classes>
-            <class name="NirmataPE.Hello">
-                <methods>
-                    <include name = "Hello"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="Hello">-->
+<!--        <classes>-->
+<!--            <class name="NirmataPE.Hello">-->
+<!--                <methods>-->
+<!--                    <include name = "Hello"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
     <test name="Install Nirmata PE">
         <classes>
