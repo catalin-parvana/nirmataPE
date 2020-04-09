@@ -64,13 +64,13 @@
 
 
 
-<!--    <test name="Delete EC2 Instance">-->
-<!--        <classes>-->
-<!--            <class name="NirmataPE.EC2Instance">-->
-<!--                <methods>-->
-<!--                    <include name = "deleteEC2Instance"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--</suite>-->
+    <test name="Delete EC2 Instance">
+        <classes>
+            <class name="NirmataPE.EC2Instance">
+                <methods>
+                    <include name = "deleteEC2Instance"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
