@@ -1,66 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="AWS Cloud Provider, Host Group And Managed Cluster">
 <!--    <listeners>-->
 <!--        <listener class-name="utils.NirmataReportListener"></listener>-->
 <!--    </listeners>-->
 
-    <parameter name="templateName" value="NirmataPE-template" />
+<parameter name="templateName" value="NirmataPE-template" />
 
-    <test name="Create EC2 Instance From Template">
-        <classes>
-            <class name="NirmataPE.EC2Instance">
+<test name="Create EC2 Instance From Template">
+    <classes>
+        <class name="NirmataPE.EC2Instance">
             <methods>
-                    <include name = "createEC2InstanceFromTemplate"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+                <include name = "createEC2InstanceFromTemplate"/>
+            </methods>
+        </class>
+    </classes>
+</test>
 
-    <test name="Get EC2 Instance IP">
-        <classes>
-            <class name="NirmataPE.EC2Instance">
+<test name="Get EC2 Instance IP">
+    <classes>
+        <class name="NirmataPE.EC2Instance">
             <methods>
-                    <include name = "getInstanceIP"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+                <include name = "getInstanceIP"/>
+            </methods>
+        </class>
+    </classes>
+</test>
 
-    <test name="Install Nirmata PE">
-        <classes>
-            <class name="NirmataPE.NirmataPE">
+<test name="Install Nirmata PE">
+    <classes>
+        <class name="NirmataPE.NirmataPE">
             <methods>
-                    <include name = "installNirmataPE"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+                <include name = "installNirmataPE"/>
+            </methods>
+        </class>
+    </classes>
+</test>
 
-    <test name="Nirmata PE Admin Panel Tests">
-        <classes>
-            <class name="NirmataPE.AdminPanelTests">
+<test name="Nirmata PE Admin Panel Tests">
+    <classes>
+        <class name="NirmataPE.AdminPanelTests">
             <methods>
-                    <include name = "createNirmataPEAdmin"/>
-                    <include name = "loginNirmataPEAdminAccount"/>
-                    <include name = "createNewTenant"/>
-                    <include name = "createNewUser"/>
-                    <include name = "editUser"/>
-                    <include name = "deleteUser"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+                <include name = "createNirmataPEAdmin"/>
+                <include name = "loginNirmataPEAdminAccount"/>
+                <include name = "createNewTenant"/>
+                <include name = "createNewUser"/>
+                <include name = "editUser"/>
+                <include name = "deleteUser"/>
+            </methods>
+        </class>
+    </classes>
+</test>
 
-
-
-    <test name="Delete EC2 Instance">
-        <classes>
-            <class name="NirmataPE.EC2Instance">
-                <methods>
-                    <include name = "deleteEC2Instance"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<test name="Delete EC2 Instance">
+    <classes>
+        <class name="NirmataPE.EC2Instance">
+            <methods>
+                <include name = "deleteEC2Instance"/>
+            </methods>
+        </class>
+    </classes>
+</test>
 </suite>
