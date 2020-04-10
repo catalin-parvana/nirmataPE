@@ -10,7 +10,6 @@ import utils.NirmataSetup;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-
 public class EC2Instance extends NirmataSetup {
 
     protected NirmataApplicationProperties appProperties= new NirmataApplicationProperties();
@@ -38,17 +37,13 @@ public class EC2Instance extends NirmataSetup {
         $x("//*[@data-id='summaryContainer'][contains(.,'Successfully initiated launch of instance')]").shouldBe(visible);
         String ec2InstanceID=$x("//*[@data-id='summaryContainer']/a").shouldBe(visible).getText();
         $x("//*[@data-id='summaryContainer']/a").shouldBe(visible).click();
+        System.out.println("ec2InstanceID= "+ec2InstanceID);
         try {
             config = new PropertiesConfiguration("resources/data/Application.properties");
             config.setProperty("ec2InstanceID",ec2InstanceID);
             config.save();
-        } catch (ConfigurationException e) {
-            e.printStackTrace();
-        }
-        System.out.println("ec2InstanceID= "+ec2InstanceID);
-        try {
-            Thread.sleep(180000);
-        } catch (InterruptedException e) {
+            Thread.sleep(120000);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

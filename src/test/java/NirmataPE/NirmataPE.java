@@ -1,7 +1,6 @@
 package NirmataPE;
 
 import com.jcraft.jsch.*;
-import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.testng.annotations.Test;
 import utils.NirmataApplicationProperties;
@@ -18,7 +17,6 @@ public class NirmataPE  {
     private String nadmVersion = appProperties.properties.getProperty("nadmVersion");
     private String nadmUrl = appProperties.properties.getProperty("nadmUrl");
     private String nadmConfig = appProperties.properties.getProperty("nadmConfigURL");
-    private PropertiesConfiguration config;
 
 
     @Test(description = "Install NirmataPE")
@@ -77,14 +75,12 @@ public class NirmataPE  {
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-
             try{
                 channel.disconnect();
                 session.disconnect();
             }catch(Exception ex){
                 ex.printStackTrace();
             }
-
         }
         catch(Exception e){
             System.out.println(e);

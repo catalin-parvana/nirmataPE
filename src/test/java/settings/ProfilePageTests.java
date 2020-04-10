@@ -51,6 +51,7 @@ public class ProfilePageTests extends NirmataSetup {
         loginPage=profilePage.clickOkButton();
         loginPage
                 .setEmailInputField(email)
+                .choseAccountIfExists("nirmata",email)
                 .setPasswordInputField(password);
         overviewPage=loginPage.clickLoginButton();
     }
