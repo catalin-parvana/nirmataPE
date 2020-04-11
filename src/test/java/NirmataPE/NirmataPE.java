@@ -12,24 +12,25 @@ import java.io.InputStreamReader;
 
 public class NirmataPE  extends NirmataSetup {
 
+
     private final String keyPair = System.getProperty("user.dir")+"/resources/data/nirmata-west-1-062014.pem";
     private final String nadmVersion = appProperties.properties.getProperty("nadmVersion");
     private final String nadmUrl = appProperties.properties.getProperty("nadmUrl");
-    private final String nadmConfig = appProperties.properties.getProperty("nadmConfigURL");
+
     //private PropertiesConfiguration config;
 
 
 
     @Test(description = "Install NirmataPE")
     public void installNirmataPE()  {
-
         String ec2InstanceIP = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceIP");
-
+        System.out.println(" ================ Install Nirmata PE ======================");
         System.out.println("ec2InstanceIP= "+ec2InstanceIP);
-        JSch jsch=new JSch();
-        UserInfo ui=new MyUserInfo();
 
         try{
+
+            JSch jsch=new JSch();
+            UserInfo ui=new MyUserInfo();
             jsch.addIdentity(keyPair);
             String host="ubuntu@"+ec2InstanceIP;
 
@@ -83,12 +84,11 @@ public class NirmataPE  extends NirmataSetup {
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-
         }
         catch(Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }finally {
-            System.out.println("end of test");
+            System.out.println("End of test");
         }
 
     }
