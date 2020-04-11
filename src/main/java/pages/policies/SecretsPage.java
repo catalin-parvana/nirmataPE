@@ -12,19 +12,19 @@ import static org.testng.Assert.assertTrue;
 
 public class SecretsPage extends LibraryUtils {
 
-    private WebDriver driver;
-    private SelenideElement addSecretPolicyButton=$x("//button[contains(.,'Add Secret Policy')]");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement secretsManagerDropdown=$x("//select[@id='secretsManager']");
-    private SelenideElement nextButton=$x("//button[text()='Next']");
-    private SelenideElement applicationSelectorDropdown=$x("//select[@id='applicationSelector-type']");
-    private SelenideElement typeDropdown=$x("//select[@id='type']");
-    private SelenideElement keyDataInputField=$x("//input[@placeholder='key']");
-    private SelenideElement valueDataInputField=$x("//input[@placeholder='value']");
-    private SelenideElement addItemButton=$x("//div[contains(text(),'Add item')]");
-    private SelenideElement showValueCheckbox=$x("//input[@type='checkbox']");
-    private SelenideElement finishButton=$x("//button[text()='Finish']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final WebDriver driver;
+    private final SelenideElement addSecretPolicyButton=$x("//button[contains(.,'Add Secret Policy')]");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement secretsManagerDropdown=$x("//select[@id='secretsManager']");
+    private final SelenideElement nextButton=$x("//button[text()='Next']");
+    private final SelenideElement applicationSelectorDropdown=$x("//select[@id='applicationSelector-type']");
+    private final SelenideElement typeDropdown=$x("//select[@id='type']");
+    private final SelenideElement keyDataInputField=$x("//input[@placeholder='key']");
+    private final SelenideElement valueDataInputField=$x("//input[@placeholder='value']");
+    private final SelenideElement addItemButton=$x("//div[contains(text(),'Add item')]");
+    private final SelenideElement showValueCheckbox=$x("//input[@type='checkbox']");
+    private final SelenideElement finishButton=$x("//button[text()='Finish']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
 
     public SecretsPage(WebDriver driver){
         this.driver=driver;

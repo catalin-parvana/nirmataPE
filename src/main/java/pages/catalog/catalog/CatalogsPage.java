@@ -12,18 +12,18 @@ import static org.testng.Assert.*;
 
 public class CatalogsPage extends LibraryUtils {
 
-    private SelenideElement addCatalogButton = $x("//button[contains(.,'Add Catalog')]");
-    private SelenideElement addApplicationButton = $x("//button[contains(.,'Add Application')]");
-    private SelenideElement modalDialogTitle = $(".bootstrap-dialog-title");
-    private SelenideElement nameInputField = $("input#name");
-    private SelenideElement finishButton = $x("//button[contains(text(),'Finish')]");
-    private SelenideElement modelContentPanelTitle = $("h1#model-content-panel-title");
-    private SelenideElement helmChartsPageLink = $("a[href='#chartRepositories']");
-    private SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
-    private SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
+    private final SelenideElement addCatalogButton = $x("//button[contains(.,'Add Catalog')]");
+    private final SelenideElement addApplicationButton = $x("//button[contains(.,'Add Application')]");
+    private final SelenideElement modalDialogTitle = $(".bootstrap-dialog-title");
+    private final SelenideElement nameInputField = $("input#name");
+    private final SelenideElement finishButton = $x("//button[contains(text(),'Finish')]");
+    private final SelenideElement modelContentPanelTitle = $("h1#model-content-panel-title");
+    private final SelenideElement helmChartsPageLink = $("a[href='#chartRepositories']");
+    private final SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
+    private final SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
 
     private SelenideElement catalog;
-    private WebDriver driver;
+    private final WebDriver driver;
     private boolean found=false;
 
 

@@ -13,14 +13,14 @@ import static org.testng.Assert.*;
 
 public class ClusterPoliciesPage extends LibraryUtils {
 
-    private WebDriver driver;
-    private SelenideElement addClusterPolicyButton=$x("//button[contains(.,'Add Cluster Policy')]");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement clusterTypeDropdown=$x("//span[@id='select2-clusterMode-container']");
-    private SelenideElement cloudProviderDropdown=$x("//select[@id='cloud']");
-    private SelenideElement nextButton=$x("//button[contains(@class,'btn-next')]");
-    private SelenideElement finishButton=$x("//button[contains(@class,'btn-finish')]");
-    private SelenideElement kubernetesVersionDropdown=$x("//select[@id='version']");
+    private final WebDriver driver;
+    private final SelenideElement addClusterPolicyButton=$x("//button[contains(.,'Add Cluster Policy')]");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement clusterTypeDropdown=$x("//span[@id='select2-clusterMode-container']");
+    private final SelenideElement cloudProviderDropdown=$x("//select[@id='cloud']");
+    private final SelenideElement nextButton=$x("//button[contains(@class,'btn-next')]");
+    private final SelenideElement finishButton=$x("//button[contains(@class,'btn-finish')]");
+    private final SelenideElement kubernetesVersionDropdown=$x("//select[@id='version']");
 
     public ClusterPoliciesPage(WebDriver driver){
         this.driver=driver;

@@ -14,13 +14,13 @@ import static org.testng.Assert.assertEquals;
 
 public class InventoryPage extends LibraryUtils {
 
-    private SelenideElement exportButton=$x("//button[@id='addButton']");
-    private SelenideElement asPdfButton=$x("//a[@id='exportPdf']");
-    private SelenideElement asCsvButton=$x("//a[@id='exportCSV']");
-    private SelenideElement modelContentPanelTitle = $("//h1[contains(text(),'Inventory Report')]");
+    private final SelenideElement exportButton=$x("//button[@id='addButton']");
+    private final SelenideElement asPdfButton=$x("//a[@id='exportPdf']");
+    private final SelenideElement asCsvButton=$x("//a[@id='exportCSV']");
+    private final SelenideElement modelContentPanelTitle = $("//h1[contains(text(),'Inventory Report')]");
 
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
 
 

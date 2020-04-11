@@ -7,7 +7,6 @@ import utils.LibraryUtils;
 import utils.NirmataApplicationProperties;
 
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -20,22 +19,22 @@ import static org.testng.Assert.assertTrue;
 
 public class ProfilePage extends LibraryUtils {
 
-    private SelenideElement modelContentPanelTitle = $x("//*[@id='model-content-panel-title']");
-    private SelenideElement copyApiKeyButton = $x("//button[contains(.,'Copy API Key')]");
-    private SelenideElement generateNewApiKeyButton = $x("//button[contains(.,'Generate a new API Key')]");
-    private SelenideElement changePasswordButton = $x("//button[contains(.,'Change Password')]");
-    private SelenideElement downloadKubeconfigFileButton = $x("//button[contains(.,'Download Kubeconfig File')]");
-    private SelenideElement passwordInputField = $x("//input[@id='password']");
-    private SelenideElement generateButton = $x("//*[@class='bootstrap-dialog-footer']//button[contains(.,'Generate')]");
-    private SelenideElement currentPassword = $x("//input[@id='currentPassword']");
-    private SelenideElement newPassword = $x("//input[@id='newPassword']");
-    private SelenideElement confirmNewPassword = $x("//input[@id='newPassword2']");
-    private SelenideElement changePasswordModalWindowButton = $x("//*[@class='modal-footer']//button[contains(.,'Change Password')]");
-    private SelenideElement modalWindowMessage = $x("//div[@class='bootstrap-dialog-message']");
-    private SelenideElement okButton = $x("//*[@class='modal-footer']//button[contains(.,'Ok')]");
-    private SelenideElement downloadButton = $x("//*[@class='modal-footer']//button[contains(.,'Download')]");
-    private NirmataApplicationProperties appProperties = new NirmataApplicationProperties();
-    private WebDriver driver;
+    private final SelenideElement modelContentPanelTitle = $x("//*[@id='model-content-panel-title']");
+    private final SelenideElement copyApiKeyButton = $x("//button[contains(.,'Copy API Key')]");
+    private final SelenideElement generateNewApiKeyButton = $x("//button[contains(.,'Generate a new API Key')]");
+    private final SelenideElement changePasswordButton = $x("//button[contains(.,'Change Password')]");
+    private final SelenideElement downloadKubeconfigFileButton = $x("//button[contains(.,'Download Kubeconfig File')]");
+    private final SelenideElement passwordInputField = $x("//input[@id='password']");
+    private final SelenideElement generateButton = $x("//*[@class='bootstrap-dialog-footer']//button[contains(.,'Generate')]");
+    private final SelenideElement currentPassword = $x("//input[@id='currentPassword']");
+    private final SelenideElement newPassword = $x("//input[@id='newPassword']");
+    private final SelenideElement confirmNewPassword = $x("//input[@id='newPassword2']");
+    private final SelenideElement changePasswordModalWindowButton = $x("//*[@class='modal-footer']//button[contains(.,'Change Password')]");
+    private final SelenideElement modalWindowMessage = $x("//div[@class='bootstrap-dialog-message']");
+    private final SelenideElement okButton = $x("//*[@class='modal-footer']//button[contains(.,'Ok')]");
+    private final SelenideElement downloadButton = $x("//*[@class='modal-footer']//button[contains(.,'Download')]");
+//    private NirmataApplicationProperties appProperties = new NirmataApplicationProperties();
+private final WebDriver driver;
     private String copiedText;
 
 
@@ -73,15 +72,13 @@ public class ProfilePage extends LibraryUtils {
 
     public ProfilePage verifyCopiedApiKey(){
         try {
-            copiedText= (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+            copiedText=(String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
         } catch (UnsupportedFlavorException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        System.out.println("String from Clipboard:" + copiedText);
+        System.out.println("String from Clipboard: " + copiedText);
         assertTrue(!copiedText.equals("return")&&(copiedText!=null),"API Key was not copied");
         return this;
     }

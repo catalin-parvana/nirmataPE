@@ -1,6 +1,5 @@
 package pages.policies;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import utils.LibraryUtils;
@@ -12,15 +11,15 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class EnvironmentTypesPage extends LibraryUtils {
-    private WebDriver driver;
-    private SelenideElement addEnvironmentTypeButton=$x("//button[contains(.,'Add Environment Type')]");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement resourceLimitsKeyInputField=$x("(//input[@placeholder='key'])[1]");
-    private SelenideElement resourceLimitsValueInputField=$x("(//input[@placeholder='value'])[1]");
-    private SelenideElement addItemButton=$x("//div[@class='btn btn-info']");
-    private SelenideElement isDefaultCheckbox=$x("//ins[@class='iCheck-helper']");
-    private SelenideElement addButton=$x("//button[text()='Add']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final WebDriver driver;
+    private final SelenideElement addEnvironmentTypeButton=$x("//button[contains(.,'Add Environment Type')]");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement resourceLimitsKeyInputField=$x("(//input[@placeholder='key'])[1]");
+    private final SelenideElement resourceLimitsValueInputField=$x("(//input[@placeholder='value'])[1]");
+    private final SelenideElement addItemButton=$x("//div[@class='btn btn-info']");
+    private final SelenideElement isDefaultCheckbox=$x("//ins[@class='iCheck-helper']");
+    private final SelenideElement addButton=$x("//button[text()='Add']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
 
 
     public EnvironmentTypesPage(WebDriver driver){

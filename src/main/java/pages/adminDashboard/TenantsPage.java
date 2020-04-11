@@ -1,4 +1,4 @@
-package pages.admin;
+package pages.adminDashboard;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
@@ -14,22 +14,22 @@ import static org.testng.Assert.assertTrue;
 
 public class TenantsPage extends LibraryUtils {
 
-    private SelenideElement dropdownToggleButton=$x("//a[@class='dropdown-toggle']");
-    private SelenideElement switchAccountsButton=$x("//a[contains(.,'Switch Accounts')]");
-    private SelenideElement logOutButton=$x("//a[contains(.,'Log Out')]");
-    private SelenideElement tenantsPage=$x("//li[@id='menu-tenant']");
-    private SelenideElement administratorsPage=$x("//li[@id='menu-admin']");
-    private SelenideElement settingsPage=$x("//li[@id='menu-settings']");
-    private SelenideElement emailServicePage=$x("//li[@id='menu-smtp']");
-    private SelenideElement licencePage=$x("//li[@id='menu-license']");
-    private SelenideElement modelContentPanelTitle=$x("//div[@id='model-content-panel-actions']");
-    private SelenideElement addTenantButton=$x("//div[@id='addTenant']");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement tenantAdminNameInputField=$x("//input[@id='adminName']");
-    private SelenideElement tenantAdminEmailInputField=$x("//input[@id='ownerEmail']");
-    private SelenideElement addButton=$x("//button[text()='Add']");
+    private final SelenideElement dropdownToggleButton=$x("//a[@class='dropdown-toggle']");
+    private final SelenideElement switchAccountsButton=$x("//a[contains(.,'Switch Accounts')]");
+    private final SelenideElement logOutButton=$x("//a[contains(.,'Log Out')]");
+    private final SelenideElement tenantsPage=$x("//li[@id='menu-tenant']");
+    private final SelenideElement administratorsPage=$x("//li[@id='menu-admin']");
+    private final SelenideElement settingsPage=$x("//li[@id='menu-settings']");
+    private final SelenideElement emailServicePage=$x("//li[@id='menu-smtp']");
+    private final SelenideElement licencePage=$x("//li[@id='menu-license']");
+    private final SelenideElement modelContentPanelTitle=$x("//div[@id='model-content-panel-actions']");
+    private final SelenideElement addTenantButton=$x("//div[@id='addTenant']");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement tenantAdminNameInputField=$x("//input[@id='adminName']");
+    private final SelenideElement tenantAdminEmailInputField=$x("//input[@id='ownerEmail']");
+    private final SelenideElement addButton=$x("//button[text()='Add']");
     private SelenideElement tenant;
-    private WebDriver driver;
+    private final WebDriver driver;
     private boolean found;
 
 

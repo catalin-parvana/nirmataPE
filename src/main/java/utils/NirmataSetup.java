@@ -15,7 +15,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import pages.LoginPage;
-import pages.admin.TenantsPage;
+import pages.adminDashboard.TenantsPage;
 import pages.dashboards.OverviewPage;
 
 import java.lang.reflect.Method;
@@ -29,7 +29,7 @@ public class NirmataSetup {
 	protected LoginPage loginPage;
 	protected OverviewPage overviewPage;
 	protected TenantsPage tenantsPage;
-	private WebDriver driver;
+	protected WebDriver driver;
 	protected  NirmataApplicationProperties appProperties = new NirmataApplicationProperties();
 
 
@@ -38,8 +38,8 @@ public class NirmataSetup {
 	public static ExtentTest test;
 	public static ExtentTest methodInfo;
 
-	private String email = appProperties.properties.getProperty("email");
-	private String password = appProperties.properties.getProperty("password");
+	protected String email = appProperties.properties.getProperty("email");
+	protected String password = appProperties.properties.getProperty("password");
 	private String reportDirectory = appProperties.properties.getProperty("ReportDirectory");
 
 	private String absolutePath = System.getProperty("user.dir");

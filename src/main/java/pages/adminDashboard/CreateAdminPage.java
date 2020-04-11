@@ -1,4 +1,4 @@
-package pages.admin;
+package pages.adminDashboard;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
@@ -9,16 +9,16 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class CreateAdminPage extends LibraryUtils {
 
-    private SelenideElement logoImage=$x("//div[@class='logo']//a//img");
-    private SelenideElement subtitleText=$x("//div[@id='setup-subtitle']");
-    private SelenideElement nameInputField= $x("//input[@id='name']");
-    private SelenideElement companyInputField= $x("//input[@id='company']");
-    private SelenideElement emailInputField= $x("//input[@id='email']");
-    private SelenideElement passwordInputField= $x("//input[@id='password']");
-    private SelenideElement createSystemAdministratorAndTenantButton= $x("//button[@id='setupAdmin']");
-    private SelenideElement completedLabel= $x("//*[contains(.,'Completed')]");
+    private final SelenideElement logoImage=$x("//div[@class='logo']//a//img");
+    private final SelenideElement subtitleText=$x("//div[@id='setup-subtitle']");
+    private final SelenideElement nameInputField= $x("//input[@id='name']");
+    private final SelenideElement companyInputField= $x("//input[@id='company']");
+    private final SelenideElement emailInputField= $x("//input[@id='email']");
+    private final SelenideElement passwordInputField= $x("//input[@id='password']");
+    private final SelenideElement createSystemAdministratorAndTenantButton= $x("//button[@id='setupAdmin']");
+    private final SelenideElement completedLabel= $x("//*[contains(.,'Completed')]");
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public CreateAdminPage(WebDriver driver){
         this.driver=driver;

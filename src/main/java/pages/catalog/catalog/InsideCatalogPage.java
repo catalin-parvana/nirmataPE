@@ -12,28 +12,28 @@ import static org.testng.Assert.*;
 
 public class InsideCatalogPage extends LibraryUtils {
 
-    private SelenideElement toggleCardView=$("img#toggleCardView");
-    private SelenideElement toggleTableView=$("img#toggleTableView");
-    private SelenideElement addApplicationButton=$x("//button[contains(.,'Add Application')]");
-    private SelenideElement modelContentPanelTitle=$("h1#model-content-panel-title");
-    private SelenideElement nameInputField=$("input#name");
-    private SelenideElement yamlInputField=$(".dz-hidden-input");
-    private SelenideElement createApplicationButton=$x("//button[contains(text(),'Create')]");
-    private SelenideElement actionButton=$("div.btn-group");
-    private SelenideElement editCatalogButton=$("a#editCatalog");
-    private SelenideElement deleteCatalogButton=$("a#deleteCatalog");
-    private SelenideElement deleteCatalogModalDialogTitle=$("div.dialog-title");
-    private SelenideElement deleteButton=$x("//button[contains(text(),'Delete')]");
-    private SelenideElement deleteCatalogControlLabel=$("span.control-label");
-    private SelenideElement deleteCatalogModalDialog=$("div.nirmata-dialog");
-    private SelenideElement saveButton=$x("//button[contains(text(),'Save')]");
-    private SelenideElement runApplicationButton=$x("//button[contains(text(),'Run application')]");
-    private SelenideElement modalDialog=$("div.modal-body");
-    private SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
-    private SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
+    private final SelenideElement toggleCardView=$("img#toggleCardView");
+    private final SelenideElement toggleTableView=$("img#toggleTableView");
+    private final SelenideElement addApplicationButton=$x("//button[contains(.,'Add Application')]");
+    private final SelenideElement modelContentPanelTitle=$("h1#model-content-panel-title");
+    private final SelenideElement nameInputField=$("input#name");
+    private final SelenideElement yamlInputField=$(".dz-hidden-input");
+    private final SelenideElement createApplicationButton=$x("//button[contains(text(),'Create')]");
+    private final SelenideElement actionButton=$("div.btn-group");
+    private final SelenideElement editCatalogButton=$("a#editCatalog");
+    private final SelenideElement deleteCatalogButton=$("a#deleteCatalog");
+    private final SelenideElement deleteCatalogModalDialogTitle=$("div.dialog-title");
+    private final SelenideElement deleteButton=$x("//button[contains(text(),'Delete')]");
+    private final SelenideElement deleteCatalogControlLabel=$("span.control-label");
+    private final SelenideElement deleteCatalogModalDialog=$("div.nirmata-dialog");
+    private final SelenideElement saveButton=$x("//button[contains(text(),'Save')]");
+    private final SelenideElement runApplicationButton=$x("//button[contains(text(),'Run application')]");
+    private final SelenideElement modalDialog=$("div.modal-body");
+    private final SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
+    private final SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
 
     private SelenideElement application;
-    private WebDriver driver;
+    private final WebDriver driver;
     private boolean found=false;
 
 

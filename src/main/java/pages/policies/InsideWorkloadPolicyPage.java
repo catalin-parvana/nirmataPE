@@ -11,12 +11,12 @@ import static org.testng.Assert.assertTrue;
 
 public class InsideWorkloadPolicyPage extends LibraryUtils {
 
-    private WebDriver driver;
-    private SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
-    private SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
-    private SelenideElement editPolicyButton=$x("//a[@id='editResourcePolicy']");
-    private SelenideElement deletePolicyButton=$x("//a[@id='deleteResourcePolicy']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final WebDriver driver;
+    private final SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
+    private final SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement editPolicyButton=$x("//a[@id='editResourcePolicy']");
+    private final SelenideElement deletePolicyButton=$x("//a[@id='deleteResourcePolicy']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
 
     public InsideWorkloadPolicyPage(WebDriver driver){
         this.driver=driver;

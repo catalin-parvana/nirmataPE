@@ -13,33 +13,33 @@ import static org.testng.Assert.assertFalse;
 
 public class InsideEnvironmentPage extends LibraryUtils {
 
-    private SelenideElement runAnApplicationButton= $x("//*[@id='launchApplication']");
-    private SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
-    private SelenideElement actionButton= $x("//*[contains(@class,'btn-lg dropdown-toggle')]");
-    private SelenideElement nameInputField=$x("//input[@id='run']");
-    private SelenideElement runApplicationButton=$x("//button[text()='Run Application']");
-    private SelenideElement upstreamTypeDropdown=$x("//select[@id='upstreamType']");
-    private SelenideElement catalogApplicationDropdown=$x("//select[@id='application']");
-    private SelenideElement deleteEnvironmentButton=$x("//a[@id='deleteEnvironment']");
-    private SelenideElement deleteAllApplicationsCheckbox=$x("//input[@id='deleteAllApplications']");
-    private SelenideElement deleteFromClusterCheckbox=$x("//input[@id='deleteOnCluster']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
-    private SelenideElement pendingDeleteState=$x("//span[@id='state-popover'][contains(.,'Pending Delete')]");
-    private SelenideElement applicationRunningState=$x("//span[@id='state-popover'][contains(.,'Running')]");
-    private SelenideElement applicationExecutingState=$x("//span[@id='state-popover'][contains(.,'Executing')]");
-    private SelenideElement clusterConnectedState=$x("//span[@id='state-popover'][contains(.,'Cluster Connected')]");
-    private SelenideElement toggleTableView=$x("//img[@id='toggleTableView']");
-    private SelenideElement toggleCardView=$x("//img[@id='toggleCardView']");
-    private SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
-    private SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
-    private SelenideElement modalDialog=$x("//div[@class='modal-dialog']");
-    private SelenideElement applicationButton=$x("//li[@id='applications']");
-    private SelenideElement environmentLabel=$x("//div[@class='pull-left model-index-name'][contains(.,'Environment')]");
+    private final SelenideElement runAnApplicationButton= $x("//*[@id='launchApplication']");
+    private final SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement actionButton= $x("//*[contains(@class,'btn-lg dropdown-toggle')]");
+    private final SelenideElement nameInputField=$x("//input[@id='run']");
+    private final SelenideElement runApplicationButton=$x("//button[text()='Run Application']");
+    private final SelenideElement upstreamTypeDropdown=$x("//select[@id='upstreamType']");
+    private final SelenideElement catalogApplicationDropdown=$x("//select[@id='application']");
+    private final SelenideElement deleteEnvironmentButton=$x("//a[@id='deleteEnvironment']");
+    private final SelenideElement deleteAllApplicationsCheckbox=$x("//input[@id='deleteAllApplications']");
+    private final SelenideElement deleteFromClusterCheckbox=$x("//input[@id='deleteOnCluster']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final SelenideElement pendingDeleteState=$x("//span[@id='state-popover'][contains(.,'Pending Delete')]");
+    private final SelenideElement applicationRunningState=$x("//span[@id='state-popover'][contains(.,'Running')]");
+    private final SelenideElement applicationExecutingState=$x("//span[@id='state-popover'][contains(.,'Executing')]");
+    private final SelenideElement clusterConnectedState=$x("//span[@id='state-popover'][contains(.,'Cluster Connected')]");
+    private final SelenideElement toggleTableView=$x("//img[@id='toggleTableView']");
+    private final SelenideElement toggleCardView=$x("//img[@id='toggleCardView']");
+    private final SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
+    private final SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
+    private final SelenideElement modalDialog=$x("//div[@class='modal-dialog']");
+    private final SelenideElement applicationButton=$x("//li[@id='applications']");
+    private final SelenideElement environmentLabel=$x("//div[@class='pull-left model-index-name'][contains(.,'Environment')]");
     private SelenideElement deployment, runningApplicationLink;
     private boolean found=false;
 
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
 
     public InsideEnvironmentPage(WebDriver driver){

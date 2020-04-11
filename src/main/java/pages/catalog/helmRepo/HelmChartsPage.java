@@ -13,13 +13,13 @@ import static org.testng.Assert.*;
 
 public class HelmChartsPage extends LibraryUtils {
 
-    private SelenideElement addHelmRepositoryButton= $x("//button[@id='addRepository']");
-    private SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement locationInputField=$x("//input[@id='location']");
-    private SelenideElement addButton=$x("//button[contains(text(),'Add')]");
+    private final SelenideElement addHelmRepositoryButton= $x("//button[@id='addRepository']");
+    private final SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement locationInputField=$x("//input[@id='location']");
+    private final SelenideElement addButton=$x("//button[contains(text(),'Add')]");
     private SelenideElement helmRepo;
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public HelmChartsPage(WebDriver driver){
         this.driver=driver;

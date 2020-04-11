@@ -11,18 +11,18 @@ import static org.testng.Assert.*;
 
 public class ImageRegistriesPage extends LibraryUtils {
 
-    private SelenideElement addImageRegistryButton=$x("//button[contains(.,'Add Image Registry')]");
-    private SelenideElement registryProviderDropdown=$x("//select[@id='provider']");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement locationInputField=$x("//input[@id='location']");
-    private SelenideElement usernameInputField=$x("//input[@id='username']");
-    private SelenideElement passwordInputField=$x("//input[@id='password']");
-    private SelenideElement preferredRegistryCheckbox=$x("//ins[@class='iCheck-helper']");
-    private SelenideElement privateCloudDropdown=$x("//select[@id='privateCloud']");
-    private SelenideElement cancelButton=$x("//button[text()='Cancel']");
-    private SelenideElement addButton=$x("//button[text()='Add']");
-    private SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
-    private WebDriver driver;
+    private final SelenideElement addImageRegistryButton=$x("//button[contains(.,'Add Image Registry')]");
+    private final SelenideElement registryProviderDropdown=$x("//select[@id='provider']");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement locationInputField=$x("//input[@id='location']");
+    private final SelenideElement usernameInputField=$x("//input[@id='username']");
+    private final SelenideElement passwordInputField=$x("//input[@id='password']");
+    private final SelenideElement preferredRegistryCheckbox=$x("//ins[@class='iCheck-helper']");
+    private final SelenideElement privateCloudDropdown=$x("//select[@id='privateCloud']");
+    private final SelenideElement cancelButton=$x("//button[text()='Cancel']");
+    private final SelenideElement addButton=$x("//button[text()='Add']");
+    private final SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
+    private final WebDriver driver;
 
     public ImageRegistriesPage(WebDriver driver){
         this.driver=driver;

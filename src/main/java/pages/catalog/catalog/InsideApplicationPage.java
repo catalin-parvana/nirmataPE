@@ -12,35 +12,35 @@ import static org.testng.Assert.*;
 
 public class InsideApplicationPage extends LibraryUtils {
 
-    private SelenideElement modalDialog=$("div.modal-body");
-    private SelenideElement modelContentPanelTitle = $x("//h1[@id='model-content-panel-title']");
-    private SelenideElement runApplicationButton = $x("//button[@action='runApplication']");
-    private SelenideElement actionButton = $x("//*[@class='btn btn-default dropdown-toggle']");
-    private SelenideElement editApplicationButton = $x("//a[@id='editApplication']");
-    private SelenideElement nameInputField = $x("//input[@id='name']");
-    private SelenideElement saveButton = $x("//button[contains(text(),'Save')]");
-    private SelenideElement deleteApplicationButton=$x("//a[@id='deleteApplication']");
-    private SelenideElement deleteButton=$x("//div[@class='modal-footer']//*[text()='Delete']");
-    private SelenideElement importYamlButton=$x("//a[@id='importYaml']");
-    private SelenideElement yamlInputField=$x("(//input[@class='dz-hidden-input'])[1]");
-    private SelenideElement importButton=$x("//button[contains(.,'Import')]");
-    private SelenideElement exportYamlButton=$x("//a[@id='exportApplication']");
-    private SelenideElement downloadYamlFileButton=$x("//button[contains(text(),'Download YAML file')]");
-    private SelenideElement yaml=$x("//div[@class='dz-details']");
-    private SelenideElement runNameInputField=$x("//input[@id='run']");
-    private SelenideElement environmentDropdown=$x("//select[@id='environment']");
-    private SelenideElement runApplicationOnEnvironmentButton=$x("//button[contains(.,'Run Application')]");
-    private SelenideElement runningApplicationLink=$x("//*[@action='showRunningApplications']");
-    private SelenideElement editYamlButton=$x("//a[@id='editYaml']");
-    private SelenideElement cloneApplicationButton=$x("//a[@id='cloneApplication']");
-    private SelenideElement moveApplicationButton=$x("//a[@id='moveApplication']");
-    private SelenideElement targetCatalogDropdown=$x("//select[@id='catalog']");
-    private SelenideElement cloneApplicationModalWindowButton=$x("//button[contains(.,'Clone Application')]");
-    private SelenideElement moveApplicationModalWindowButton=$x("//button[contains(.,'Move Application')]");
-    private SelenideElement catalogNameOnModelCrumb=$x("//span[@class='status-badge status-light-gray']/../a");
+    private final SelenideElement modalDialog=$("div.modal-body");
+    private final SelenideElement modelContentPanelTitle = $x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement runApplicationButton = $x("//button[@action='runApplication']");
+    private final SelenideElement actionButton = $x("//*[@class='btn btn-default dropdown-toggle']");
+    private final SelenideElement editApplicationButton = $x("//a[@id='editApplication']");
+    private final SelenideElement nameInputField = $x("//input[@id='name']");
+    private final SelenideElement saveButton = $x("//button[contains(text(),'Save')]");
+    private final SelenideElement deleteApplicationButton=$x("//a[@id='deleteApplication']");
+    private final SelenideElement deleteButton=$x("//div[@class='modal-footer']//*[text()='Delete']");
+    private final SelenideElement importYamlButton=$x("//a[@id='importYaml']");
+    private final SelenideElement yamlInputField=$x("(//input[@class='dz-hidden-input'])[1]");
+    private final SelenideElement importButton=$x("//button[contains(.,'Import')]");
+    private final SelenideElement exportYamlButton=$x("//a[@id='exportApplication']");
+    private final SelenideElement downloadYamlFileButton=$x("//button[contains(text(),'Download YAML file')]");
+    private final SelenideElement yaml=$x("//div[@class='dz-details']");
+    private final SelenideElement runNameInputField=$x("//input[@id='run']");
+    private final SelenideElement environmentDropdown=$x("//select[@id='environment']");
+    private final SelenideElement runApplicationOnEnvironmentButton=$x("//button[contains(.,'Run Application')]");
+    private final SelenideElement runningApplicationLink=$x("//*[@action='showRunningApplications']");
+    private final SelenideElement editYamlButton=$x("//a[@id='editYaml']");
+    private final SelenideElement cloneApplicationButton=$x("//a[@id='cloneApplication']");
+    private final SelenideElement moveApplicationButton=$x("//a[@id='moveApplication']");
+    private final SelenideElement targetCatalogDropdown=$x("//select[@id='catalog']");
+    private final SelenideElement cloneApplicationModalWindowButton=$x("//button[contains(.,'Clone Application')]");
+    private final SelenideElement moveApplicationModalWindowButton=$x("//button[contains(.,'Move Application')]");
+    private final SelenideElement catalogNameOnModelCrumb=$x("//span[@class='status-badge status-light-gray']/../a");
 
     private SelenideElement application;
-    private WebDriver driver;
+    private final WebDriver driver;
 
 
     public InsideApplicationPage(WebDriver driver){

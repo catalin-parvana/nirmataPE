@@ -3,20 +3,19 @@ package NirmataPE;
 import com.jcraft.jsch.*;
 import org.testng.annotations.Test;
 import utils.NirmataApplicationProperties;
-import utils.NirmataSetup;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 
-public class NirmataPE  extends NirmataSetup {
+public class NadmCluster {
 
     private NirmataApplicationProperties appProperties= new NirmataApplicationProperties();
-    private final String keyPair = System.getProperty("user.dir")+"/resources/data/nirmata-west-1-062014.pem";
-    private final String nadmVersion = appProperties.properties.getProperty("nadmVersion");
-    private final String nadmUrl = appProperties.properties.getProperty("nadmUrl");
-    private final String nadmConfig = appProperties.properties.getProperty("nadmConfigURL");
+    private String keyPair = System.getProperty("user.dir")+"/resources/data/nirmata-west-1-062014.pem";
+    private String nadmVersion = appProperties.properties.getProperty("nadmVersion");
+    private String nadmUrl = appProperties.properties.getProperty("nadmUrl");
+    private String nadmConfig = appProperties.properties.getProperty("nadmConfigURL");
 
 
     @Test(description = "Install NirmataPE")
@@ -28,6 +27,7 @@ public class NirmataPE  extends NirmataSetup {
         UserInfo ui=new MyUserInfo();
 
         try{
+
             jsch.addIdentity(keyPair);
             String host="ubuntu@"+ec2InstanceIP;
 
@@ -44,28 +44,12 @@ public class NirmataPE  extends NirmataSetup {
             Channel channel=session.openChannel("shell");
             channel.setInputStream(System.in);
             channel.setOutputStream(System.out);
-
             channel.connect();
-
             String script ="sudo swapoff -a\n" +
-                    "sudo apt update -y && sudo apt install -y docker.io\n" +
-                    "curl -LO "+nadmUrl +"\n" +
-                    "ls\n" +
-                    "tar -xf " + nadmVersion+".tar.gz" + "\n" +
-                    "cd " + nadmVersion + "\n" + "pwd\n"+
-                    "openssl req -subj '/O=Nirmata/CN=nirmata.local/C=US' -new -newkey rsa:2048 -days 3650 -sha256 -nodes -x509 -keyout server.key -out server.crt\n" +
-                    "wget " + nadmConfig + "\n"+
-                    "urladdress="+ec2InstanceIP +"\n" + "echo $urladdress" + "\n" +
-                    "sed \"s/%urladdress/${urladdress}/\" config > nadmconfig\n" +
-                    "echo \"y\" | sudo ./nadm install --quiet --nadmconfig config\n" +
-                    "mkdir -p $HOME/.kube\n" +
-                    "sudo cp -i /opt/nirmata/.nirmata-nadm/.kube/config $HOME/.kube/config\n" +
-                    "sudo chown $(id -u):$(id -g) $HOME/.kube/config\n";
-
+                    "sudo apt update -y && sudo apt install -y docker.io\n" +"";
             ChannelExec channelExec = (ChannelExec) session.openChannel("exec");
             channelExec.setCommand(script+"\n");
             channelExec.connect();
-
             InputStream in = channelExec.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             String line;
@@ -77,6 +61,10 @@ public class NirmataPE  extends NirmataSetup {
             e.printStackTrace();
         }
     }
+
+
+
+
 
 
     public static class MyUserInfo implements UserInfo{

@@ -11,31 +11,31 @@ import static org.testng.Assert.*;
 
 public class CloudProvidersPage extends LibraryUtils {
 
-    private SelenideElement addCloudProviderButton=$x("//button[contains(.,'Add Cloud Provider')]");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement typeDropdown=$x("//select[@id='type']");
-    private SelenideElement nextButton=$x("//button[text()='Next']");
-    private SelenideElement regionDropdown=$x("//select[@id='region']");
-    private SelenideElement accountInputField=$x("//input[@id='accountId']");
-    private SelenideElement externalIdInputField=$x("//input[@id='awsExternalId']");
-    private SelenideElement roleArnInputField=$x("//input[@id='awsRoleArn']");  // arn:aws:iam::094919933512:role/NirmataV2
-    private SelenideElement subscriptionIdInputField=$x("//input[@id='subscriptionId']");  // arn:aws:iam::094919933512:role/NirmataV2
-    private SelenideElement tenantIdInputField=$x("//input[@id='tenant']");  // arn:aws:iam::094919933512:role/NirmataV2
-    private SelenideElement clientIdInputField=$x("//input[@id='username']");  // arn:aws:iam::094919933512:role/NirmataV2
-    private SelenideElement clientSecretInputField=$x("//input[@id='password']");  // arn:aws:iam::094919933512:role/NirmataV2
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
-    private SelenideElement finishButton=$x("//button[text()='Finish']");
-    private SelenideElement successProviderStatus=$x("//span[@id='providerStatus'][contains(.,'Success')]");
-    private SelenideElement serviceAccountKeyInputField=$x("//input[@class='dz-hidden-input']");
-    private SelenideElement apiKeyDropBoxMessage=$x("//form[@id='apiKey']");
-    private SelenideElement toggleTableView=$x("//img[@id='toggleTableView']");
-    private SelenideElement toggleCardView=$x("//img[@id='toggleCardView']");
-    private SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
-    private SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
+    private final SelenideElement addCloudProviderButton=$x("//button[contains(.,'Add Cloud Provider')]");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement typeDropdown=$x("//select[@id='type']");
+    private final SelenideElement nextButton=$x("//button[text()='Next']");
+    private final SelenideElement regionDropdown=$x("//select[@id='region']");
+    private final SelenideElement accountInputField=$x("//input[@id='accountId']");
+    private final SelenideElement externalIdInputField=$x("//input[@id='awsExternalId']");
+    private final SelenideElement roleArnInputField=$x("//input[@id='awsRoleArn']");  // arn:aws:iam::094919933512:role/NirmataV2
+    private final SelenideElement subscriptionIdInputField=$x("//input[@id='subscriptionId']");  // arn:aws:iam::094919933512:role/NirmataV2
+    private final SelenideElement tenantIdInputField=$x("//input[@id='tenant']");  // arn:aws:iam::094919933512:role/NirmataV2
+    private final SelenideElement clientIdInputField=$x("//input[@id='username']");  // arn:aws:iam::094919933512:role/NirmataV2
+    private final SelenideElement clientSecretInputField=$x("//input[@id='password']");  // arn:aws:iam::094919933512:role/NirmataV2
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final SelenideElement finishButton=$x("//button[text()='Finish']");
+    private final SelenideElement successProviderStatus=$x("//span[@id='providerStatus'][contains(.,'Success')]");
+    private final SelenideElement serviceAccountKeyInputField=$x("//input[@class='dz-hidden-input']");
+    private final SelenideElement apiKeyDropBoxMessage=$x("//form[@id='apiKey']");
+    private final SelenideElement toggleTableView=$x("//img[@id='toggleTableView']");
+    private final SelenideElement toggleCardView=$x("//img[@id='toggleCardView']");
+    private final SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
 
 
     private SelenideElement cloudProvider;
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public CloudProvidersPage(WebDriver driver){
         this.driver=driver;

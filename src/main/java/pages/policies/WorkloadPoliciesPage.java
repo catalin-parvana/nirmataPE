@@ -15,30 +15,30 @@ import static org.testng.Assert.assertTrue;
 
 public class WorkloadPoliciesPage extends LibraryUtils {
 
-    private WebDriver driver;
-    private SelenideElement clusterPoliciesPage=$x("//*[@id='clusterPolicy_menu']");
-    private SelenideElement configMapsPage=$x("//*[@id='configMapPolicy_menu']");
-    private SelenideElement secretsPage=$x("//*[@id='secretPolicy_menu']");
-    private SelenideElement patchPoliciesPage=$x("//*[@id='resourcePatchPolicy_menu']");
-    private SelenideElement environmentTypesPage=$x("//*[@id='environmentTypes_menu']");
-    private SelenideElement addPolicyButton=$x("//button[contains(.,'Add  Policy')]");
-    private SelenideElement actionButton=$x("//a[contains(@class,'btn-lg dropdown-toggle')]");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement categoryDropdown=$x("//select[@id='category']");
-    private SelenideElement enabledCheckbox=$x("(//*[contains(@class,'icheckbox_square-blue')])[1]");
-    private SelenideElement deployToAllClustersCheckbox=$x("(//*[contains(@class,'icheckbox_square-blue')])[2]");
-    private SelenideElement validationFailureActionDropdown=$x("//select[@id='validationFailureAction']");
-    private SelenideElement deployToClustersDropdown=$x("//select[@id='deployToClusters']");
-    private SelenideElement uploadYamlFileOption=$x("//*[@class='card-title'][text()='Upload YAML File']");
-    private SelenideElement clonePolicyOption=$x("//*[@class='card-title'][text()='Clone Policy']");
-    private SelenideElement resourcePolicyYamlDropdown=$x("//select[@id='resource-policy-yamls']");
-    private SelenideElement nextButton=$x("(//button[contains(.,'Next')])[1]");
-    private SelenideElement deleteButton=$x("//button[contains(.,'Delete')]");
-    private SelenideElement completeSetupButton=$x("//button[text()='Complete Setup']");
-    private SelenideElement importPolicyYamlsButton=$x("//a[@id='importResourcePolicies']");
-    private SelenideElement importPoliciesButton=$x("//button[contains(.,'Import Policies')]");
-    private SelenideElement yamlInputField=$x("(//input[@class='dz-hidden-input'])[1]");
-    private SelenideElement yaml=$x("//div[@class='dz-details']");
+    private final WebDriver driver;
+    private final SelenideElement clusterPoliciesPage=$x("//*[@id='clusterPolicy_menu']");
+    private final SelenideElement configMapsPage=$x("//*[@id='configMapPolicy_menu']");
+    private final SelenideElement secretsPage=$x("//*[@id='secretPolicy_menu']");
+    private final SelenideElement patchPoliciesPage=$x("//*[@id='resourcePatchPolicy_menu']");
+    private final SelenideElement environmentTypesPage=$x("//*[@id='environmentTypes_menu']");
+    private final SelenideElement addPolicyButton=$x("//button[contains(.,'Add  Policy')]");
+    private final SelenideElement actionButton=$x("//a[contains(@class,'btn-lg dropdown-toggle')]");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement categoryDropdown=$x("//select[@id='category']");
+    private final SelenideElement enabledCheckbox=$x("(//*[contains(@class,'icheckbox_square-blue')])[1]");
+    private final SelenideElement deployToAllClustersCheckbox=$x("(//*[contains(@class,'icheckbox_square-blue')])[2]");
+    private final SelenideElement validationFailureActionDropdown=$x("//select[@id='validationFailureAction']");
+    private final SelenideElement deployToClustersDropdown=$x("//select[@id='deployToClusters']");
+    private final SelenideElement uploadYamlFileOption=$x("//*[@class='card-title'][text()='Upload YAML File']");
+    private final SelenideElement clonePolicyOption=$x("//*[@class='card-title'][text()='Clone Policy']");
+    private final SelenideElement resourcePolicyYamlDropdown=$x("//select[@id='resource-policy-yamls']");
+    private final SelenideElement nextButton=$x("(//button[contains(.,'Next')])[1]");
+    private final SelenideElement deleteButton=$x("//button[contains(.,'Delete')]");
+    private final SelenideElement completeSetupButton=$x("//button[text()='Complete Setup']");
+    private final SelenideElement importPolicyYamlsButton=$x("//a[@id='importResourcePolicies']");
+    private final SelenideElement importPoliciesButton=$x("//button[contains(.,'Import Policies')]");
+    private final SelenideElement yamlInputField=$x("(//input[@class='dz-hidden-input'])[1]");
+    private final SelenideElement yaml=$x("//div[@class='dz-details']");
 
     public WorkloadPoliciesPage(WebDriver driver){
         this.driver=driver;

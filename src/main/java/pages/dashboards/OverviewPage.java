@@ -22,26 +22,26 @@ import static org.testng.Assert.assertEquals;
 public class OverviewPage extends LibraryUtils {
 
 
-    private WebDriver driver;
+    private final WebDriver driver;
     public static SelenideElement welcomeMessage = $x("//div[@id='user-welcome'][contains(text(),'Welcome to Nirmata')]");
     public static SelenideElement nirmataLogo = $x("//a[@class='navbar-brand']//img");
 
 
     //pages
-    private SelenideElement cloudProvidersPage = $x("//*[@id='providers_menu']");
-    private SelenideElement imageRegistriesPage = $x("//*[@id='registries_menu']");
-    private SelenideElement dashboardsPage = $x("//*[@id='overview_menu']");
-    private SelenideElement inventoryPage = $x("//*[@id='dashboard_inventory_menu']");
-    private SelenideElement settingsPage = $x("//*[@id='settings_menu']");
-    private SelenideElement catalogsPage = $x("//*[@id='applications_menu']");
-    private SelenideElement helmChartsPage = $x("//*[@id='chartRepositories_menu']");
-    private SelenideElement environmentsPage = $x("//*[@id='env_menu']");
-    private SelenideElement clustersPage = $x("//*[@id='hostClusters_menu']");
-    private SelenideElement hostGroupsPage = $x("//*[@id='hostgroups_menu']");
-    private SelenideElement awsPage = $x("//*[@id='aws_menu']");
-    private SelenideElement workloadPoliciesPage = $x("//*[@id='policies_menu']");
-    private SelenideElement tenantName = $x("//span[@id='tenant-name']");
-    private SelenideElement logOutButton = $x("//a[contains(.,'Log Out')]");
+    private final SelenideElement cloudProvidersPage = $x("//*[@id='providers_menu']");
+    private final SelenideElement imageRegistriesPage = $x("//*[@id='registries_menu']");
+    private final SelenideElement dashboardsPage = $x("//*[@id='overview_menu']");
+    private final SelenideElement inventoryPage = $x("//*[@id='dashboard_inventory_menu']");
+    private final SelenideElement settingsPage = $x("//*[@id='settings_menu']");
+    private final SelenideElement catalogsPage = $x("//*[@id='applications_menu']");
+    private final SelenideElement helmChartsPage = $x("//*[@id='chartRepositories_menu']");
+    private final SelenideElement environmentsPage = $x("//*[@id='env_menu']");
+    private final SelenideElement clustersPage = $x("//*[@id='hostClusters_menu']");
+    private final SelenideElement hostGroupsPage = $x("//*[@id='hostgroups_menu']");
+    private final SelenideElement awsPage = $x("//*[@id='aws_menu']");
+    private final SelenideElement workloadPoliciesPage = $x("//*[@id='policies_menu']");
+    private final SelenideElement tenantName = $x("//span[@id='tenant-name']");
+    private final SelenideElement logOutButton = $x("//a[contains(.,'Log Out')]");
 
     public OverviewPage(WebDriver driver){
         this.driver=driver;

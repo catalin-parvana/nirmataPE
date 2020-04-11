@@ -11,13 +11,13 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class ConfigMapsPage extends LibraryUtils {
-    private WebDriver driver;
-    private SelenideElement addConfigMapPolicyButton=$x("//button[contains(.,'Add Config Map Policy')]");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement applicationSelectorDropdown=$x("//select[@id='applicationSelector-type']");
-    private SelenideElement nextButton=$x("//button[text()='Next']");
-    private SelenideElement finishButton=$x("//button[text()='Finish']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final WebDriver driver;
+    private final SelenideElement addConfigMapPolicyButton=$x("//button[contains(.,'Add Config Map Policy')]");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement applicationSelectorDropdown=$x("//select[@id='applicationSelector-type']");
+    private final SelenideElement nextButton=$x("//button[text()='Next']");
+    private final SelenideElement finishButton=$x("//button[text()='Finish']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
 
     public ConfigMapsPage(WebDriver driver){
         this.driver=driver;

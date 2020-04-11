@@ -7,15 +7,15 @@
 
 <parameter name="templateName" value="NirmataPE-template" />
 
-<test name="Create EC2 Instance From Template">
-    <classes>
-        <class name="NirmataPE.EC2Instance">
-            <methods>
-                <include name = "createEC2InstanceFromTemplate"/>
-            </methods>
-        </class>
-    </classes>
-</test>
+<!--<test name="Create EC2 Instance From Template">-->
+<!--    <classes>-->
+<!--        <class name="NirmataPE.EC2Instance">-->
+<!--            <methods>-->
+<!--                <include name = "createEC2InstanceFromTemplate"/>-->
+<!--            </methods>-->
+<!--        </class>-->
+<!--    </classes>-->
+<!--</test>-->
 
 <test name="Get EC2 Instance IP">
     <classes>

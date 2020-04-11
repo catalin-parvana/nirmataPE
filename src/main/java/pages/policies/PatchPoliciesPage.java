@@ -1,6 +1,5 @@
 package pages.policies;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import utils.LibraryUtils;
@@ -12,12 +11,12 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class PatchPoliciesPage extends LibraryUtils {
-    private WebDriver driver;
-    private SelenideElement addPatchPolicyButton=$x("//button[contains(.,'Add Patch Policy')]");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement resourceTypeDropdown=$x("//select[@id='resourceType']");
-    private SelenideElement addButton=$x("//button[text()='Add']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final WebDriver driver;
+    private final SelenideElement addPatchPolicyButton=$x("//button[contains(.,'Add Patch Policy')]");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement resourceTypeDropdown=$x("//select[@id='resourceType']");
+    private final SelenideElement addButton=$x("//button[text()='Add']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
 
 
     public PatchPoliciesPage(WebDriver driver){

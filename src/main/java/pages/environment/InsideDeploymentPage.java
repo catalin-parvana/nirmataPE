@@ -10,15 +10,15 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class InsideDeploymentPage extends LibraryUtils {
 
-    private SelenideElement deploymentLabel=$x("//div[@class='pull-left model-index-name'][contains(.,'Deployment')]");
-    private SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
-    private SelenideElement restartButton=$x("//a[@id='addRolloutRestart']");
-    private SelenideElement exposeAsServiceButton=$x("//a[@id='exposeAsService']");
-    private SelenideElement deleteDeploymentButton=$x("//a[@id='deleteComponent']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
-    private SelenideElement deploymentNameInputField=$x("//input[@id='name']");
+    private final SelenideElement deploymentLabel=$x("//div[@class='pull-left model-index-name'][contains(.,'Deployment')]");
+    private final SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
+    private final SelenideElement restartButton=$x("//a[@id='addRolloutRestart']");
+    private final SelenideElement exposeAsServiceButton=$x("//a[@id='exposeAsService']");
+    private final SelenideElement deleteDeploymentButton=$x("//a[@id='deleteComponent']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final SelenideElement deploymentNameInputField=$x("//input[@id='name']");
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
 
     public InsideDeploymentPage(WebDriver driver){

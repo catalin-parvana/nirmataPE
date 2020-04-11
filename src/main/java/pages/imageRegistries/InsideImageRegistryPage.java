@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class InsideImageRegistryPage extends LibraryUtils {
 
-    private SelenideElement actionButton=$x("//*[contains(@class,'btn btn-default dropdown-toggle')]");
-    private SelenideElement deleteRegistryButton=$x("//a[@id='deleteRegistry']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
-    private WebDriver driver;
+    private final SelenideElement actionButton=$x("//*[contains(@class,'btn btn-default dropdown-toggle')]");
+    private final SelenideElement deleteRegistryButton=$x("//a[@id='deleteRegistry']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final WebDriver driver;
 
     public InsideImageRegistryPage(WebDriver driver){
         this.driver=driver;

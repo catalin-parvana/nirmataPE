@@ -13,30 +13,30 @@ import static org.testng.Assert.*;
 public class InsideRunningApplicationPage extends LibraryUtils {
 
 
-    private SelenideElement actionButton= $x("//a[@class='btn btn-default dropdown-toggle']");
-    private SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
-    private SelenideElement deleteApplicationButton= $x("//a[@id='deleteApplication']");
-    private SelenideElement deleteOnClusterCheckbox=$x("//input[@id='deleteOnCluster']");
-    private SelenideElement deleteButton=$x("//button[contains(.,'Delete')]");
-    private SelenideElement nameInputField=$x("//input[@id='run']");
-    private SelenideElement runningDeploymentState=$x("//span[@id='state-popover'][contains(.,'Running')]");
-    private SelenideElement degradedDeploymentState=$x("//span[@id='state-popover'][contains(.,'Degraded')]");
-    private SelenideElement executingDeploymentState=$x("//span[@id='state-popover'][contains(.,'Executing')]");
-    private SelenideElement failedDeploymentState=$x("//span[@id='state-popover'][contains(.,'Failed')]");
-    private SelenideElement importToApplicationButton=$x("//a[@id='importApplication']");
-    private SelenideElement yamlInputField=$x("(//input[@class='dz-hidden-input'])[1]");
-    private SelenideElement yaml=$x("//div[@class='dz-details']");
-    private SelenideElement importButton=$x("//button[text()='Import']");
-    private SelenideElement deleteDeploymentButton=$x("//a[@id='deleteComponent']");
-    private SelenideElement deploymentNameInputField=$x("//input[@id='name']");
-    private SelenideElement alarmsButton=$x("//li[@id='alarms']");
-    private SelenideElement cloneApplicationButton=$x("//a[@id='cloneApplication']");
-    private SelenideElement targetEnvironmentDropdown=$x("//select[@id='environment']");
-    private SelenideElement cloneButton=$x("//button[contains(.,'Clone Application')]");
-    private SelenideElement runningApplicationLabel=$x("//div[@class='pull-left model-index-name'][contains(.,'Running Application')]");
+    private final SelenideElement actionButton= $x("//a[@class='btn btn-default dropdown-toggle']");
+    private final SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement deleteApplicationButton= $x("//a[@id='deleteApplication']");
+    private final SelenideElement deleteOnClusterCheckbox=$x("//input[@id='deleteOnCluster']");
+    private final SelenideElement deleteButton=$x("//button[contains(.,'Delete')]");
+    private final SelenideElement nameInputField=$x("//input[@id='run']");
+    private final SelenideElement runningDeploymentState=$x("//span[@id='state-popover'][contains(.,'Running')]");
+    private final SelenideElement degradedDeploymentState=$x("//span[@id='state-popover'][contains(.,'Degraded')]");
+    private final SelenideElement executingDeploymentState=$x("//span[@id='state-popover'][contains(.,'Executing')]");
+    private final SelenideElement failedDeploymentState=$x("//span[@id='state-popover'][contains(.,'Failed')]");
+    private final SelenideElement importToApplicationButton=$x("//a[@id='importApplication']");
+    private final SelenideElement yamlInputField=$x("(//input[@class='dz-hidden-input'])[1]");
+    private final SelenideElement yaml=$x("//div[@class='dz-details']");
+    private final SelenideElement importButton=$x("//button[text()='Import']");
+    private final SelenideElement deleteDeploymentButton=$x("//a[@id='deleteComponent']");
+    private final SelenideElement deploymentNameInputField=$x("//input[@id='name']");
+    private final SelenideElement alarmsButton=$x("//li[@id='alarms']");
+    private final SelenideElement cloneApplicationButton=$x("//a[@id='cloneApplication']");
+    private final SelenideElement targetEnvironmentDropdown=$x("//select[@id='environment']");
+    private final SelenideElement cloneButton=$x("//button[contains(.,'Clone Application')]");
+    private final SelenideElement runningApplicationLabel=$x("//div[@class='pull-left model-index-name'][contains(.,'Running Application')]");
 
     private SelenideElement deployment;
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public InsideRunningApplicationPage(WebDriver driver){
         this.driver=driver;

@@ -2,7 +2,6 @@ package pages.policies;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
-import pages.cluster.InsideClusterPage;
 import utils.LibraryUtils;
 
 import static com.codeborne.selenide.Condition.disappear;
@@ -12,11 +11,11 @@ import static org.testng.Assert.assertEquals;
 
 public class InsideClusterPolicyPage extends LibraryUtils {
 
-    private WebDriver driver;
-    private SelenideElement actionButton=$x("//a[contains(@class,' dropdown-toggle')]");
-    private SelenideElement deletePolicyButton=$x("//a[@id='deletePolicy']");
-    private SelenideElement deleteButton=$x("//button[contains(.,'Delete')]");
-    private SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
+    private final WebDriver driver;
+    private final SelenideElement actionButton=$x("//a[contains(@class,' dropdown-toggle')]");
+    private final SelenideElement deletePolicyButton=$x("//a[@id='deletePolicy']");
+    private final SelenideElement deleteButton=$x("//button[contains(.,'Delete')]");
+    private final SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
 
 
     public InsideClusterPolicyPage(WebDriver driver){

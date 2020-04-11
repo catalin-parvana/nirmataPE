@@ -1,4 +1,4 @@
-package pages.admin;
+package pages.adminDashboard;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
@@ -12,17 +12,17 @@ import static org.testng.Assert.assertTrue;
 
 public class InsideTenantPage  extends LibraryUtils {
 
-    private SelenideElement addUserButton=$x("//a[@class='add-button'] | //div[@id='addUser']");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement emailInputField=$x("//input[@id='email']");
-    private SelenideElement roleDropdown=$x("//select[@id='role']");
-    private SelenideElement addButton=$x("//button[text()='Add']");
-    private SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
-    private SelenideElement deleteButton=$x("//button[text()='Delete']");
-    private SelenideElement saveButton=$x("//button[text()='Save']");
+    private final SelenideElement addUserButton=$x("//a[@class='add-button'] | //div[@id='addUser']");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement emailInputField=$x("//input[@id='email']");
+    private final SelenideElement roleDropdown=$x("//select[@id='role']");
+    private final SelenideElement addButton=$x("//button[text()='Add']");
+    private final SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement deleteButton=$x("//button[text()='Delete']");
+    private final SelenideElement saveButton=$x("//button[text()='Save']");
     private SelenideElement user;
     private boolean found;
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public InsideTenantPage(WebDriver driver){
         this.driver=driver;

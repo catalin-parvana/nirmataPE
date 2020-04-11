@@ -1,22 +1,16 @@
 package NirmataPE;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import pages.admin.CreateAdminPage;
-import pages.admin.InsideTenantPage;
-import utils.NirmataApplicationProperties;
+import pages.adminDashboard.CreateAdminPage;
+import pages.adminDashboard.InsideTenantPage;
 import utils.NirmataSetup;
 
 
 
 public class AdminPanelTests extends NirmataSetup {
 
-    protected NirmataApplicationProperties appProperties = new NirmataApplicationProperties();
-    private String email = appProperties.properties.getProperty("email");
-    private String password = appProperties.properties.getProperty("password");
     private CreateAdminPage createAdminPage;
     private InsideTenantPage insideTenatPage;
-    private WebDriver driver;
 
 
 

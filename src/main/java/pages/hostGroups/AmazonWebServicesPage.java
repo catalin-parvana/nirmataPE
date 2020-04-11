@@ -13,29 +13,29 @@ import static org.testng.Assert.*;
 
 public class AmazonWebServicesPage extends LibraryUtils {
 
-    private SelenideElement addHostGroupButton= $x("//*[@id='addHostGroup']");
-    private SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
-    private SelenideElement nameInputField= $x("//input[@id='name']");
-    private SelenideElement regionDropdown=$x("//*[@id='region']");
-    private SelenideElement hostInstancesDropdown=$x("//*[@id='awsConfigType']");
-    private SelenideElement inputAMIField=$x("//*[@id='image']");
-    private SelenideElement instanceTypeDropDown=$x("//*[@id='instanceType']");
-    private SelenideElement sshKeyPairDropdown=$x("//*[@id='keypair']");
-    private SelenideElement securityGroupsDropDown=$x("//*[@id='securityGroups']");
-    private SelenideElement networkDropDown=$x("//*[@id='network']");
-    private SelenideElement iamRoleDropDown=$x("//*[@id='instanceRole']");
-    private SelenideElement iamRoleLabel=$x("//span[contains(text(),'IAM Role')]");
-    private SelenideElement nextButton= $x("//button[text()='Next']");
-    private SelenideElement finishButton= $x("//button[text()='Finish']");
-    private SelenideElement desireHostCountsInput= $x("//input[@id='desiredCount']");
-    private SelenideElement minimumHostCountsInput= $x("//input[@id='minHosts']");
-    private SelenideElement maximumHostCountsInput= $x("//input[@id='maxHosts']");
-    private SelenideElement userDataTemplateDropDown=$x("//*[@id='installSelect']");
-    private SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
-    private SelenideElement cloudProviderDropdown=$x("//span[@id='select2-parent-container']");
-    private SelenideElement toggleCardView=$x("//img[@id='toggleCardView'][contains(@style,'block')]");
-    private SelenideElement toggleTableView=$x("//img[@id='toggleTableView'][contains(@style,'block')]");
-    private WebDriver driver;
+    private final SelenideElement addHostGroupButton= $x("//*[@id='addHostGroup']");
+    private final SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement nameInputField= $x("//input[@id='name']");
+    private final SelenideElement regionDropdown=$x("//*[@id='region']");
+    private final SelenideElement hostInstancesDropdown=$x("//*[@id='awsConfigType']");
+    private final SelenideElement inputAMIField=$x("//*[@id='image']");
+    private final SelenideElement instanceTypeDropDown=$x("//*[@id='instanceType']");
+    private final SelenideElement sshKeyPairDropdown=$x("//*[@id='keypair']");
+    private final SelenideElement securityGroupsDropDown=$x("//*[@id='securityGroups']");
+    private final SelenideElement networkDropDown=$x("//*[@id='network']");
+    private final SelenideElement iamRoleDropDown=$x("//*[@id='instanceRole']");
+    private final SelenideElement iamRoleLabel=$x("//span[contains(text(),'IAM Role')]");
+    private final SelenideElement nextButton= $x("//button[text()='Next']");
+    private final SelenideElement finishButton= $x("//button[text()='Finish']");
+    private final SelenideElement desireHostCountsInput= $x("//input[@id='desiredCount']");
+    private final SelenideElement minimumHostCountsInput= $x("//input[@id='minHosts']");
+    private final SelenideElement maximumHostCountsInput= $x("//input[@id='maxHosts']");
+    private final SelenideElement userDataTemplateDropDown=$x("//*[@id='installSelect']");
+    private final SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
+    private final SelenideElement cloudProviderDropdown=$x("//span[@id='select2-parent-container']");
+    private final SelenideElement toggleCardView=$x("//img[@id='toggleCardView'][contains(@style,'block')]");
+    private final SelenideElement toggleTableView=$x("//img[@id='toggleTableView'][contains(@style,'block')]");
+    private final WebDriver driver;
     private SelenideElement hostGroup;
 
 

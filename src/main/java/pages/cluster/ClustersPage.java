@@ -12,107 +12,106 @@ import static org.testng.Assert.*;
 
 public class ClustersPage extends LibraryUtils {
 
-    private SelenideElement toggleCardView=$x("//img[@id='toggleCardView']");
-    private SelenideElement toggleTableView=$x("//img[@id='toggleTableView']");
-    private SelenideElement addClusterButton= $x("//button[contains(.,'Add Cluster')]");
-    private SelenideElement actionButton=$x("//div[@class='btn-group']");
-    private SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
-    private SelenideElement filterButton= $x("//span[@id='filter-toggle-button']");
-    private SelenideElement setupButton= $x("(//button[contains(.,'Setup')])[1]");
-    private SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
-    private SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
+    private final SelenideElement toggleCardView=$x("//img[@id='toggleCardView']");
+    private final SelenideElement toggleTableView=$x("//img[@id='toggleTableView']");
+    private final SelenideElement addClusterButton= $x("//button[contains(.,'Add Cluster')]");
+    private final SelenideElement actionButton=$x("//div[@class='btn-group']");
+    private final SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement filterButton= $x("//span[@id='filter-toggle-button']");
+    private final SelenideElement setupButton= $x("(//button[contains(.,'Setup')])[1]");
+    private final SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
+    private final SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
 
 
     //manage existing cluster
-    private SelenideElement manageExistingKubernetesClusterOption= $x("//div[contains(text(),'Manage an existing Kubernetes cluster')]");
-    private SelenideElement inputNameForDiscoveredCluster= $x("//div[@id='k8sDiscoveredCluster']//input[@id='name']");
-    private SelenideElement discoveredCloudProviderDropdown= $x("//select[@id='cloudProvider']");
-    private SelenideElement discoveredClusterPolicyDropdown= $x("//div[@id='k8sDiscoveredCluster']//select[@id='policySelector']");
-    private SelenideElement inputEndpointsForDiscoveredCluster= $x("//div[@id='k8sDiscoveredCluster']//input[@id='endpoint']");
-    private SelenideElement discoveredAcceptSelfSignCertificatesCheckbox= $x("//div[@id='k8sDiscoveredCluster']//div[@class='icheckbox_square-blue']");
-    private SelenideElement importKubernetesClusterButton= $x("//button[contains(.,'Import Kubernetes Cluster')]");
+    private final SelenideElement manageExistingKubernetesClusterOption= $x("//div[contains(text(),'Manage an existing Kubernetes cluster')]");
+    private final SelenideElement inputNameForDiscoveredCluster= $x("//div[@id='k8sDiscoveredCluster']//input[@id='name']");
+    private final SelenideElement discoveredCloudProviderDropdown= $x("//select[@id='cloudProvider']");
+    private final SelenideElement discoveredClusterPolicyDropdown= $x("//div[@id='k8sDiscoveredCluster']//select[@id='policySelector']");
+    private final SelenideElement inputEndpointsForDiscoveredCluster= $x("//div[@id='k8sDiscoveredCluster']//input[@id='endpoint']");
+    private final SelenideElement discoveredAcceptSelfSignCertificatesCheckbox= $x("//div[@id='k8sDiscoveredCluster']//div[@class='icheckbox_square-blue']");
+    private final SelenideElement importKubernetesClusterButton= $x("//button[contains(.,'Import Kubernetes Cluster')]");
 
     //install and manage cluster
 //    private SelenideElement installNewKubernetesClusterOption= $x("//div[contains(text(),'Install a new  Kubernetes cluster')]");
-    private SelenideElement installNewKubernetesClusterOption= $("div[data-id='managed']");
-    private SelenideElement inputNameForManagedCluster= $x("//div[@id='k8sManagedCluster']//input[@id='name']");
-    private SelenideElement hostGroupDropdown= $x("//*[@id='hostGroups']");
-    private SelenideElement clusterPolicyDropdown= $x("//div[@id='k8sManagedCluster']//select[@id='policySelector']");
-    private SelenideElement createClusterAndStartInstallation= $x("//button[contains(.,'Create Cluster and Start the Installation')]");
+    private final SelenideElement installNewKubernetesClusterOption= $("div[data-id='managed']");
+    private final SelenideElement inputNameForManagedCluster= $x("//div[@id='k8sManagedCluster']//input[@id='name']");
+    private final SelenideElement hostGroupDropdown= $x("//*[@id='hostGroups']");
+    private final SelenideElement clusterPolicyDropdown= $x("//div[@id='k8sManagedCluster']//select[@id='policySelector']");
+    private final SelenideElement createClusterAndStartInstallation= $x("//button[contains(.,'Create Cluster and Start the Installation')]");
 
     //create gke cluster
-    private SelenideElement createGKEClusterOption= $x("//div[contains(text(),'Create a GKE cluster')]");
-    private SelenideElement inputNameForGKECluster= $x("//div[@id='k8sManagedGkeuserCluster']//input[@id='name']");
-    private SelenideElement gkeCloudProviderDropdown= $x("//div[@id='k8sManagedGkeuserCluster']//*[@id='select2-cloudProviderRef-container']");
-    private SelenideElement gkeRegionDropdown= $x("//div[@id='k8sManagedGkeuserCluster']//*[@id='region']");
-    private SelenideElement gkeKubernetesVersionDropdown= $x("//div[@id='k8sManagedGkeuserCluster']//*[@id='version']");
-    private SelenideElement gkeDiskSizeInputField= $x("//div[@id='k8sManagedGkeuserCluster']//*[@id='diskSize']");
-    private SelenideElement gkeNextButton= $x("//div[@class='modal-footer']//button[contains(.,'Next')]");
-    private SelenideElement gkeMachineTypeDropdown= $x("//select[@id='machineType']");
-    private SelenideElement inputNameForGKENodeCount= $x("//div[@id='k8sManagedGkeworkerCluster']//input[@id='nodeCount']");
-    private SelenideElement createClusterButton= $x("//button[contains(.,'Create Cluster')]");
+    private final SelenideElement createGKEClusterOption= $x("//div[contains(text(),'Create a GKE cluster')]");
+    private final SelenideElement inputNameForGKECluster= $x("//div[@id='k8sManagedGkeuserCluster']//input[@id='name']");
+    private final SelenideElement gkeCloudProviderDropdown= $x("//div[@id='k8sManagedGkeuserCluster']//*[@id='select2-cloudProviderRef-container']");
+    private final SelenideElement gkeRegionDropdown= $x("//div[@id='k8sManagedGkeuserCluster']//*[@id='region']");
+    private final SelenideElement gkeKubernetesVersionDropdown= $x("//div[@id='k8sManagedGkeuserCluster']//*[@id='version']");
+    private final SelenideElement gkeDiskSizeInputField= $x("//div[@id='k8sManagedGkeuserCluster']//*[@id='diskSize']");
+    private final SelenideElement gkeNextButton= $x("//div[@class='modal-footer']//button[contains(.,'Next')]");
+    private final SelenideElement gkeMachineTypeDropdown= $x("//select[@id='machineType']");
+    private final SelenideElement inputNameForGKENodeCount= $x("//div[@id='k8sManagedGkeworkerCluster']//input[@id='nodeCount']");
+    private final SelenideElement createClusterButton= $x("//button[contains(.,'Create Cluster')]");
 
     //create eks cluster
-    private SelenideElement createEKSClusterOption= $x("//div[contains(text(),'Create an EKS cluster')]");
-    private SelenideElement inputNameForEKSCluster= $x("//div[@id='k8sManagedEksUserCluster']//input[@id='name']");
-    private SelenideElement eksCloudProviderDropdown= $x("//div[@id='k8sManagedEksUserCluster']//*[@id='select2-cloudProviderRef-container']");
-    private SelenideElement eksRegionDropdown= $x("//div[@id='k8sManagedEksUserCluster']//select[@id='region']");
-    private SelenideElement eksKubernetesVersionDropdown= $x("//div[@id='k8sManagedEksUserCluster']//select[@id='version']");
-    private SelenideElement eksVpcIdDropdown= $x("//select[@id='vpcId']");
-    private SelenideElement eksNetworksDropdown= $x("//div[@id='k8sManagedEksUserCluster']//select[@id='subnetId']");
-    private SelenideElement eksSecurityGroupDropdown= $x("//div[@id='k8sManagedEksUserCluster']//select[@id='securityGroups']");
-    private SelenideElement eksPrivateEndpointAccessCheckbox= $x("//div[@class='icheckbox_square-blue checked']");
-    private SelenideElement eksClusterRoleArnDropdown= $x("//select[@id='clusterRoleArn']");
-    private SelenideElement eksNextButton= $x("//div[@class='modal-footer']//button[contains(.,'Next')]");
-    private SelenideElement eksEnableAutoScalingCheckbox= $x("//div[@id='k8sManagedEksWorkerCluster']//*[@class='icheckbox_square-blue']");
-    private SelenideElement eksNodeSecurityGroupDropdown= $x("//div[@id='k8sManagedEksWorkerCluster']//select[@id='securityGroups']");
-    private SelenideElement eksInstanceTypeDropdown= $x("//div[@id='k8sManagedEksWorkerCluster']//select[@id='instanceType']");
-    private SelenideElement eksImageIdDropdown= $x("//select[@id='imageId']");
-    private SelenideElement eksInputAutoScalingGroupDesiredCapacity= $x("//div[@id='k8sManagedEksWorkerCluster']//input[@id='nodeAutoScalingGroupDesiredCapacity']");
-    private SelenideElement eksInputAutoScalingGroupMinSize= $x("//div[@id='k8sManagedEksWorkerCluster']//input[@id='nodeAutoScalingGroupMinSize']");
-    private SelenideElement eksInputAutoScalingGroupMaxSize= $x("//div[@id='k8sManagedEksWorkerCluster']//input[@id='nodeAutoScalingGroupMaxSize']");
-    private SelenideElement eksSshKeyDropdown= $x("//select[@id='keyName']");
-    private SelenideElement eksInputDiskSize= $x("//div[@id='k8sManagedEksWorkerCluster']//input[@id='diskSize']");
+    private final SelenideElement createEKSClusterOption= $x("//div[contains(text(),'Create an EKS cluster')]");
+    private final SelenideElement inputNameForEKSCluster= $x("//div[@id='k8sManagedEksUserCluster']//input[@id='name']");
+    private final SelenideElement eksCloudProviderDropdown= $x("//div[@id='k8sManagedEksUserCluster']//*[@id='select2-cloudProviderRef-container']");
+    private final SelenideElement eksRegionDropdown= $x("//div[@id='k8sManagedEksUserCluster']//select[@id='region']");
+    private final SelenideElement eksKubernetesVersionDropdown= $x("//div[@id='k8sManagedEksUserCluster']//select[@id='version']");
+    private final SelenideElement eksVpcIdDropdown= $x("//select[@id='vpcId']");
+    private final SelenideElement eksNetworksDropdown= $x("//div[@id='k8sManagedEksUserCluster']//select[@id='subnetId']");
+    private final SelenideElement eksSecurityGroupDropdown= $x("//div[@id='k8sManagedEksUserCluster']//select[@id='securityGroups']");
+    private final SelenideElement eksPrivateEndpointAccessCheckbox= $x("//div[@class='icheckbox_square-blue checked']");
+    private final SelenideElement eksClusterRoleArnDropdown= $x("//select[@id='clusterRoleArn']");
+    private final SelenideElement eksNextButton= $x("//div[@class='modal-footer']//button[contains(.,'Next')]");
+    private final SelenideElement eksEnableAutoScalingCheckbox= $x("//div[@id='k8sManagedEksWorkerCluster']//*[@class='icheckbox_square-blue']");
+    private final SelenideElement eksNodeSecurityGroupDropdown= $x("//div[@id='k8sManagedEksWorkerCluster']//select[@id='securityGroups']");
+    private final SelenideElement eksInstanceTypeDropdown= $x("//div[@id='k8sManagedEksWorkerCluster']//select[@id='instanceType']");
+    private final SelenideElement eksImageIdInputField= $x("//input[@id='imageId']");
+    private final SelenideElement eksInputAutoScalingGroupDesiredCapacity= $x("//div[@id='k8sManagedEksWorkerCluster']//input[@id='nodeAutoScalingGroupDesiredCapacity']");
+    private final SelenideElement eksInputAutoScalingGroupMinSize= $x("//div[@id='k8sManagedEksWorkerCluster']//input[@id='nodeAutoScalingGroupMinSize']");
+    private final SelenideElement eksInputAutoScalingGroupMaxSize= $x("//div[@id='k8sManagedEksWorkerCluster']//input[@id='nodeAutoScalingGroupMaxSize']");
+    private final SelenideElement eksSshKeyDropdown= $x("//select[@id='keyName']");
+    private final SelenideElement eksInputDiskSize= $x("//div[@id='k8sManagedEksWorkerCluster']//input[@id='diskSize']");
 
     //create aks cluster
-    private SelenideElement createAKSClusterOption= $x("//div[contains(text(),'Create an AKS cluster')]");
-    private SelenideElement inputNameForAKSCluster= $x("//div[@id='k8sManagedAksUserCluster']//input[@id='name']");
-    private SelenideElement aksCloudProviderDropdown=$x("//div[@id='k8sManagedAksUserCluster']//*[@id='select2-cloudProviderRef-container']");
-    private SelenideElement aksRegionDropdown=$x("//div[@id='k8sManagedAksUserCluster']//select[@id='region']");
-    private SelenideElement aksKubernetesVersion=$x("//div[@id='k8sManagedAksUserCluster']//*[@id='version']");
-    private SelenideElement aksResourceGroupDropdown=$x("//div[@id='k8sManagedAksUserCluster']//*[@id='resourceGroup']");
-    private SelenideElement aksNextButton=$x("//div[@class='modal-footer']//button[contains(.,'Next')]");
-    private SelenideElement aksNetworkConfigurationDropdown=$x("//select[@id='networkProfile']");
-    private SelenideElement aksClusterSubnetDropdown=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='subnetId']");
-    private SelenideElement aksKubernetesServiceAddressRangeInputField=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='serviceCidr']");
-    private SelenideElement aksKubernetesDNSServiceIpInputField=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='dnsServiceIp']");
-    private SelenideElement aksDockerBridgeAddressInputField=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='dockerBridgeCidr']");
-    private SelenideElement aksPodCidrInputField=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='podCidr']");
-    private SelenideElement aksHTTPSApplicationRoutingCheckbox=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@class='icheckbox_square-blue']");
-    private SelenideElement aksContainerMonitoringCheckbox=$x("//span[contains(@class,'bootstrap-switch-handle-off bootstrap-switch-default')]");
-    private SelenideElement aksVMSetTypeDropdown=$x("//select[@id='vmSetType']");
-    private SelenideElement aksNodeTypeDropdown=$x("//div[@id='k8sManagedAksWorkerCluster']//*[@id='instanceType']");
-    private SelenideElement aksDiskSizeInput=$x("//*[@id='k8sManagedAksWorkerCluster']//*[@id='diskSize']");
-    private SelenideElement aksNodeCountInput=$x("//*[@id='k8sManagedAksWorkerCluster']//*[@id='nodeCount']");
-    private SelenideElement fetchingMessage=$x("//em[contains(.,'Fetching')]");
+    private final SelenideElement createAKSClusterOption= $x("//div[contains(text(),'Create an AKS cluster')]");
+    private final SelenideElement inputNameForAKSCluster= $x("//div[@id='k8sManagedAksUserCluster']//input[@id='name']");
+    private final SelenideElement aksCloudProviderDropdown=$x("//div[@id='k8sManagedAksUserCluster']//*[@id='select2-cloudProviderRef-container']");
+    private final SelenideElement aksRegionDropdown=$x("//div[@id='k8sManagedAksUserCluster']//select[@id='region']");
+    private final SelenideElement aksKubernetesVersion=$x("//div[@id='k8sManagedAksUserCluster']//*[@id='version']");
+    private final SelenideElement aksResourceGroupDropdown=$x("//div[@id='k8sManagedAksUserCluster']//*[@id='resourceGroup']");
+    private final SelenideElement aksNextButton=$x("//div[@class='modal-footer']//button[contains(.,'Next')]");
+    private final SelenideElement aksNetworkConfigurationDropdown=$x("//select[@id='networkProfile']");
+    private final SelenideElement aksClusterSubnetDropdown=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='subnetId']");
+    private final SelenideElement aksKubernetesServiceAddressRangeInputField=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='serviceCidr']");
+    private final SelenideElement aksKubernetesDNSServiceIpInputField=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='dnsServiceIp']");
+    private final SelenideElement aksDockerBridgeAddressInputField=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='dockerBridgeCidr']");
+    private final SelenideElement aksPodCidrInputField=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@id='podCidr']");
+    private final SelenideElement aksHTTPSApplicationRoutingCheckbox=$x("//*[@id='k8sManagedAksNetworkCluster']//*[@class='icheckbox_square-blue']");
+    private final SelenideElement aksContainerMonitoringCheckbox=$x("//span[contains(@class,'bootstrap-switch-handle-off bootstrap-switch-default')]");
+    private final SelenideElement aksVMSetTypeDropdown=$x("//select[@id='vmSetType']");
+    private final SelenideElement aksNodeTypeDropdown=$x("//div[@id='k8sManagedAksWorkerCluster']//*[@id='instanceType']");
+    private final SelenideElement aksDiskSizeInput=$x("//*[@id='k8sManagedAksWorkerCluster']//*[@id='diskSize']");
+    private final SelenideElement aksNodeCountInput=$x("//*[@id='k8sManagedAksWorkerCluster']//*[@id='nodeCount']");
+    private final SelenideElement fetchingMessage=$x("//em[contains(.,'Fetching')]");
 
 
 
-    private SelenideElement runningPreInstallChecksLabel=$x("//span[@class='subtitle'][contains(.,'Running Pre-install Checks')]");
-    private SelenideElement preparingInstallLabel=$x("//span[@class='subtitle'][contains(.,'Preparing Install')]");
-    private SelenideElement deployingClusterLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Cluster')]");
-    private SelenideElement controllerConnectLabel=$x("//span[@class='subtitle'][contains(.,'Waiting For Controller Connect')]");
+    private final SelenideElement runningPreInstallChecksLabel=$x("//span[@class='subtitle'][contains(.,'Running Pre-install Checks')]");
+    private final SelenideElement preparingInstallLabel=$x("//span[@class='subtitle'][contains(.,'Preparing Install')]");
+    private final SelenideElement deployingClusterLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Cluster')]");
+    private final SelenideElement controllerConnectLabel=$x("//span[@class='subtitle'][contains(.,'Waiting For Controller Connect')]");
 
-    private SelenideElement deployingNirmataControllerLabel=$x("//span[@class='subtitle'][contains(text(),'Deploying Nirmata Controller')]");
-    private SelenideElement viewDetailsOfMyClusterButton=$x("//div[@id='k8sManagedClusterFinish']//div[@id='check-button']");
-    private SelenideElement deployingControlPlaneLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Control Plane')]");
-    private SelenideElement deployingWorkerNodeLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Worker Node')]");
-    private SelenideElement loadingAWSAuthConfigMapLabel=$x("//span[@class='subtitle'][contains(.,'Loading AWS Auth Config Map')]");
-    private SelenideElement deployingMetricsServerLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Metrics Server')]");
+    private final SelenideElement deployingNirmataControllerLabel=$x("//span[@class='subtitle'][contains(text(),'Deploying Nirmata Controller')]");
+    private final SelenideElement viewDetailsOfMyClusterButton=$x("//div[@id='k8sManagedClusterFinish']//div[@id='check-button']");
+    private final SelenideElement deployingControlPlaneLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Control Plane')]");
+    private final SelenideElement deployingWorkerNodeLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Worker Node')]");
+    private final SelenideElement loadingAWSAuthConfigMapLabel=$x("//span[@class='subtitle'][contains(.,'Loading AWS Auth Config Map')]");
+    private final SelenideElement deployingMetricsServerLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Metrics Server')]");
 
-    private SelenideElement cluster;
-    private SelenideElement readyClusterState,unknownCLusterState,shuttingDownCLusterState,deletedCLusterState;
-    private WebDriver driver;
+    private SelenideElement cluster, readyClusterState,unknownCLusterState,shuttingDownCLusterState,deletedCLusterState;
+    private final WebDriver driver;
 
 
 
@@ -432,8 +431,8 @@ public class ClustersPage extends LibraryUtils {
         return this;
     }
 
-    public ClustersPage selectEKSImageIdFromDropdown(String imageIdValue){
-        selectOptionByValue("Image ID Dropdown",eksImageIdDropdown,imageIdValue);
+    public ClustersPage setEKSImageId(String imageId){
+        type("Image ID Input Field ",eksImageIdInputField,imageId);
         return this;
     }
 
@@ -642,5 +641,4 @@ public class ClustersPage extends LibraryUtils {
         }
         return new InsideClusterPage(driver);
     }
-
 }

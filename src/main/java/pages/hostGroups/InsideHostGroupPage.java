@@ -10,18 +10,18 @@ import static com.codeborne.selenide.Selenide.title;
 
 public class InsideHostGroupPage extends LibraryUtils {
 
-    private SelenideElement pendingCreateHostGroupState=$x("//span[@id='state-popover'][contains(.,'Pending Create')]");
-    private SelenideElement shuttingDownHostGroupState=$x("//span[@id='state-popover'][contains(.,'Shutting Down')]");
-    private SelenideElement deletingHostGroupState=$x("//span[@id='state-popover'][contains(.,'Deleting')]");
-    private SelenideElement connectedHostGroupState=$x("//span[@id='state-popover'][contains(.,'Connected')]");
-    private SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
-    private SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
-    private SelenideElement editHostGroupButton=$x("//a[@id='editHostGroup']");
-    private SelenideElement deleteHostGroupButton=$x("//a[@id='deleteHostGroup']");
-    private SelenideElement nameInputField=$x("//input[@id='name']");
-    private SelenideElement deleteButton=$x("//button[contains(.,'Delete')]");
+    private final SelenideElement pendingCreateHostGroupState=$x("//span[@id='state-popover'][contains(.,'Pending Create')]");
+    private final SelenideElement shuttingDownHostGroupState=$x("//span[@id='state-popover'][contains(.,'Shutting Down')]");
+    private final SelenideElement deletingHostGroupState=$x("//span[@id='state-popover'][contains(.,'Deleting')]");
+    private final SelenideElement connectedHostGroupState=$x("//span[@id='state-popover'][contains(.,'Connected')]");
+    private final SelenideElement modelContentPanelTitle=$x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
+    private final SelenideElement editHostGroupButton=$x("//a[@id='editHostGroup']");
+    private final SelenideElement deleteHostGroupButton=$x("//a[@id='deleteHostGroup']");
+    private final SelenideElement nameInputField=$x("//input[@id='name']");
+    private final SelenideElement deleteButton=$x("//button[contains(.,'Delete')]");
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
 
     public InsideHostGroupPage(WebDriver driver){

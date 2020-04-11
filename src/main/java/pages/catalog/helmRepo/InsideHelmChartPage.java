@@ -13,20 +13,20 @@ import static org.testng.Assert.assertEquals;
 
 public class InsideHelmChartPage extends LibraryUtils {
 
-    private SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
-    private SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
-    private SelenideElement deleteRepositoryButton=$x("//a[@id='deleteChartRepository']");
-    private SelenideElement editRepositoryButton=$x("//a[@id='editChartRepository']");
-    private SelenideElement inputNameField=$x("//input[@id='name']");
-    private SelenideElement inputLocationField=$x("//input[@id='location']");
-    private SelenideElement saveButton=$x("//button[contains(text(),'Save')]");
-    private SelenideElement deleteButton=$x("//button[contains(text(),'Delete')]");
-    private SelenideElement catalogDropdown=$x("//select[@id='catalog']");
-    private SelenideElement updateCheckbox=$x("//ins[@class='iCheck-helper']");
-    private SelenideElement importChartButton=$x("//button[text()='Import Chart']");
+    private final SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
+    private final SelenideElement actionButton=$x("//a[@class='btn btn-default dropdown-toggle']");
+    private final SelenideElement deleteRepositoryButton=$x("//a[@id='deleteChartRepository']");
+    private final SelenideElement editRepositoryButton=$x("//a[@id='editChartRepository']");
+    private final SelenideElement inputNameField=$x("//input[@id='name']");
+    private final SelenideElement inputLocationField=$x("//input[@id='location']");
+    private final SelenideElement saveButton=$x("//button[contains(text(),'Save')]");
+    private final SelenideElement deleteButton=$x("//button[contains(text(),'Delete')]");
+    private final SelenideElement catalogDropdown=$x("//select[@id='catalog']");
+    private final SelenideElement updateCheckbox=$x("//ins[@class='iCheck-helper']");
+    private final SelenideElement importChartButton=$x("//button[text()='Import Chart']");
 
     private SelenideElement application;
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public InsideHelmChartPage(WebDriver driver){
         this.driver=driver;

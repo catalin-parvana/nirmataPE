@@ -13,25 +13,25 @@ import static org.testng.Assert.*;
 
 public class EnvironmentsPage extends LibraryUtils {
 
-    private SelenideElement toggleCardView=$x("//*[@id='toggleCardView']");
-    private SelenideElement toggleTableView=$x("//*[@id='toggleTableView']");
-    private SelenideElement addEnvironmentButton= $x("//button[@class='btn btn-primary']");
-    private SelenideElement inputNameField= $("input#name");
-    private SelenideElement environmentTypeDropdown=$("select#resourceType");
-    private SelenideElement clusterDropdown=$("select#hostCluster");
-    private SelenideElement finishButton=$x("//button[text()='Finish']");
-    private SelenideElement modelContentPanelTitle=$("h1#model-content-panel-title");
-    private SelenideElement selectEnvironmentType=$("#resourceType");
-    private SelenideElement selectCluster=$("#hostCluster");
-    private SelenideElement nextButtonEnabled=$x("(//button[contains(text(),'Next')][not(@disabled)])[2]");
-    private SelenideElement nextButton = $x("(//button[contains(text(),'Next')])[2]");
-    private SelenideElement actionButton= $x("//a[@class='btn  dropdown-toggle']");
+    private final SelenideElement toggleCardView=$x("//*[@id='toggleCardView']");
+    private final SelenideElement toggleTableView=$x("//*[@id='toggleTableView']");
+    private final SelenideElement addEnvironmentButton= $x("//button[@class='btn btn-primary']");
+    private final SelenideElement inputNameField= $("input#name");
+    private final SelenideElement environmentTypeDropdown=$("select#resourceType");
+    private final SelenideElement clusterDropdown=$("select#hostCluster");
+    private final SelenideElement finishButton=$x("//button[text()='Finish']");
+    private final SelenideElement modelContentPanelTitle=$("h1#model-content-panel-title");
+    private final SelenideElement selectEnvironmentType=$("#resourceType");
+    private final SelenideElement selectCluster=$("#hostCluster");
+    private final SelenideElement nextButtonEnabled=$x("(//button[contains(text(),'Next')][not(@disabled)])[2]");
+    private final SelenideElement nextButton = $x("(//button[contains(text(),'Next')])[2]");
+    private final SelenideElement actionButton= $x("//a[@class='btn  dropdown-toggle']");
 
 
     private SelenideElement environment;
     private boolean found=false;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
 
     public EnvironmentsPage(WebDriver driver){

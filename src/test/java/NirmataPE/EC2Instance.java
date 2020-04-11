@@ -12,10 +12,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class EC2Instance extends NirmataSetup {
 
-    protected NirmataApplicationProperties appProperties= new NirmataApplicationProperties();
-    private String awsAccount = appProperties.properties.getProperty("awsAccount");
-    private String awsUsername = appProperties.properties.getProperty("awsUsername");
-    private String awsPassword = appProperties.properties.getProperty("awsPassword");
+    private final String awsAccount = appProperties.properties.getProperty("awsAccount");
+    private final String awsUsername = appProperties.properties.getProperty("awsUsername");
+    private final String awsPassword = appProperties.properties.getProperty("awsPassword");
+    private String ec2InstanceID,ec2InstanceIP;
     private PropertiesConfiguration config;
 
 
@@ -35,7 +35,7 @@ public class EC2Instance extends NirmataSetup {
         $x("//span[contains(text(),'" + templateName + "')]").shouldBe(visible).click();
         $x("//button[contains(.,'Launch instance from template')]").shouldBe(visible).scrollIntoView(true).click();
         $x("//*[@data-id='summaryContainer'][contains(.,'Successfully initiated launch of instance')]").shouldBe(visible);
-        String ec2InstanceID=$x("//*[@data-id='summaryContainer']/a").shouldBe(visible).getText();
+        ec2InstanceID=$x("//*[@data-id='summaryContainer']/a").shouldBe(visible).getText();
         $x("//*[@data-id='summaryContainer']/a").shouldBe(visible).click();
         System.out.println("ec2InstanceID= "+ec2InstanceID);
         try {
@@ -50,8 +50,8 @@ public class EC2Instance extends NirmataSetup {
 
     @Test(description = "Get Instance Ip")
     public void getInstanceIP() {
-        appProperties= new NirmataApplicationProperties();
-        String ec2InstanceID = appProperties.properties.getProperty("ec2InstanceID");
+//        appProperties= new NirmataApplicationProperties();
+        ec2InstanceID = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceID");
         System.out.println(ec2InstanceID);
         open("https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Instances:search=" + ec2InstanceID + ";sort=desc:launchTime");
         $x("//*[@id='iam_user_radio_button']").shouldBe(visible).click();
@@ -63,7 +63,7 @@ public class EC2Instance extends NirmataSetup {
         $x("//a[@id='signin_button']").shouldBe(visible).click();
         $x("//td/div[text()='"+ec2InstanceID+"']/../..//*[text()='running']").waitUntil(visible, 120000).click();
         $x("//span[@id='detailsPublicIp']").shouldBe(visible);
-        String ec2InstanceIP = $x("//span[@id='detailsPublicIp']").shouldBe(visible).getText();
+        ec2InstanceIP = $x("//span[@id='detailsPublicIp']").shouldBe(visible).getText();
         try {
             config = new PropertiesConfiguration("resources/data/Application.properties");
             config.setProperty("ec2InstanceIP",ec2InstanceIP);
@@ -79,8 +79,8 @@ public class EC2Instance extends NirmataSetup {
 
     @Test(description = "Test Delete EC2 Instance")
     public void deleteEC2Instance(){
-        appProperties= new NirmataApplicationProperties();
-        String ec2InstanceID = appProperties.properties.getProperty("ec2InstanceID");
+//        appProperties= new NirmataApplicationProperties();
+        ec2InstanceID = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceID");
         System.out.println(ec2InstanceID);
         open("https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Instances:search="+ec2InstanceID+";sort=securityGroupNames");
         $x("//*[@id='iam_user_radio_button']").shouldBe(visible).click();
