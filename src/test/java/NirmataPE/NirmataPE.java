@@ -89,7 +89,7 @@ public class NirmataPE  extends NirmataSetup {
         catch(Exception e) {
             e.printStackTrace();
         }finally {
-            System.out.println("End of test");
+            System.out.println("=============== End of test ================");
         }
 
     }
