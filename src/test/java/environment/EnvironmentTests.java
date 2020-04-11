@@ -28,7 +28,6 @@ public class EnvironmentTests extends NirmataSetup {
                 .waitForClusterConnectedStatus()
                 .verifyPanelTitle(environmentName);
         back();
-        refresh();
         environmentsPage
                 .isCreatedEnvironmentDisplayed(environmentName);
 

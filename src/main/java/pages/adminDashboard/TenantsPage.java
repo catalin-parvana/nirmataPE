@@ -19,7 +19,6 @@ public class TenantsPage extends LibraryUtils {
     private final SelenideElement logOutButton=$x("//a[contains(.,'Log Out')]");
     private final SelenideElement tenantsPage=$x("//li[@id='menu-tenant']");
     private final SelenideElement administratorsPage=$x("//li[@id='menu-admin']");
-    private final SelenideElement settingsPage=$x("//li[@id='menu-settings']");
     private final SelenideElement emailServicePage=$x("//li[@id='menu-smtp']");
     private final SelenideElement licencePage=$x("//li[@id='menu-license']");
     private final SelenideElement modelContentPanelTitle=$x("//div[@id='model-content-panel-actions']");
@@ -37,7 +36,6 @@ public class TenantsPage extends LibraryUtils {
         this.driver=driver;
         tenantsPage.shouldBe(visible);
         administratorsPage.shouldBe(visible);
-        settingsPage.shouldBe(visible);
         emailServicePage.shouldBe(visible);
         licencePage.shouldBe(visible);
     }

@@ -38,18 +38,17 @@ public class NirmataSetup {
 	public static ExtentTest test;
 	public static ExtentTest methodInfo;
 
-	protected String email = appProperties.properties.getProperty("email");
-	protected String password = appProperties.properties.getProperty("password");
-	private String reportDirectory = appProperties.properties.getProperty("ReportDirectory");
+	protected  String email = appProperties.properties.getProperty("email");
+	protected  String password = appProperties.properties.getProperty("password");
+	private final String reportDirectory = appProperties.properties.getProperty("ReportDirectory");
 
-	private String absolutePath = System.getProperty("user.dir");
-	private String osName = System.getProperty("os.name");
-	private String osVersion = System.getProperty("os.version");
-	private String osArch = System.getProperty("os.arch");
-	private String javaRuntimeVersion = System.getProperty("java.runtime.version");
-	private String host = System.getProperty("user.name");
-	private String browserName;
-	private String browserVersion;
+	private final String absolutePath = System.getProperty("user.dir");
+	private final String osName = System.getProperty("os.name");
+	private final String osVersion = System.getProperty("os.version");
+	private final String osArch = System.getProperty("os.arch");
+	private final String javaRuntimeVersion = System.getProperty("java.runtime.version");
+	private final String host = System.getProperty("user.name");
+	private String browserName,browserVersion;
 	private Capabilities cap;
 
 
@@ -76,18 +75,15 @@ public class NirmataSetup {
 		extent.setSystemInfo("Java Version", javaRuntimeVersion);
 	}
 
-
 	@BeforeMethod
-	public void logIn(Method method, ITestResult result) {
-		appProperties = new NirmataApplicationProperties();
-		String url = appProperties.properties.getProperty("url");
+	public void openBrowser(Method method, ITestResult result) {
+		String url = (new NirmataApplicationProperties()).properties.getProperty("url");
 		test = extent.createTest(result.getMethod().getDescription()).assignCategory(result.getMethod().getGroups());
 		open(url);
 		cap = ((EventFiringWebDriver) WebDriverRunner.getWebDriver()).getCapabilities();
 		browserName = cap.getBrowserName().toLowerCase();
 		browserVersion = cap.getVersion();
 	}
-
 
 	@AfterMethod
 	public void getResult(ITestResult result) throws Exception {

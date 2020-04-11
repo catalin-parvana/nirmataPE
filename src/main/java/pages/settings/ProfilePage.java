@@ -4,9 +4,9 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
 import utils.LibraryUtils;
-import utils.NirmataApplicationProperties;
 
-import java.awt.*;
+import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -16,6 +16,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+
 
 public class ProfilePage extends LibraryUtils {
 
@@ -33,8 +34,7 @@ public class ProfilePage extends LibraryUtils {
     private final SelenideElement modalWindowMessage = $x("//div[@class='bootstrap-dialog-message']");
     private final SelenideElement okButton = $x("//*[@class='modal-footer']//button[contains(.,'Ok')]");
     private final SelenideElement downloadButton = $x("//*[@class='modal-footer']//button[contains(.,'Download')]");
-//    private NirmataApplicationProperties appProperties = new NirmataApplicationProperties();
-private final WebDriver driver;
+    private final WebDriver driver;
     private String copiedText;
 
 
@@ -71,14 +71,17 @@ private final WebDriver driver;
     }
 
     public ProfilePage verifyCopiedApiKey(){
+
+
+
         try {
-            copiedText=(String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+            copiedText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
         } catch (UnsupportedFlavorException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("String from Clipboard: " + copiedText);
+        System.out.println("String from Clipboard: "+copiedText);
         assertTrue(!copiedText.equals("return")&&(copiedText!=null),"API Key was not copied");
         return this;
     }

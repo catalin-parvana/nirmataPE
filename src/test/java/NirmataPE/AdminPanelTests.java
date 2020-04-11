@@ -31,7 +31,7 @@ public class AdminPanelTests extends NirmataSetup {
         tenantsPage
                 .clickAddTenantButton()
                 .setNameInputField("regression-tenant")
-                .setTenantAdminNameInputField("regression-tenant")
+//                .setTenantAdminNameInputField("regression-tenant")
                 .setTenantAdminEmailInputField("regression-tenant@gmail.com")
                 .clickAddButton()
                 .isCreatedTenantDisplayed("regression-tenant");

@@ -1,5 +1,6 @@
 package NirmataPE;
 
+import com.aventstack.extentreports.Status;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.testng.annotations.Parameters;
@@ -15,11 +16,12 @@ public class EC2Instance extends NirmataSetup {
     private final String awsAccount = appProperties.properties.getProperty("awsAccount");
     private final String awsUsername = appProperties.properties.getProperty("awsUsername");
     private final String awsPassword = appProperties.properties.getProperty("awsPassword");
+    private final String nadmVersion = appProperties.properties.getProperty("nadmVersion");
     private String ec2InstanceID,ec2InstanceIP;
     private PropertiesConfiguration config;
 
 
-    @Test(description = "Test Create EC2 Instance From Template")
+    @Test(description = "Create EC2 Instance From Template")
     @Parameters({"templateName"})
     public void createEC2InstanceFromTemplate(String templateName) {
         open("https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#LaunchInstanceFromTemplate:");
@@ -46,13 +48,13 @@ public class EC2Instance extends NirmataSetup {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        		test.log(Status.PASS, "ec2InstanceID= "+"<b>"+ec2InstanceID+"/b");
+
     }
 
-    @Test(description = "Get Instance Ip")
-    public void getInstanceIP() {
-//        appProperties= new NirmataApplicationProperties();
+    @Test(description = "Get EC2 Instance Ip")
+    public void getEC2InstanceIP() {
         ec2InstanceID = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceID");
-        System.out.println(ec2InstanceID);
         open("https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Instances:search=" + ec2InstanceID + ";sort=desc:launchTime");
         $x("//*[@id='iam_user_radio_button']").shouldBe(visible).click();
         $x("//input[@id='resolving_input']").setValue(awsUsername);
@@ -74,14 +76,19 @@ public class EC2Instance extends NirmataSetup {
         }
         System.out.println("ec2InstanceIP= "+ec2InstanceIP);
         System.out.println("url= "+"https://"+ec2InstanceIP+":443");
+//        test.log(Status.PASS, "ec2InstanceID= "+"<b>"+ec2InstanceID+"</b>");
+//        test.log(Status.PASS, "ec2InstanceIP= "+"<b>"+ec2InstanceIP+"</b>");
+        test.log(Status.PASS, "ec2InstanceID= "+"<a href=https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Instances:search=" + ec2InstanceID + ";sort=desc:launchTime>"+ec2InstanceID+"</a>");
+        test.log(Status.PASS, "ec2InstanceIP= "+"<a href=https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Instances:search=" + ec2InstanceID + ";sort=desc:launchTime>"+ec2InstanceIP+"</a>");
+        test.log(Status.PASS, "nadmVersion= "+"<b>"+nadmVersion+"</b>");
+        test.log(Status.PASS, "NirmataPE url= "+ "<a href=https://"+ec2InstanceIP+":443>"+"https://"+ec2InstanceIP+":443</a>");
     }
 
 
-    @Test(description = "Test Delete EC2 Instance")
+    @Test(description = "Delete EC2 Instance")
     public void deleteEC2Instance(){
-//        appProperties= new NirmataApplicationProperties();
         ec2InstanceID = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceID");
-        System.out.println(ec2InstanceID);
+        System.out.println("ec2InstanceID= "+ec2InstanceID);
         open("https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Instances:search="+ec2InstanceID+";sort=securityGroupNames");
         $x("//*[@id='iam_user_radio_button']").shouldBe(visible).click();
         $x("//input[@id='resolving_input']").setValue(awsUsername);
@@ -98,7 +105,7 @@ public class EC2Instance extends NirmataSetup {
         $x("//span[contains(text(),'Yes, Terminate')]").shouldBe(visible).click();
         $x("//span[contains(text(),'Yes, Terminate')]").should(disappear);
         $x("//td/div[text()='"+ec2InstanceID+"']/../..//*[text()='shutting-down']").waitUntil(disappear,120000);
-        $x("//td/div[text()='"+ec2InstanceID+"']/../..//*[text()='terminated']").waitUntil(appears,60000);
+        $x("//td/div[text()='"+ec2InstanceID+"']/../..//*[text()='terminated']").waitUntil(appears,120000);
         try {
             config = new PropertiesConfiguration("resources/data/Application.properties");
             config.setProperty("url","https://nirmata.io");
@@ -106,6 +113,7 @@ public class EC2Instance extends NirmataSetup {
         } catch (ConfigurationException e) {
             e.printStackTrace();
         }
+        test.log(Status.PASS, "ec2InstanceID= "+"<b>"+ec2InstanceID+"/b");
     }
 
 }
