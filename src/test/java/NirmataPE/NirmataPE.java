@@ -26,7 +26,7 @@ public class NirmataPE  extends NirmataSetup {
         String ec2InstanceIP = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceIP");
         System.out.println(" ================ Install Nirmata PE ======================");
         System.out.println("ec2InstanceIP= "+ec2InstanceIP);
-
+        System.out.println("nadmVersion: " + "tar -xf " + nadmVersion +".tar.gz" );
         try{
 
             JSch jsch=new JSch();
