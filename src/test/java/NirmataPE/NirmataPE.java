@@ -15,7 +15,7 @@ public class NirmataPE  extends NirmataSetup {
 
     private final String keyPair = System.getProperty("user.dir")+"/resources/data/nirmata-west-1-062014.pem";
     private final String nadmVersion = appProperties.properties.getProperty("nadmVersion");
-    private final String nadmUrl = appProperties.properties.getProperty("nadmUrl");
+    private final String nadmURL = appProperties.properties.getProperty("nadmURL");
 
     //private PropertiesConfiguration config;
 
@@ -27,7 +27,7 @@ public class NirmataPE  extends NirmataSetup {
         System.out.println(" ================ Install Nirmata PE ======================");
         System.out.println("ec2InstanceIP= "+ec2InstanceIP);
         System.out.println("nadmVersion: " + "tar -xf " + nadmVersion +".tar.gz" );
-        System.out.println("nadmURL= "+nadmUrl);
+        System.out.println("nadmURL= "+nadmURL);
         System.out.println("nadmVersion= "+nadmVersion);
         try{
 
@@ -35,9 +35,7 @@ public class NirmataPE  extends NirmataSetup {
             UserInfo ui=new MyUserInfo();
             jsch.addIdentity(keyPair);
             String host="ubuntu@"+ec2InstanceIP;
-            System.out.println("nadmURL= "+nadmUrl);
-            System.out.println("nadmVersion= "+nadmVersion);
-            String urladdress="urladdress="+ec2InstanceIP;
+      //      String urladdress="urladdress="+ec2InstanceIP;
 
             String user=host.substring(0, host.indexOf('@'));
             host=host.substring(host.indexOf('@')+1);
@@ -61,7 +59,7 @@ public class NirmataPE  extends NirmataSetup {
 
             String script ="sudo swapoff -a\n" +
                     "sudo apt update -y && sudo apt install -y docker.io\n" +
-                    "curl -LO " + nadmUrl +"\n" +
+                    "curl -LO " + nadmURL +"\n" +
                     "ls\n" +
                     "tar -xf " + nadmVersion +".tar.gz" + "\n" +
                     "cd " + nadmVersion + "\n" + "pwd\n"+
