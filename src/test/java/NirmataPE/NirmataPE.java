@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 
 public class NirmataPE  extends NirmataSetup {
 
-
     private final String keyPair = System.getProperty("user.dir")+"/resources/data/nirmata-west-1-062014.pem";
     private final String nadmVersion = appProperties.properties.getProperty("nadmVersion");
     private final String nadmUrl = appProperties.properties.getProperty("nadmUrl");
@@ -24,12 +23,9 @@ public class NirmataPE  extends NirmataSetup {
     @Test(description = "Install NirmataPE")
     public void installNirmataPE()  {
 
-        appProperties= new NirmataApplicationProperties();
-        String ec2InstanceIP = appProperties.properties.getProperty("ec2InstanceIP");
-        System.out.println("Nirmata PE installation test updated on 4/10 9:57pm");
+        String ec2InstanceIP = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceIP");
 
-
-        System.out.println(ec2InstanceIP);
+        System.out.println("ec2InstanceIP= "+ec2InstanceIP);
         JSch jsch=new JSch();
         UserInfo ui=new MyUserInfo();
 
@@ -87,7 +83,6 @@ public class NirmataPE  extends NirmataSetup {
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-
 
         }
         catch(Exception e) {
