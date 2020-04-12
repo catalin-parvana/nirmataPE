@@ -41,6 +41,8 @@ public class NirmataSetup {
 	protected  String email = appProperties.properties.getProperty("email");
 	protected  String password = appProperties.properties.getProperty("password");
 	private final String reportDirectory = appProperties.properties.getProperty("ReportDirectory");
+	private final String jenkinsJobPath=appProperties.properties.getProperty("jenkinsJobPath");
+
 
 	private final String absolutePath = System.getProperty("user.dir");
 	private final String osName = System.getProperty("os.name");
@@ -93,8 +95,7 @@ public class NirmataSetup {
 
 			String screenshotName=(result.getMethod().getDescription() + " " + result.getStartMillis());
 			String	screenshotPath=screenshot(screenshotName);
-			test.fail("Screenshot can be seen below: ").addScreenCaptureFromPath(screenshotPath);
-			test.fail("Screenshot path"+screenshotPath);
+			test.fail("Screenshot can be seen below: ").addScreenCaptureFromPath(jenkinsJobPath+ "/build/reports/tests/" +screenshotName+ ".png").addScreenCaptureFromPath(screenshotPath);
 
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			test.pass(MarkupHelper.createLabel("Test " + result.getName() + " executed successfully", ExtentColor.GREEN));
