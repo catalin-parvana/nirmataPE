@@ -52,6 +52,7 @@
     </classes>
 </test>
 
+<!--
 <test name="Delete EC2 Instance">
     <classes>
         <class name="NirmataPE.EC2Instance">
@@ -60,5 +61,5 @@
             </methods>
         </class>
     </classes>
-</test>
+</test>  -->
 </suite>
