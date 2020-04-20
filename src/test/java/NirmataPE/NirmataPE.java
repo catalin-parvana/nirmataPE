@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import static org.testng.Assert.assertTrue;
+
 
 public class NirmataPE  extends NirmataSetup {
 
@@ -26,10 +28,14 @@ public class NirmataPE  extends NirmataSetup {
     public void installNirmataPE()  {
         String ec2InstanceIP = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceIP");
         System.out.println(" ================ Install Nirmata PE ======================");
+        System.out.println("++ Update April 19 ++" );
         System.out.println("ec2InstanceIP= "+ec2InstanceIP);
+
         System.out.println("nadmVersion: " + "tar -xf " + nadmVersion +".tar.gz" );
         System.out.println("nadmURL= "+nadmURL);
         System.out.println("nadmVersion= "+nadmVersion);
+
+        ConsoleOutputCapturer capturer= new ConsoleOutputCapturer();
         try{
 
             JSch jsch=new JSch();
@@ -51,10 +57,12 @@ public class NirmataPE  extends NirmataSetup {
             System.out.println("IP address: " +ec2InstanceIP );
 
             Channel channel=session.openChannel("shell");
+
             channel.setInputStream(System.in);
             channel.setOutputStream(System.out);
 
             System.out.println(ec2InstanceIP);
+            capturer.start();
             channel.connect();
             System.out.println(ec2InstanceIP);
 
@@ -69,11 +77,12 @@ public class NirmataPE  extends NirmataSetup {
                     "urladdress="+ec2InstanceIP +"\n" + "echo $urladdress" + "\n" +
                     "sed \"s/%urladdress/${urladdress}/\" config > nadmconfig\n" +
                     "openssl req -subj '/O=Nirmata/CN=nirmata.local/C=US' -new -newkey rsa:2048 -days 3650 -sha256 -nodes -x509 -keyout server.key -out server.crt\n" +
-                    "echo \"y\" | sudo ./nadm install --quiet --nadmconfig nadmconfig\n" +
+                    "echo \"y\" | sudo ./nadm install --quiet --nadmconfig nadmconfig \n" +
                     "mkdir -p $HOME/.kube\n" +
                     "sudo cp -i /opt/nirmata/.nirmata-nadm/.kube/config $HOME/.kube/config\n" +
-                    "sudo chown $(id -u):$(id -g) $HOME/.kube/config\n"+
-                    "sudo kubectl get all -A\n";
+                    "sudo chown $(id -u):$(id -g) $HOME/.kube/config\n" ;
+            //"sudo kubectl get all -A\n";
+            ;
 
 
             ChannelExec channelExec = (ChannelExec) session.openChannel("exec");
@@ -87,15 +96,22 @@ public class NirmataPE  extends NirmataSetup {
                 System.out.println(line);
                 test.log(Status.PASS,line);
             }
+            System.out.println("=============== End of Installation ================");
+            if (channel != null) {
+                channel.disconnect();
+                session.disconnect();
+                System.out.println(channel.isConnected());
+            }
         }
         catch(Exception e) {
             e.printStackTrace();
         }finally {
-            System.out.println("=============== End of test ================");
+            String result;
+            result=capturer.stop();
+            assertTrue(result.contains("Nirmata is running!"),"Installation Failed");
+            System.out.println("=============== End of Installation ================");
         }
-
     }
-
 
     public static class MyUserInfo implements UserInfo{
         public String getPassword(){ return null; }

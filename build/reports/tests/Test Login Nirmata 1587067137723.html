@@ -1,0 +1,108 @@
+<html lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);"><!--<![endif]--><!-- start: HEAD --><head>
+<title>Nirmata | K8s Operations and Management</title>
+<link class="favicon" rel="shortcut icon" href="assets/nirmata/favicon.ico" type="image/x-icon">
+<link class="favicon" rel="icon" href="assets/nirmata/favicon.ico" type="image/x-icon">
+<!-- start: META -->
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="" name="description">
+<meta content="" name="author">
+
+<!-- end: META -->
+<script async="" src="//www.google-analytics.com/analytics.js"></script><script>
+
+        var useAnalytics = false;
+		var host = window.location.host;
+    	console.log("Host: " + host);
+
+        if (host === "www.nirmata.io" || host === "nirmata.io") {
+        	console.log("Enable analytics");
+        	useAnalytics = true;
+        }
+
+		if(useAnalytics) {
+	        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	        	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	        	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	        	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'UA-40469060-2', 'auto', {'allowLinker': true});
+	        ga('require', 'linker');
+	        ga('linker:autoLink', ['nirmata.com'] );
+	        ga('send', 'pageview');
+		}
+
+  </script>
+
+<!-- start: MAIN CSS -->
+<link rel="stylesheet" href="all.min.css">
+<link rel="stylesheet" href="css/bootstrap-social.css">
+<link rel="stylesheet" href="scss/styles.css">
+<!-- end: MAIN CSS -->
+
+<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+<link href="webclient-bundle.css" rel="stylesheet"><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+<!-- end: HEAD -->
+<!-- start: BODY -->
+<body class="theme-nirmata-default" style="overflow: auto;background-color:#F6F6F6;background-image: url('img/horizontal-background-faded.png');">
+	<!-- start: HEADER -->
+	<div class="navbar navbar-inverse navbar-fixed-top no-display">
+		<div class="header"></div>
+	</div>
+	<!-- end: HEADER -->
+
+	<div>
+		<div id="content"><div><div class="row center-block" style="width: 460px">     <div class="login-block">         <div class="logo">                                <a href="https://www.nirmata.com" target="_blank">                                               <img src="img/icon.png" width="90">                            </a>         </div>         <div class="login-title">                              <div class="login-message">Nirmata Automation</div>Hello, nirmata-automation                      </div>         <div>             <div class="login-body ">                 <form id="passwordForm" class="form" role="form" data-fieldsets=""><fieldset data-fields="">          <div class="form-group field-password">                     	<div class="email-address" style="font-size: 12px;color: #777;padding: 0px 2px;">Enter password for automation@nirmata.com</div>                         <i class="fa fa-lock" style="top:25px"></i>                         <div>                             <span data-editor=""><input id="password" class="form-control" name="password" placeholder="Enter your password" type="password" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);"></span>                             <p class="help-block" data-error=""></p>                         </div>                     </div></fieldset></form>                 <div class="row">                     <div class="col-sm-12" style="margin-top:-10px">                                                                               <a style="float:right;font-size:12px" href="/security/reset.html">forgot your password?</a>                                              </div>                 </div>                 <p id="form-errors" class="text-danger" style="font-size:14px;text-align:center;margin-top:10px;margin-bottom: 20px;">Invalid password. Please try again.</p>                 <div class="btn-group">                     <button id="btnLogin" type="button" action="login" class="btn btn-product-color" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);" __selenidehighlighting="done">                         <i class="fa fa-spinner fa-spin" id="loadingImage" style="display: none;"></i> Sign in                    </button>                 </div>                              <div>         </div>              </div>     </div> </div></div></div></div>
+	</div>
+
+	<!-- start: FOOTER -->
+	<div class="footer clearfix no-display">
+		<div class="footer-inner">2017 © Nirmata</div>
+		<div class="footer-items">
+			<span class="go-top"><i class="clip-chevron-up"></i></span>
+		</div>
+	</div>
+	<!-- end: FOOTER -->
+
+	<!-- start: MAIN JAVASCRIPTS -->
+
+	<script src="vendor.min.js"></script>
+	<script src="js/vendor/theme/plugins/jquery-ui-1.10.2.custom.min.js"></script>
+	<script src="js/vendor/theme/plugins/less-1.5.0.min.js"></script>
+	<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+	<script src="nirmata-framework.min.js"></script>
+  <script src="js/HelperFunctions.js"></script>
+	<script src="js/FormTemplate.js"></script>
+	<script src="js/LoginTemplates.js"></script>
+	<script src="js/AccountsTemplates.js"></script>
+
+  <script type="text/javascript" src="js/product/nirmata/product.js"></script>
+	<script src="js/LoginView.js"></script>
+
+
+	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+	<!-- end: MAIN JAVASCRIPTS -->
+	<script>
+	$( document ).ready(function() {
+		let url = window.location.host;
+		let company = url.split(".")[0];
+		switch(company) {
+			case "atos":
+				$('.favicon').attr("href", "img/atos-fav.png");
+				document.title = 'Atos | K8s Operations and Management'
+				return "img/atos-icon.png";
+				break;
+			default:
+				return "favicon.ico?v=2";
+		}
+	});
+	</script>
+<script type="text/javascript" src="webclient-bundle.js"></script>
+<!-- end: BODY -->
+
+</body></html>
