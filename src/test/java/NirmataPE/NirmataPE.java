@@ -94,13 +94,13 @@ public class NirmataPE  extends NirmataSetup {
             String line;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
-                test.log(Status.PASS,line);
+            //    test.log(Status.PASS,line);
             }
             System.out.println("=============== End of Installation ================");
             if (channel != null) {
                 channel.disconnect();
                 session.disconnect();
-                System.out.println(channel.isConnected());
+                System.out.println("isConnected=" + channel.isConnected());
             }
         }
         catch(Exception e) {
@@ -109,7 +109,7 @@ public class NirmataPE  extends NirmataSetup {
             String result;
             result=capturer.stop();
             assertTrue(result.contains("Nirmata is running!"),"Installation Failed");
-            System.out.println("=============== End of Installation ================");
+            System.out.println("=============== End of Installation Test ================");
         }
     }
 
