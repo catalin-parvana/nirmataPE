@@ -1,0 +1,553 @@
+<html lang="en" class=" js-focus-visible js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><!-- start: HEAD --><head><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style id="ace_editor.css">.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;box-sizing: border-box;min-width: 100%;contain: style size layout;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;contain: style size layout;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {position: absolute;top: 0;left: 0;right: 0;padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {contain: strict;position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;contain: strict;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: transparent;color: inherit;z-index: 1000;opacity: 1;}.ace_composition_placeholder { color: transparent }.ace_composition_marker { border-bottom: 1px solid;position: absolute;border-radius: 0;margin-top: 1px;}[ace_nocontext=true] {transform: none!important;filter: none!important;perspective: none!important;clip-path: none!important;mask : none!important;contain: none!important;perspective: none!important;mix-blend-mode: initial!important;z-index: auto;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;height: 1000000px;contain: style size layout;}.ace_text-layer {font: inherit !important;position: absolute;height: 1000000px;width: 1000000px;contain: style size layout;}.ace_text-layer > .ace_line, .ace_text-layer > .ace_line_group {contain: style size layout;position: absolute;top: 0;left: 0;right: 0;}.ace_hidpi .ace_text-layer,.ace_hidpi .ace_gutter-layer,.ace_hidpi .ace_content,.ace_hidpi .ace_gutter {contain: strict;will-change: transform;}.ace_hidpi .ace_text-layer > .ace_line, .ace_hidpi .ace_text-layer > .ace_line_group {contain: strict;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {transition: opacity 0.18s;}.ace_animate-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: step-end;animation-name: blink-ace-animate;animation-iteration-count: infinite;}.ace_animate-blinking.ace_smooth-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: ease-in-out;animation-name: blink-ace-animate-smooth;}@keyframes blink-ace-animate {from, to { opacity: 1; }60% { opacity: 0; }}@keyframes blink-ace-animate-smooth {from, to { opacity: 1; }45% { opacity: 1; }60% { opacity: 0; }85% { opacity: 0; }}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;box-sizing: border-box;}.ace_line .ace_fold {box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_inline_button {border: 1px solid lightgray;display: inline-block;margin: -1px 8px;padding: 0 5px;pointer-events: auto;cursor: pointer;}.ace_inline_button:hover {border-color: gray;background: rgba(200,200,200,0.2);display: inline-block;pointer-events: auto;}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_mobile-menu {position: absolute;line-height: 1.5;border-radius: 4px;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;background: white;box-shadow: 1px 3px 2px grey;border: 1px solid #dcdcdc;color: black;}.ace_dark > .ace_mobile-menu {background: #333;color: #ccc;box-shadow: 1px 3px 2px grey;border: 1px solid #444;}.ace_mobile-button {padding: 2px;cursor: pointer;overflow: hidden;}.ace_mobile-button:hover {background-color: #eee;opacity:1;}.ace_mobile-button:active {background-color: #ddd;}
+/*# sourceURL=ace/css/ace_editor.css */</style>
+		<title>Nirmata | Policies | Workload Policies</title>
+		<link class="favicon" rel="shortcut icon" href="favicon.ico?v=3" type="image/x-icon">
+		<link class="favicon" rel="icon" href="favicon.ico?v=3" type="image/x-icon">
+
+		<!-- start: META -->
+		<meta charset="utf-8">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta content="" name="description">
+		<meta content="" name="author">
+
+		<!-- end: META -->
+        <!-- Google Analytics -->
+        	        <!-- Start Intercom.io -->
+
+        <script>
+
+        var useAnalytics = false;
+		var host = window.location.host;
+    	console.log("Host: " + host);
+
+        if (host.indexOf("nirmata.io") != -1) {
+        	console.log("Enable analytics");
+        	useAnalytics = true;
+        }
+
+		if(useAnalytics) {
+
+	        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'UA-40469060-2', 'auto', {'allowLinker': true});
+	        ga('require', 'linker');
+	        ga('linker:autoLink', ['nirmata.com'] );
+	        ga('send', 'pageview');
+
+	        (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;
+	        s.src='https://widget.intercom.io/widget/ljyqomr5';
+	        var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+	    <!-- Stop Intercom.io -->
+		}
+
+        </script>
+<!-- End Google Analytics -->
+
+		<!-- start: MAIN CSS -->
+		<link rel="preload" href="fonts/clip-font.woff" as="font" crossorigin="">
+		<link rel="stylesheet" href="icons8/css/styles.min.css">
+		<!-- end: MAIN CSS -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+
+		<!--  link rel="stylesheet" href="css/nirmata-color-style.css"/ -->
+		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+
+
+	<link href="vendors~webclient-bundle.c3208f6cddba8b092a99.css" rel="stylesheet"><link href="webclient-bundle.de0bf0645e6d2bcddd06.css" rel="stylesheet"><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style><style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+	from { opacity: 0.99; }
+	to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+	animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+	position: absolute;
+	direction: ltr;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+	position: absolute;
+	width: 1000000px;
+	height: 1000000px;
+	left: 0;
+	top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	left: 0;
+	top: 0;
+}
+</style></head>
+	<!-- end: HEAD -->
+	<!-- start: BODY -->
+	<body class="" style="overflow: hidden;">
+        <div class="navbar navbar-inverse navbar-fixed-top no-display" style="display: block;">
+	        <div class="header"><div><div class="container">
+	<div class="navbar-header">
+		<!-- start: RESPONSIVE MENU TOGGLER -->
+		<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+			<span class="fa fa-list"></span>
+		</button>
+		<!-- end: RESPONSIVE MENU TOGGLER -->
+		<!-- start: LOGO -->
+			<a class="navbar-brand" href="http://www.nirmata.com" target="_blank" style="font-size: 20px">
+				<img height="25" src="img/logo-white.png" style="margin-top: 1px">
+			</a>
+		<!-- end: LOGO -->
+		<div id="tenantLabelText"></div>
+	</div>
+	<div class="navbar-tools">
+		<!-- start: TOP NAVIGATION MENU -->
+		<ul class="nav navbar-right">
+			<li class="docs-menu">
+				<a href="https://docs.nirmata.io/" id="docs" target="_blank"><i class="fa fa-book"></i> docs</a>
+			</li>
+			<li class="support-menu">
+                <a id="Intercom" href="mailto:support@nirmata.com"><i class="fa fa-phone-square"></i> support</a>
+			</li>
+			<li class="dropdown current-user">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#" style="padding-top: 10px;">
+					<span class="username" style="margin-right:10px" id="loginName">nirmata-automation</span>
+					<span id="tenantName" style="float:right"><span id="tenant-name" class="tenant-name-badge" style="margin-right:-3px">nirmata</span></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="/security/login.html"><i class="fa fa-exchange"></i> &nbsp;Switch Accounts</a>
+					</li>
+					<li>
+						<a href="#profile"><i class="fa fa-user"></i> &nbsp;My Profile</a>
+					</li>
+					<li>
+						<a href="#logout"> <i class="fa fa-sign-out"></i> &nbsp;Log Out</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+</div></div>
+	        <div class="info-bar"><div><div class="info-message info-blue show-message">
+	<div class="info">Thanks for trying Nirmata! Your free trial ends <strong> in 30 days</strong>. <a href="mailto:sales@nirmata.com">Upgrade subscription.</a></div>
+	<button class="btn btn-link btn-info" style="backgroud-color:transparent" id="closeInfoBar"><i class="fa fa-times"></i></button>
+</div></div>
+	        </div>
+        </div>
+        <!-- start: This margin is to solve CSS margin collapsing due to async issue.-->
+        <div id="content-margin" class="main-container-margin show-message" style=""></div>
+        <!-- end -->
+        <div id="content" class="main-container show-message"><div><div id="main-navigation"><div><div class="navbar-content">
+	<!-- start: SIDEBAR -->
+	<div class="main-navigation navbar-collapse collapse" style="height: calc(100% - 44px)!important;">
+		<!-- start: MAIN MENU TOGGLER BUTTON -->
+		<div id="navigationToggler" class="navigation-toggler">
+			<i class="fa fa-angle-double-left"></i>
+		</div>
+		<!-- end: MAIN MENU TOGGLER BUTTON -->
+
+		<!-- start: MAIN NAVIGATION MENU -->
+		<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 782px;"><ul class="main-navigation-menu" style="height: 782px; overflow: hidden; width: auto;">
+            <li id="overview_menu" class=""><a href="#dashboards/overview"><i class="icons8-dashboard-1"></i>
+                    <span class="title"> Dashboards </span><i class="icons8-back"></i>
+                    <span class="selected"></span> </a>
+                    <ul class="sub-menu">
+                    	<li id="dashboard_overview_menu" class="active">
+                        	<a href="#dashboards/overview">
+                          	   Overview
+                        	</a>
+                    	</li>
+                    	<li id="dashboard_counts_menu">
+                      		<a href="#dashboards/counts">
+                      	        Counts
+                       	 	</a>
+                        </li>
+                        <li id="dashboard_inventory_menu">
+                            <a href="#dashboards/inventory">
+                                Inventory
+                            </a>
+                        </li>
+                        <li id="dashboard_Compliance_menu">
+                           <a href="#dashboards/policyReport">
+                                Compliance
+                            </a>
+                        </li>
+                   </ul>
+            </li>
+            <li id="activity_menu"><a href="#activity"><i class="icons8-log-3"></i>
+				<span class="title"> Activity </span>
+				<span class="selected"></span> </a>
+            </li>
+			<li id="alarms_menu"><a href="#alarms/currentAlarms"><i class="icons8-alarm-3"></i>
+				<span class="title"> Alarms </span>
+				<span class="selected"></span> </a>
+            </li>
+			<li id="applications_menu"><a href="#catalog"><i class="icons8-design-1"></i>
+				<span class="title"> Catalog</span><i class="icons8-back"></i>
+				<span class="selected"></span> </a>
+				<ul class="sub-menu">
+					<li id="currentCatalog_menu">
+                    	 <a href="#catalog">
+                           	Catalogs
+                       	</a>
+                   	</li>
+                   	<li id="chartRepositories_menu">
+                   		<a href="#chartRepositories">
+                          	Helm Charts
+                       	</a>
+                   	</li>
+				</ul>
+            </li>
+			<li id="env_menu"><a href="#environments"><i class="icons8-personal-computer"></i>
+					<span class="title"> Environments </span>
+					<span class="selected"></span> </a>
+			</li>
+			<li id="policies_menu" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);" class="open active"><a href="#policies"><i class="icons8-umbrella"></i>
+				<span class="title"> Policies </span><i class="icons8-back"></i>
+				<span class="selected"></span> </a>
+ 				<ul class="sub-menu" style="display: block;">
+					<li id="workloadPolicy_menu" class="active">
+                        <a href="#workloadPolicies">
+							Workload Policies
+                         <span class="badge alarm" style="float: right;margin-left: 5px;position:static">beta</span></a>
+                    </li>
+					<li id="configMapPolicy_menu">
+          	            <a href="#configMapPolicies">
+          		            Config Maps
+          	            </a>
+                    </li>
+                    <li id="secretPolicy_menu">
+                        <a href="#secretPolicies">
+                        Secrets
+                        </a>
+                    </li>
+                    <li id="resourcePatchPolicy_menu">
+                        <a href="#resourcePatchPolicies">
+                        Patch Policies
+                        </a>
+                    </li>
+                    <li id="environmentTypes_menu">
+                        <a href="#envtypes">
+                        Environment Types
+                        </a>
+                    </li>
+                    <li id="clusterPolicy_menu">
+                        <a href="#clusterPolicies">
+                        Cluster Policies
+                        </a>
+                    </li>
+				</ul>
+			</li>
+            <li id="hostClusters_menu"><a href="#clusters"><i class="icons8-neural-network-1"></i>
+            	<span class="title"> Clusters </span>
+                <span class="selected"></span></a>
+            </li>
+			<li id="hostgroups_menu"><a href="#hostGroups"><i class="icons8-storage-1"></i>
+				<span class="title"> Host Groups </span><i class="icons8-back"></i>
+				<span class="selected"></span> </a>
+                <ul class="sub-menu">
+                    <li id="aws_menu" class="hidden">
+                        <a href="#aws">
+                            <span class="title"> Amazon Web Services </span>
+                        </a>
+                    </li>
+                    <li id="azure_menu" class="hidden">
+                        <a href="#azure">
+                            <span class="title"> Microsoft Azure
+                        </span></a>
+                    </li>
+                    <li id="googlecloudplatform_menu" class="hidden">
+                        <a href="#googlecompute">
+                            <span class="title"> Google Cloud Platform </span>
+                        </a>
+                    </li>
+                    <li id="oraclecloudservices_menu" class="hidden">
+                        <a href="#oraclecloudservices">
+                            <span class="title"> Oracle Public Cloud </span>
+                        </a>
+                    </li>
+                    <li id="ibmcloud_menu" class="hidden">
+                        <a href="#ibmcloud">
+                            <span class="title"> IBM Cloud </span>
+                        </a>
+                    </li>
+                    <li id="digitalocean_menu" class="hidden">
+                        <a href="#digitalocean">
+                            <span class="title"> Digital Ocean </span>
+                        </a>
+                    </li>
+                    <li id="vsphere_menu" class="hidden">
+                        <a href="#vsphere">
+                            <span class="title"> VMware vSphere </span>
+                        </a>
+                    </li>
+                    <li id="nutanix_menu" class="hidden">
+                        <a href="#nutanix">
+                            <span class="title"> Nutanix </span>
+                        </a>
+                    </li>
+                    <li id="diamanti_menu" class="hidden">
+                        <a href="#diamanti">
+                            <span class="title"> Diamanti </span>
+                        </a>
+                    </li>
+                    <li id="pivotal_menu" class="hidden">
+                        <a href="#pivotal">
+                            <span class="title"> Pivotal </span>
+                        </a>
+                    </li>
+                    <li id="openstack_menu" class="hidden">
+                        <a href="#openstack">
+                            <span class="title"> OpenStack </span>
+                        </a>
+                    </li>
+                    <li id="hyperflex_menu" class="hidden">
+                        <a href="#hyperflex">
+                            <span class="title"> Cisco HyperFlex </span>
+                        </a>
+                    </li>
+                    <li id="other_host_groups_menu">
+                        <a href="#otherHostGroups">
+                            <span class="title"> Direct Connect </span>
+                        </a>
+                    </li>
+                    <li class="navigation-menu-divider" style="margin: 0px 15px;"></li>
+                    <li id="all_hosts_menu">
+                        <a href="#hosts">
+                            <span class="title"> All Hosts </span>
+                        </a>
+                    </li>
+                    <li id="all_containers_menu">
+                        <a href="#containers">
+                            <span class="title"> All Containers </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li id="providers_menu"><a href="#providers"><i class="icons8-cloud-host-1"></i>
+               <span class="title"> Cloud Providers </span>
+                <span class="selected"></span></a>
+            </li>
+            <li id="registries_menu"><a href="#registries"><i class="icons8-registry-editor"></i>
+               <span class="title"> Image Registries </span>
+                <span class="selected"></span></a>
+            </li>
+           <li id="iam_menu"><a href="#users"><i class="icons8-security-pass-1"></i>
+               <span class="title"> Identity &amp; Access </span><i class="icons8-back"></i>
+               <span class="selected"></span> </a>
+               <ul class="sub-menu">
+                   <li id="users_menu">
+                       <a href="#users">
+                           <span class="title"> Users </span>
+                       </a>
+                   </li>
+                   <li id="teams_menu">
+                       <a href="#teams">
+                           <span class="title"> Teams </span>
+                       </a>
+                   </li>
+                   <li id="saml_menu">
+                       <a href="#saml">
+                           <span class="title"> SAML </span>
+                       </a>
+                   </li>
+                   <li id="mfa_menu">
+                       <a href="#mfa">
+                           <span class="title"> MFA </span>
+                       </a>
+                   </li>
+               </ul>
+           </li>
+			<li id="settings_menu"><a href="#profile"><i class="icons8-gear-outline"></i>
+                <span class="title"> Settings </span><i class="icons8-back"></i>
+                <span class="selected"></span> </a>
+                <ul class="sub-menu">
+                    <li id="profile_menu">
+                        <a href="#profile">
+                            <span class="title"> Profile </span>
+                        </a>
+                    </li>
+                    <li id="account_menu">
+                        <a href="#account">
+                            <span class="title"> Account </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+		</ul><div class="slimScrollBar" style="background: rgb(51, 51, 51); width: 7px; position: absolute; top: 0px; opacity: 0.1; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 781.001px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+			<!-- end: MAIN NAVIGATION MENU -->
+	</div>
+	<!-- end: SIDEBAR -->
+</div>
+</div></div>
+<div class="main-content">
+	<div id="main-content-panel" class="container" style="min-height: 836px;"><div><div id="model-table-panel">
+
+	 <div class="row model-panel-header">
+	<div class="col-md-12">
+		<!-- start: PAGE HEADER -->
+		
+		<div id="model-crumbs">
+		</div>
+		
+		<div class="page-header">
+			<div class="row">
+				<div class="col-md-8">
+					<h1 style="display: inline-block;padding-right:10px;margin-bottom:5px;" id="model-content-panel-title">Workload Policies</h1>
+				</div>
+				<div id="model-content-panel-actions" class="col-md-4 text-right-md text-right-lg">
+					<span id="model-action-button"><div style="display:inline-block">                   <div id="addResourcePolicy-group" class="btn-group" style="display:inline-block">                        <button id="addResourcePolicy" data-id="" action="addResourcePolicy" type="button" class="btn btn-primary">                  <i class="fa fa-plus"></i> Add Policy            </button>                    </div>                       </div>        <div class="btn-group" style="display:inline-block;width:50px;">         <a class="btn  dropdown-toggle" data-toggle="dropdown" href="#" style="padding:5px 15px">       <i class="fa fa-ellipsis-v"></i>     </a>      <ul role="menu" class="dropdown-menu pull-right">                                            <li>             <a href="#" id="importResourcePolicies" data-id="" action="importResourcePolicies">               <i class="icon-fixed-width fa fa-upload"></i> Import Policy YAMLs             </a>           </li>                        </ul> </div></span>
+				</div>
+			</div>						
+			<div class="row">
+				<div class="col-md-12" id="model-content-panel-header"></div>
+			</div>
+		</div>
+		<div id="status-bar" style="margin-top: -1px;border-top: 2px solid transparent;">
+			<div style="margin-top: -2px;" class="pull-left text-right-md text-right-lg">				
+				<div><span id="model-content-panel-status"></span></div>
+			</div>
+			<div id="page-subtitle" class="pull-left" style="max-width:75%">
+			</div>
+			<div id="page-subtitle-right" class="pull-right">
+			</div>
+		</div>
+
+		<!-- end: PAGE PAGE HEADER -->
+
+	</div>
+</div>
+ 
+
+	<div class="row" id="pre-panel" style="margin-bottom: 20px; padding: 0px 5px;"><div><div class="col-sm-6 col-md-6" style="padding: 0px 10px;">
+	<div class="dashboard-chart-wrapper info-block" style="padding: 0px;">
+		<div class="dashboard-chart-stage" style="min-height: 200px;">
+			<div id="resource-policies-by-category" style="min-height: 212px; max-height: 200px; position: relative;" class="c3"><svg width="440" height="200" style="overflow: hidden;"><defs><clipPath id="c3-1588266078827-clip"><rect width="440" height="181"></rect></clipPath><clipPath id="c3-1588266078827-clip-xaxis"><rect x="-31" y="-20" width="502" height="30"></rect></clipPath><clipPath id="c3-1588266078827-clip-yaxis"><rect x="-29" y="-9" width="20" height="210"></rect></clipPath><clipPath id="c3-1588266078827-clip-grid"><rect width="440" height="181"></rect></clipPath><clipPath id="c3-1588266078827-clip-subchart"><rect width="440" height="0"></rect></clipPath></defs><g transform="translate(0.5,9.5)"><text class="c3-text c3-empty" text-anchor="middle" dominant-baseline="middle" x="220" y="90.5" style="opacity: 0;">None</text><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip)" class="c3-regions" style="visibility: hidden;"></g><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip-grid)" class="c3-grid" style="visibility: hidden;"><g class="c3-xgrid-focus"><line class="c3-xgrid-focus" x1="-10" x2="-10" y1="0" y2="181" style="visibility: hidden;"></line></g></g><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip)" class="c3-chart"><g class="c3-stanford-elements"><g class="c3-stanford-lines" style="shape-rendering: geometricprecision;"></g><g class="c3-stanford-texts"></g><g class="c3-stanford-regions"></g></g><g class="c3-event-rects" style="fill-opacity: 0;"><rect class="c3-event-rect" x="0" y="0" width="440" height="181"></rect></g><g class="c3-chart-bars"><g class="c3-chart-bar c3-target c3-target-Security" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-Security c3-bars c3-bars-Security" style="cursor: pointer;"></g></g><g class="c3-chart-bar c3-target c3-target-Workload-Isolation" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-Workload-Isolation c3-bars c3-bars-Workload-Isolation" style="cursor: pointer;"></g></g><g class="c3-chart-bar c3-target c3-target-Workload-Management" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-Workload-Management c3-bars c3-bars-Workload-Management" style="cursor: pointer;"></g></g></g><g class="c3-chart-lines"><g class="c3-chart-line c3-target c3-target-Security" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-Security c3-lines c3-lines-Security"></g><g class=" c3-shapes c3-shapes-Security c3-areas c3-areas-Security"></g><g class=" c3-selected-circles c3-selected-circles-Security"></g><g class=" c3-shapes c3-shapes-Security c3-circles c3-circles-Security" style="cursor: pointer;"></g></g><g class="c3-chart-line c3-target c3-target-Workload-Isolation" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-Workload-Isolation c3-lines c3-lines-Workload-Isolation"></g><g class=" c3-shapes c3-shapes-Workload-Isolation c3-areas c3-areas-Workload-Isolation"></g><g class=" c3-selected-circles c3-selected-circles-Workload-Isolation"></g><g class=" c3-shapes c3-shapes-Workload-Isolation c3-circles c3-circles-Workload-Isolation" style="cursor: pointer;"></g></g><g class="c3-chart-line c3-target c3-target-Workload-Management" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-Workload-Management c3-lines c3-lines-Workload-Management"></g><g class=" c3-shapes c3-shapes-Workload-Management c3-areas c3-areas-Workload-Management"></g><g class=" c3-selected-circles c3-selected-circles-Workload-Management"></g><g class=" c3-shapes c3-shapes-Workload-Management c3-circles c3-circles-Workload-Management" style="cursor: pointer;"></g></g></g><g class="c3-chart-arcs" transform="translate(145.4375,90.5)"><text class="c3-chart-arcs-title" style="text-anchor: middle; opacity: 1;"></text><g class="c3-chart-arc c3-target c3-target-Security"><g class=" c3-shapes c3-shapes-Security c3-arcs c3-arcs-Security"><path class=" c3-shape c3-shape c3-arc c3-arc-Security" transform="scale(1,1)" style="fill: rgb(164, 193, 218); cursor: default;" d="M5.2644504278346846e-15,-85.975A85.975,85.975,0,0,1,45.26000520338064,73.09741824435358L24.202718688286417,39.088732815169A45.97499999999999,45.97499999999999,0,0,0,2.8151568295399773e-15,-45.97499999999999Z"></path></g><text dy=".35em" class="" transform="translate(62.538504460123676,-17.793738653855613)" style="opacity: 1; text-anchor: middle; pointer-events: none;">7</text></g><g class="c3-chart-arc c3-target c3-target-Workload-Isolation"><g class=" c3-shapes c3-shapes-Workload-Isolation c3-arcs c3-arcs-Workload-Isolation"><path class=" c3-shape c3-shape c3-arc c3-arc-Workload-Isolation" transform="scale(1,1)" style="fill: rgb(255, 127, 14); cursor: default;" d="M45.26000520338064,73.09741824435358A85.975,85.975,0,0,1,-85.60824580696558,-7.9327722048574305L-45.7788787551642,-4.242037826325331A45.97499999999999,45.97499999999999,0,0,0,24.202718688286417,39.088732815169Z"></path></g><text dy=".35em" class="" transform="translate(-34.228948250387475,55.28164955084934)" style="opacity: 1; text-anchor: middle; pointer-events: none;">6</text></g><g class="c3-chart-arc c3-target c3-target-Workload-Management"><g class=" c3-shapes c3-shapes-Workload-Management c3-arcs c3-arcs-Workload-Management"><path class=" c3-shape c3-shape c3-arc c3-arc-Workload-Management" transform="scale(1,1)" style="fill: rgb(102, 187, 106); cursor: default;" d="M-85.60824580696558,-7.9327722048574305A85.975,85.975,0,0,1,6.05677883502142e-14,-85.975L3.238853235709331e-14,-45.97499999999999A45.97499999999999,45.97499999999999,0,0,0,-45.7788787551642,-4.242037826325331Z"></path></g><text dy=".35em" class="" transform="translate(-43.80411180967642,-48.05082167826052)" style="opacity: 1; text-anchor: middle; pointer-events: none;">4</text></g></g><g class="c3-chart-texts"><g class="c3-chart-text c3-target c3-target-Security  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-Security"></g></g><g class="c3-chart-text c3-target c3-target-Workload-Isolation  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-Workload-Isolation"></g></g><g class="c3-chart-text c3-target c3-target-Workload-Management  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-Workload-Management"></g></g></g></g><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip-grid)" class="c3-grid c3-grid-lines"><g class="c3-xgrid-lines"></g><g class="c3-ygrid-lines"></g></g><g class="c3-axis c3-axis-x" clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip-xaxis)" transform="translate(0,181)" style="visibility: visible; opacity: 0;"><text class="c3-axis-x-label" transform="" style="text-anchor: end;" x="440" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(220, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">0</tspan></text></g><path class="domain" d="M0,6V0H440V6"></path></g><g class="c3-axis c3-axis-y" clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip-yaxis)" transform="translate(0,0)" style="visibility: visible; opacity: 0;"><text class="c3-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" transform="translate(0,166)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">4</tspan></text></g><g class="tick" transform="translate(0,141)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">4.5</tspan></text></g><g class="tick" transform="translate(0,116)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">5</tspan></text></g><g class="tick" transform="translate(0,91)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">5.5</tspan></text></g><g class="tick" transform="translate(0,66)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">6</tspan></text></g><g class="tick" transform="translate(0,41)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">6.5</tspan></text></g><g class="tick" transform="translate(0,16)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">7</tspan></text></g><path class="domain" d="M-6,1H0V181H-6"></path></g><g class="c3-axis c3-axis-y2" transform="translate(440,0)" style="visibility: hidden; opacity: 0;"><text class="c3-axis-y2-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(0,181)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,163)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.1</tspan></text></g><g class="tick" transform="translate(0,145)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.2</tspan></text></g><g class="tick" transform="translate(0,127)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.3</tspan></text></g><g class="tick" transform="translate(0,109)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.4</tspan></text></g><g class="tick" transform="translate(0,91)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.5</tspan></text></g><g class="tick" transform="translate(0,73)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.6</tspan></text></g><g class="tick" transform="translate(0,56)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.7</tspan></text></g><g class="tick" transform="translate(0,37)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.8</tspan></text></g><g class="tick" transform="translate(0,19)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.9</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">1</tspan></text></g><path class="domain" d="M6,1H0V181H6"></path></g></g><g transform="translate(0.5,200.5)" style="visibility: hidden;"><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip-subchart)" class="c3-chart"><g class="c3-chart-bars"></g><g class="c3-chart-lines"></g></g><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip)" class="c3-brush" fill="none" pointer-events="all"><rect class="overlay" pointer-events="all" cursor="crosshair" x="0" y="0" width="440" height="0"></rect><rect class="selection" cursor="move" fill="#777" fill-opacity="0.3" stroke="#fff" shape-rendering="crispEdges" style="display: none;"></rect><rect class="handle handle--w" cursor="ew-resize" style="display: none;"></rect><rect class="handle handle--e" cursor="ew-resize" style="display: none;"></rect></g><g class="c3-axis-x" transform="translate(0,0)" clip-path="url(https://18.144.86.44/webclient/#c3-1588266078827-clip-xaxis)" style="opacity: 0;"><g class="tick" transform="translate(220, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">0</tspan></text></g><path class="domain" d="M0,6V0H440V6"></path></g></g><g transform="translate(244.9875,0)"><g class="c3-legend-item c3-legend-item-Security" style="visibility: visible; cursor: pointer;"><text x="14" y="84.25" style="pointer-events: none;">Security</text><rect class="c3-legend-item-event" x="0" y="70.25" width="64.546875" height="16.5" style="fill-opacity: 0; pointer-events: none;"></rect><line class="c3-legend-item-tile" x1="-2" y1="79.25" x2="8" y2="79.25" stroke-width="10" style="stroke: rgb(164, 193, 218); pointer-events: none;"></line></g><g class="c3-legend-item c3-legend-item-Workload-Isolation" style="visibility: visible; cursor: pointer;"><text x="14" y="100.75" style="pointer-events: none;">Workload Isolation</text><rect class="c3-legend-item-event" x="0" y="86.75" width="115.09375" height="16.5" style="fill-opacity: 0; pointer-events: none;"></rect><line class="c3-legend-item-tile" x1="-2" y1="95.75" x2="8" y2="95.75" stroke-width="10" style="stroke: rgb(255, 127, 14); pointer-events: none;"></line></g><g class="c3-legend-item c3-legend-item-Workload-Management" style="visibility: visible; cursor: pointer;"><text x="14" y="117.25" style="pointer-events: none;">Workload Management</text><rect class="c3-legend-item-event" x="0" y="103.25" width="139.125" height="16.5" style="fill-opacity: 0; pointer-events: none;"></rect><line class="c3-legend-item-tile" x1="-2" y1="112.25" x2="8" y2="112.25" stroke-width="10" style="stroke: rgb(102, 187, 106); pointer-events: none;"></line></g></g><text class="c3-title" x="220" y="0"></text></svg><div class="c3-tooltip-container" style="position: absolute; pointer-events: none; display: none;"></div></div>
+		</div>
+
+		<div style="border-top: 1px solid #ddd; background: #f3f3f3; padding: 5px; text-align: center; font-weight: 400; color: #555">
+			<span class="dashboard-count" style="padding-right: 5px; font-size: 16px; font-weight: 400;">
+				<!--<img height=12 src="img/three-dots.svg">-->
+			</span>
+			<span id="title" class="dashboard-title" style="font-size: 12px; font-weight: 400; text-transform: uppercase;">
+				<!--<a href="" class="dashboard-title-link">-->Policies By Category<!--</a>-->
+			</span>
+		</div>
+	</div>
+</div>
+</div><div><div class="col-sm-6 col-md-6" style="padding: 0px 10px;">
+	<div class="dashboard-chart-wrapper info-block" style="padding: 0px;">
+		<div class="dashboard-chart-stage" style="min-height: 200px;">
+			<div id="violations-by-cluster" style="min-height: 200px; text-align: center; max-height: 200px; position: relative;" class="c3"><svg width="440" height="200" style="overflow: hidden;"><defs><clipPath id="c3-1588266078952-clip"><rect width="440" height="181"></rect></clipPath><clipPath id="c3-1588266078952-clip-xaxis"><rect x="-31" y="-20" width="502" height="30"></rect></clipPath><clipPath id="c3-1588266078952-clip-yaxis"><rect x="-29" y="-9" width="20" height="210"></rect></clipPath><clipPath id="c3-1588266078952-clip-grid"><rect width="440" height="181"></rect></clipPath><clipPath id="c3-1588266078952-clip-subchart"><rect width="440" height="0"></rect></clipPath></defs><g transform="translate(0.5,9.5)"><text class="c3-text c3-empty" text-anchor="middle" dominant-baseline="middle" x="220" y="90.5">None</text><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip)" class="c3-regions" style="visibility: hidden;"></g><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip-grid)" class="c3-grid" style="visibility: hidden;"><g class="c3-xgrid-focus"><line class="c3-xgrid-focus" x1="-10" x2="-10" y1="0" y2="181" style="visibility: hidden;"></line></g></g><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip)" class="c3-chart"><g class="c3-stanford-elements"><g class="c3-stanford-lines" style="shape-rendering: geometricprecision;"></g><g class="c3-stanford-texts"></g><g class="c3-stanford-regions"></g></g><g class="c3-event-rects" style="fill-opacity: 0;"><rect class="c3-event-rect" x="0" y="0" width="440" height="181"></rect></g><g class="c3-chart-bars"></g><g class="c3-chart-lines"></g><g class="c3-chart-arcs" transform="translate(215,90.5)"><text class="c3-chart-arcs-title" style="text-anchor: middle; opacity: 1;"></text></g><g class="c3-chart-texts"></g></g><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip-grid)" class="c3-grid c3-grid-lines"><g class="c3-xgrid-lines"></g><g class="c3-ygrid-lines"></g></g><g class="c3-axis c3-axis-x" clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip-xaxis)" transform="translate(0,181)" style="visibility: visible; opacity: 0;"><text class="c3-axis-x-label" transform="" style="text-anchor: end;" x="440" dx="-0.5em" dy="-0.5em"></text><path class="domain" d="M0,6V0H440V6"></path></g><g class="c3-axis c3-axis-y" clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip-yaxis)" transform="translate(0,0)" style="visibility: visible; opacity: 0;"><text class="c3-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" transform="translate(0,181)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,163)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.1</tspan></text></g><g class="tick" transform="translate(0,145)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.2</tspan></text></g><g class="tick" transform="translate(0,127)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.3</tspan></text></g><g class="tick" transform="translate(0,109)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.4</tspan></text></g><g class="tick" transform="translate(0,91)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.5</tspan></text></g><g class="tick" transform="translate(0,73)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.6</tspan></text></g><g class="tick" transform="translate(0,56)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.7</tspan></text></g><g class="tick" transform="translate(0,37)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.8</tspan></text></g><g class="tick" transform="translate(0,19)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.9</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1</tspan></text></g><path class="domain" d="M-6,1H0V181H-6"></path></g><g class="c3-axis c3-axis-y2" transform="translate(440,0)" style="visibility: hidden; opacity: 0;"><text class="c3-axis-y2-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(0,181)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,163)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.1</tspan></text></g><g class="tick" transform="translate(0,145)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.2</tspan></text></g><g class="tick" transform="translate(0,127)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.3</tspan></text></g><g class="tick" transform="translate(0,109)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.4</tspan></text></g><g class="tick" transform="translate(0,91)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.5</tspan></text></g><g class="tick" transform="translate(0,73)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.6</tspan></text></g><g class="tick" transform="translate(0,56)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.7</tspan></text></g><g class="tick" transform="translate(0,37)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.8</tspan></text></g><g class="tick" transform="translate(0,19)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.9</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">1</tspan></text></g><path class="domain" d="M6,1H0V181H6"></path></g></g><g transform="translate(0.5,200.5)" style="visibility: hidden;"><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip-subchart)" class="c3-chart"><g class="c3-chart-bars"></g><g class="c3-chart-lines"></g></g><g clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip)" class="c3-brush" fill="none" pointer-events="all"><rect class="overlay" pointer-events="all" cursor="crosshair" x="0" y="0" width="440" height="0"></rect><rect class="selection" cursor="move" fill="#777" fill-opacity="0.3" stroke="#fff" shape-rendering="crispEdges" style="display: none;"></rect><rect class="handle handle--w" cursor="ew-resize" style="display: none;"></rect><rect class="handle handle--e" cursor="ew-resize" style="display: none;"></rect></g><g class="c3-axis-x" transform="translate(0,0)" clip-path="url(https://18.144.86.44/webclient/#c3-1588266078952-clip-xaxis)" style="opacity: 0;"><path class="domain" d="M0,6V0H440V6"></path></g></g><g transform="translate(314.55,0)"></g><text class="c3-title" x="220" y="0"></text></svg><div class="c3-tooltip-container" style="position: absolute; pointer-events: none; display: none;"></div></div>
+		</div>
+		<div style="position: absolute;bottom: 40px;right: -1px;width: 100%;padding: 0px 9px;">
+			<div class="btn-group btn-group-xs" role="group" aria-label="Extra-small button group" data-toggle="buttons" style="width: 100%;">
+				<label class="btn btn-default btn-nirmata active" id="byCategory" style="border-color: #dddddd;font-size: 10px;width: 49.8%;border-radius: 0px;"> <input type="radio" name="options" id="byCategoryOption"> By Category
+				</label> <label class="btn btn-default btn-nirmata" id="byCluster" style="border-color: #dddddd;border-radius: 0;width: 49.9%;font-size: 10px;"> <input type="radio" name="options" id="byClusterOption"> By Cluster
+				</label>
+			</div>
+		</div>
+		<div style="border-top: 1px solid #ddd; background: #f3f3f3; padding: 5px; text-align: center; font-weight: 400; color: #555">
+			<span id="count" class="dashboard-count" style="padding-right: 5px; font-size: 28px; font-weight: 400;"></span>
+			<span id="title" class="dashboard-title" style="font-size: 12px; font-weight: 400; text-transform: uppercase;">
+				<!--<a href="" class="dashboard-title-link">-->Violations<!--</a>-->
+			</span>
+		</div>
+	</div>
+</div>
+</div></div>
+	<div class="row space10" id="main-panel">
+		<div class="col-md-12" id="main-panel-bar">
+			<div class="col-md-12" style="margin: 10px 0px; padding: 0px;">
+				<span id="model-count" class="pull-left deck-title-badge">
+					17</span> 
+				<span class="search-box pull-left" id="searchBox" style="width: calc(100% - 280px); margin-right: 40px;">
+					<form class="backgrid-filter form-search" style="margin: 0px; width: 100%">
+						<span class="search">&nbsp;</span> 
+						<input type="search" id="input-filter" placeholder="search" size="34"> 
+						<a class="clear" id="clear-search" href="#">
+							<div style="font-size: 14px; display: block;">
+								<i class="fa fa-times"></i>
+							</div>
+						</a>
+					</form>
+				</span>
+				<div id="shortcut-button" class="pull-right" style="margin-right:1px"></div>
+			</div>
+			
+		</div>
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 model-table-container" id="modelTable_85"><table class="backgrid undefined"><thead><tr><th class="sortable renderable name"><a>Name<b class="sort-caret"></b></a></th><th class="sortable renderable category"><a>Category<b class="sort-caret"></b></a></th><th class="sortable renderable validationFailureAction"><a>Action<b class="sort-caret"></b></a></th><th class="sortable renderable type"><a>Policy Type<b class="sort-caret"></b></a></th><th class="sortable renderable deployedToClusters"><a>Clusters<b class="sort-caret"></b></a></th><th class="renderable enabled">Enabled</th><th class="sortable renderable violations"><a>Violations<b class="sort-caret"></b></a></th><th class="renderable id"> </th></tr></thead><tbody><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/58aee86d-c838-4d7a-9bb9-32ff918e2480">add-networkpolicy</a></td><td class="string-cell sortable renderable category">Workload Management</td><td class="link-cell sortable renderable">---</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="58aee86d-c838-4d7a-9bb9-32ff918e2480" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="58aee86d-c838-4d7a-9bb9-32ff918e2480" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="58aee86d-c838-4d7a-9bb9-32ff918e2480" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/8a8a0c72-b71c-4673-a492-34708a86b76a">add-ns-access-controls</a></td><td class="string-cell sortable renderable category">Workload Isolation</td><td class="link-cell sortable renderable">---</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="8a8a0c72-b71c-4673-a492-34708a86b76a" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="8a8a0c72-b71c-4673-a492-34708a86b76a" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="8a8a0c72-b71c-4673-a492-34708a86b76a" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/04ce5a48-820b-45a4-9ff2-56b6dec00d56">add-safe-to-evict</a></td><td class="string-cell sortable renderable category">Workload Management</td><td class="link-cell sortable renderable">---</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="04ce5a48-820b-45a4-9ff2-56b6dec00d56" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="04ce5a48-820b-45a4-9ff2-56b6dec00d56" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="04ce5a48-820b-45a4-9ff2-56b6dec00d56" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/b518afa5-281f-4d3a-a149-e47c43122243">disallow-bind-mounts</a></td><td class="string-cell sortable renderable category">Workload Isolation</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="b518afa5-281f-4d3a-a149-e47c43122243" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="b518afa5-281f-4d3a-a149-e47c43122243" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="b518afa5-281f-4d3a-a149-e47c43122243" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/11baf98e-d8dd-4241-a7a2-52ad52c77e2d">disallow-default-namespace</a></td><td class="string-cell sortable renderable category">Workload Isolation</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="11baf98e-d8dd-4241-a7a2-52ad52c77e2d" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="11baf98e-d8dd-4241-a7a2-52ad52c77e2d" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="11baf98e-d8dd-4241-a7a2-52ad52c77e2d" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/eed21955-da08-4ef1-8a30-07e1dcf6eaa8">disallow-docker-sock-mount</a></td><td class="string-cell sortable renderable category">Security</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="eed21955-da08-4ef1-8a30-07e1dcf6eaa8" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="eed21955-da08-4ef1-8a30-07e1dcf6eaa8" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="eed21955-da08-4ef1-8a30-07e1dcf6eaa8" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/805eeeca-38f2-468e-8449-5ff348689e30">disallow-helm-tiller</a></td><td class="string-cell sortable renderable category">Security</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="805eeeca-38f2-468e-8449-5ff348689e30" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="805eeeca-38f2-468e-8449-5ff348689e30" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="805eeeca-38f2-468e-8449-5ff348689e30" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/ae5e50c3-a679-42b5-a34e-50498b5f1609">disallow-host-pid-ipc</a></td><td class="string-cell sortable renderable category">Workload Isolation</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="ae5e50c3-a679-42b5-a34e-50498b5f1609" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="ae5e50c3-a679-42b5-a34e-50498b5f1609" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="ae5e50c3-a679-42b5-a34e-50498b5f1609" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/85ec57d0-ef32-4ef5-9acc-2e3f8dae659d">disallow-latest-tag</a></td><td class="string-cell sortable renderable category">Workload Isolation</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="85ec57d0-ef32-4ef5-9acc-2e3f8dae659d" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="85ec57d0-ef32-4ef5-9acc-2e3f8dae659d" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="85ec57d0-ef32-4ef5-9acc-2e3f8dae659d" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/670e4a6e-8642-4b6a-969b-9b6edd637401">disallow-new-capabilities</a></td><td class="string-cell sortable renderable category">Security</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="670e4a6e-8642-4b6a-969b-9b6edd637401" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="670e4a6e-8642-4b6a-969b-9b6edd637401" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="670e4a6e-8642-4b6a-969b-9b6edd637401" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/b529c78c-71a1-4f1f-a24d-199d4aacb8f1">disallow-privileged</a></td><td class="string-cell sortable renderable category">Security</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="b529c78c-71a1-4f1f-a24d-199d4aacb8f1" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="b529c78c-71a1-4f1f-a24d-199d4aacb8f1" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="b529c78c-71a1-4f1f-a24d-199d4aacb8f1" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/fab62bcd-109c-4a9f-885c-d9d640ea650f">disallow-root-user</a></td><td class="string-cell sortable renderable category">Security</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="fab62bcd-109c-4a9f-885c-d9d640ea650f" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="fab62bcd-109c-4a9f-885c-d9d640ea650f" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="fab62bcd-109c-4a9f-885c-d9d640ea650f" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/eb34f6cc-03d6-407a-a0f2-351c67f5542c">disallow-sysctls</a></td><td class="string-cell sortable renderable category">Security</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="eb34f6cc-03d6-407a-a0f2-351c67f5542c" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="eb34f6cc-03d6-407a-a0f2-351c67f5542c" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="eb34f6cc-03d6-407a-a0f2-351c67f5542c" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/f6d4331d-ae60-4dc6-aef1-1e80f04b8e3a">host-network-port</a></td><td class="string-cell sortable renderable category">Workload Isolation</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="f6d4331d-ae60-4dc6-aef1-1e80f04b8e3a" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="f6d4331d-ae60-4dc6-aef1-1e80f04b8e3a" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="f6d4331d-ae60-4dc6-aef1-1e80f04b8e3a" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/ce9ae771-5e8e-47f3-92f2-5e57ecf7afc1">require-pod-probes</a></td><td class="string-cell sortable renderable category">Workload Management</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="ce9ae771-5e8e-47f3-92f2-5e57ecf7afc1" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="ce9ae771-5e8e-47f3-92f2-5e57ecf7afc1" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="ce9ae771-5e8e-47f3-92f2-5e57ecf7afc1" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/f47681dc-53c8-4dbc-8943-98fdbe5c1bab">require-pod-requests-limits</a></td><td class="string-cell sortable renderable category">Workload Management</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="f47681dc-53c8-4dbc-8943-98fdbe5c1bab" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="f47681dc-53c8-4dbc-8943-98fdbe5c1bab" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="f47681dc-53c8-4dbc-8943-98fdbe5c1bab" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr><tr><td class="link-cell sortable renderable"><a href="#workloadPolicies/44721f02-e182-424b-a510-77f752681ba3">require-ro-rootfs</a></td><td class="string-cell sortable renderable category">Security</td><td class="link-cell sortable renderable">audit</td><td class="link-cell sortable renderable">NirmataManaged</td><td class="link-cell sortable renderable">0/0</td><td class="link-cell renderable"><i style="color:#35aa47" class="fa fa-check"></i></td><td class="link-cell sortable renderable">---</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="updateResourcePolicyYAML-group" class=" btn-group" style="display: none;">          <button id="updateResourcePolicyYAML" data-id="44721f02-e182-424b-a510-77f752681ba3" action="updateResourcePolicyYAML" title=" Edit YAML" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-file-code-o"></i>          </button>      </div>        <div id="modify_83-group" class=" btn-group">          <button id="modify_83" data-id="44721f02-e182-424b-a510-77f752681ba3" action="modify_83" title=" Edit Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-edit"></i>          </button>      </div>        <div id="delete_84-group" class=" btn-group">          <button id="delete_84" data-id="44721f02-e182-424b-a510-77f752681ba3" action="delete_84" title=" Delete Policy" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="fa fa-times"></i>          </button>      </div>    </div></td></tr></tbody></table></div>
+	</div>
+
+</div>
+</div></div>
+	<div id="floating-content" class="floating-window hide" style="z-index: 1060; max-height: 766px;">
+		<div class="close" id="close-floating-content" style="position: absolute;right: 8px;top: 8px;font-size: 26px;z-index:1"><i class="icons8-multiply"></i></div>
+		<div id="floating-content-panel"></div>
+	</div>
+	<div id="floating-content-left" class="floating-window hide" style="z-index: 1061; left: 20px; width: calc(50% - 50px); max-height: 766px;">
+		<div class="close" id="close-floating-content-left" style="position: absolute;right: 8px;top: 8px;font-size: 26px;z-index:1"><i class="icons8-multiply"></i></div>
+		<div id="floating-content-panel-left"></div>
+	</div>
+</div>
+</div></div>
+		<div class="notifications top-right"></div>
+		<div class="notifications bottom-right"></div>
+		<div class="notifications top-left"></div>
+		<div class="notifications bottom-left"></div>
+		<!-- start: FOOTER
+		<div class="footer clearfix no-display">
+			<div class="footer-inner">
+				2017 &copy; Nirmata
+			</div>
+			<div class="footer-items">
+				<span class="go-top"><i class="fa fa-chevron-up"></i></span>
+			</div>
+		</div>
+		end: FOOTER -->
+
+		<!-- start: MAIN JAVASCRIPTS -->
+		<script type="text/javascript" src="js/product/product.js"></script>
+
+	<script type="text/javascript" src="vendors~webclient.c8032f9faefcd7cbf8a3.js"></script><script type="text/javascript" src="webclient-bundle.f111977ab70837115a22.js"></script>
+	<!-- end: BODY -->
+
+</body></html>

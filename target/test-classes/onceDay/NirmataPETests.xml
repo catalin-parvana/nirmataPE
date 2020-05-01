@@ -4,24 +4,25 @@
 <!--    <listeners>-->
 <!--        <listener class-name="utils.NirmataReportListener"></listener>-->
 <!--    </listeners>-->
+<parameter name="clusterPolicyName" value="qualys-direct-connect" />
 
-<parameter name="templateName" value="NirmataPE-template" />
+    <parameter name="templateName" value="NirmataPE-template" />
 
-<!--<test name="Create EC2 Instance From Template">-->
-<!--    <classes>-->
-<!--        <class name="NirmataPE.EC2Instance">-->
-<!--            <methods>-->
-<!--                <include name = "createEC2InstanceFromTemplate"/>-->
-<!--            </methods>-->
-<!--        </class>-->
-<!--    </classes>-->
-<!--</test>-->
+<test name="Create EC2 Instance From Template">
+    <classes>
+        <class name="NirmataPE.EC2Instance">
+            <methods>
+                <include name = "createEC2InstanceFromTemplate"/>
+            </methods>
+        </class>
+    </classes>
+</test>
 
 <test name="Get EC2 Instance IP">
     <classes>
         <class name="NirmataPE.EC2Instance">
             <methods>
-                <include name = "getInstanceIP"/>
+                <include name = "getEC2InstanceIP"/>
             </methods>
         </class>
     </classes>
@@ -52,13 +53,28 @@
     </classes>
 </test>
 
-<test name="Delete EC2 Instance">
+<test name="Nirmata PE Setup Tests">
     <classes>
-        <class name="NirmataPE.EC2Instance">
+        <class name="NirmataPE.Setup">
             <methods>
-                <include name = "deleteEC2Instance"/>
+                <include name="initilization" />
+                <include name="addPrivateDockerRegistry" />
+                <include name="kyvernoAddOn" />
+                <include name="clustePolicy" />
             </methods>
         </class>
     </classes>
 </test>
+
+
+
+<!--<test name="Delete EC2 Instance">-->
+<!--    <classes>-->
+<!--        <class name="NirmataPE.EC2Instance">-->
+<!--            <methods>-->
+<!--                <include name = "deleteEC2Instance"/>-->
+<!--            </methods>-->
+<!--        </class>-->
+<!--    </classes>-->
+<!--</test>-->
 </suite>

@@ -17,7 +17,8 @@ public class ImageRegistriesPage extends LibraryUtils {
     private final SelenideElement locationInputField=$x("//input[@id='location']");
     private final SelenideElement usernameInputField=$x("//input[@id='username']");
     private final SelenideElement passwordInputField=$x("//input[@id='password']");
-    private final SelenideElement preferredRegistryCheckbox=$x("//ins[@class='iCheck-helper']");
+//  private final SelenideElement preferredRegistryCheckbox=$x("//ins[@class='iCheck-helper']");
+    private final SelenideElement preferredRegistryCheckbox=$x("//div[@class='icheckbox_square-blue']");
     private final SelenideElement privateCloudDropdown=$x("//select[@id='privateCloud']");
     private final SelenideElement cancelButton=$x("//button[text()='Cancel']");
     private final SelenideElement addButton=$x("//button[text()='Add']");

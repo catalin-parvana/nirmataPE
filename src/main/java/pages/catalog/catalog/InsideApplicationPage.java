@@ -2,6 +2,7 @@ package pages.catalog.catalog;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
+import pages.environment.InsideDeploymentPage;
 import pages.environment.InsideRunningApplicationPage;
 import utils.LibraryUtils;
 
@@ -38,6 +39,7 @@ public class InsideApplicationPage extends LibraryUtils {
     private final SelenideElement cloneApplicationModalWindowButton=$x("//button[contains(.,'Clone Application')]");
     private final SelenideElement moveApplicationModalWindowButton=$x("//button[contains(.,'Move Application')]");
     private final SelenideElement catalogNameOnModelCrumb=$x("//span[@class='status-badge status-light-gray']/../a");
+
 
     private SelenideElement application;
     private final WebDriver driver;
@@ -240,6 +242,12 @@ public class InsideApplicationPage extends LibraryUtils {
         SelenideElement runningApplicationLink=$x("//tbody//*[contains(text(),'"+deploymentName+"')]");
         click("Running Application"+deploymentName,runningApplicationLink);
         return new InsideRunningApplicationPage(driver);
+    }
+
+    public InsideDeploymentPage clickDeploymentLink(String deploymentName){
+        SelenideElement deploymentLink=$x("//tbody//*[contains(text(),'"+deploymentName+"')]");
+        click("Catalog Deployment"+deploymentName,deploymentLink);
+        return new InsideDeploymentPage(driver);
     }
 
 }

@@ -21,6 +21,8 @@ public class ClusterPoliciesPage extends LibraryUtils {
     private final SelenideElement nextButton=$x("//button[contains(@class,'btn-next')]");
     private final SelenideElement finishButton=$x("//button[contains(@class,'btn-finish')]");
     private final SelenideElement kubernetesVersionDropdown=$x("//select[@id='version']");
+    private final SelenideElement haproxyIngressCheckBox=$x("//*[contains(text(),'haproxy-ingress')]");
+    private final SelenideElement kyvernoCheckBox=$x("//*[contains(text(),'kyverno')]");
 
     public ClusterPoliciesPage(WebDriver driver){
         this.driver=driver;
@@ -49,6 +51,17 @@ public class ClusterPoliciesPage extends LibraryUtils {
 
     public ClusterPoliciesPage selectKubernetesVersionFromDropdown(String kubernetesVersionValue){
         selectOptionByValue("Kubernetes Version Dropdown",kubernetesVersionDropdown,kubernetesVersionValue);
+        return this;
+    }
+
+    public ClusterPoliciesPage selectHaproxyIngress(){
+        click("haproxy-ingress",haproxyIngressCheckBox);
+        return this;
+    }
+
+    public ClusterPoliciesPage unSelectKyverno(){
+        scrollIntoView("Kyverno",kyvernoCheckBox);
+        click("Kyverno",kyvernoCheckBox);
         return this;
     }
 
@@ -82,8 +95,8 @@ public class ClusterPoliciesPage extends LibraryUtils {
     private boolean isClusterPolicyDisplayed(String clusterPolicyName) {
         addClusterPolicyButton.shouldBe(visible);
         boolean found = false;
-        SelenideElement clusterPolicy = $x("//*[@class='rt-tr-group']//*[text()='"+clusterPolicyName+"']");
-
+       // SelenideElement clusterPolicy = $x("//*[@class='rt-tr-group']//*[text()='"+clusterPolicyName+"']");
+        SelenideElement clusterPolicy = $x("//a[contains(text(),'"+clusterPolicyName+"')]");
 
         if (clusterPolicy.exists()) {
             found = true;

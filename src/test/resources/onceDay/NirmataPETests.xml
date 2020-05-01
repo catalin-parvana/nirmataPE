@@ -4,8 +4,9 @@
 <!--    <listeners>-->
 <!--        <listener class-name="utils.NirmataReportListener"></listener>-->
 <!--    </listeners>-->
+<parameter name="clusterPolicyName" value="qualys-direct-connect" />
 
-<parameter name="templateName" value="NirmataPE-template" />
+    <parameter name="templateName" value="NirmataPE-template" />
 
 <test name="Create EC2 Instance From Template">
     <classes>
@@ -47,6 +48,19 @@
                 <include name = "createNewUser"/>
                 <include name = "editUser"/>
                 <include name = "deleteUser"/>
+            </methods>
+        </class>
+    </classes>
+</test>
+
+<test name="Nirmata PE Setup Tests">
+    <classes>
+        <class name="NirmataPE.Setup">
+            <methods>
+                <include name="initilization" />
+                <include name="addPrivateDockerRegistry" />
+                <include name="kyvernoAddOn" />
+                <include name="clustePolicy" />
             </methods>
         </class>
     </classes>

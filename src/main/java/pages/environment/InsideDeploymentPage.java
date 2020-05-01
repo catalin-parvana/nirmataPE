@@ -17,6 +17,8 @@ public class InsideDeploymentPage extends LibraryUtils {
     private final SelenideElement deleteDeploymentButton=$x("//a[@id='deleteComponent']");
     private final SelenideElement deleteButton=$x("//button[text()='Delete']");
     private final SelenideElement deploymentNameInputField=$x("//input[@id='name']");
+    private final SelenideElement editInitContainerButton=$x("//button[@id='editInitContainer']");
+    private final SelenideElement editContainerButton=$x("//button[@id='editContainer']");
 
     private final WebDriver driver;
 
@@ -58,4 +60,13 @@ public class InsideDeploymentPage extends LibraryUtils {
         return this;
     }
 
+    public InsideEditInitContainerPage editInitContainer(){
+        click("Edit Init Container Button",editInitContainerButton);
+        return new InsideEditInitContainerPage(driver);
+    }
+
+    public InsideEditContainerPage editContainer(){
+        click("Edit Container Button",editContainerButton);
+        return new InsideEditContainerPage(driver);
+    }
 }

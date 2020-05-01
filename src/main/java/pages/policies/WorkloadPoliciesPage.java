@@ -42,8 +42,8 @@ public class WorkloadPoliciesPage extends LibraryUtils {
 
     public WorkloadPoliciesPage(WebDriver driver){
         this.driver=driver;
-        addPolicyButton.shouldBe(visible);
-        actionButton.shouldBe(visible);
+   //     addPolicyButton.shouldBe(visible);
+  //      actionButton.shouldBe(visible);
     }
 
     public ConfigMapsPage clickConfigMaps(){

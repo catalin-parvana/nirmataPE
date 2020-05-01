@@ -1,0 +1,576 @@
+<html lang="en" class=" js-focus-visible js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><!-- start: HEAD --><head><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style id="ace_editor.css">.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;box-sizing: border-box;min-width: 100%;contain: style size layout;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;contain: style size layout;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {position: absolute;top: 0;left: 0;right: 0;padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {contain: strict;position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;contain: strict;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: transparent;color: inherit;z-index: 1000;opacity: 1;}.ace_composition_placeholder { color: transparent }.ace_composition_marker { border-bottom: 1px solid;position: absolute;border-radius: 0;margin-top: 1px;}[ace_nocontext=true] {transform: none!important;filter: none!important;perspective: none!important;clip-path: none!important;mask : none!important;contain: none!important;perspective: none!important;mix-blend-mode: initial!important;z-index: auto;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;height: 1000000px;contain: style size layout;}.ace_text-layer {font: inherit !important;position: absolute;height: 1000000px;width: 1000000px;contain: style size layout;}.ace_text-layer > .ace_line, .ace_text-layer > .ace_line_group {contain: style size layout;position: absolute;top: 0;left: 0;right: 0;}.ace_hidpi .ace_text-layer,.ace_hidpi .ace_gutter-layer,.ace_hidpi .ace_content,.ace_hidpi .ace_gutter {contain: strict;will-change: transform;}.ace_hidpi .ace_text-layer > .ace_line, .ace_hidpi .ace_text-layer > .ace_line_group {contain: strict;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {transition: opacity 0.18s;}.ace_animate-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: step-end;animation-name: blink-ace-animate;animation-iteration-count: infinite;}.ace_animate-blinking.ace_smooth-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: ease-in-out;animation-name: blink-ace-animate-smooth;}@keyframes blink-ace-animate {from, to { opacity: 1; }60% { opacity: 0; }}@keyframes blink-ace-animate-smooth {from, to { opacity: 1; }45% { opacity: 1; }60% { opacity: 0; }85% { opacity: 0; }}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;box-sizing: border-box;}.ace_line .ace_fold {box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_inline_button {border: 1px solid lightgray;display: inline-block;margin: -1px 8px;padding: 0 5px;pointer-events: auto;cursor: pointer;}.ace_inline_button:hover {border-color: gray;background: rgba(200,200,200,0.2);display: inline-block;pointer-events: auto;}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_mobile-menu {position: absolute;line-height: 1.5;border-radius: 4px;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;background: white;box-shadow: 1px 3px 2px grey;border: 1px solid #dcdcdc;color: black;}.ace_dark > .ace_mobile-menu {background: #333;color: #ccc;box-shadow: 1px 3px 2px grey;border: 1px solid #444;}.ace_mobile-button {padding: 2px;cursor: pointer;overflow: hidden;}.ace_mobile-button:hover {background-color: #eee;opacity:1;}.ace_mobile-button:active {background-color: #ddd;}
+/*# sourceURL=ace/css/ace_editor.css */</style>
+		<title>Nirmata | Catalog | Applications | kyverno | Workloads | kyverno</title>
+		<link class="favicon" rel="shortcut icon" href="favicon.ico?v=3" type="image/x-icon">
+		<link class="favicon" rel="icon" href="favicon.ico?v=3" type="image/x-icon">
+
+		<!-- start: META -->
+		<meta charset="utf-8">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta content="" name="description">
+		<meta content="" name="author">
+
+		<!-- end: META -->
+        <!-- Google Analytics -->
+        	        <!-- Start Intercom.io -->
+
+        <script>
+
+        var useAnalytics = false;
+		var host = window.location.host;
+    	console.log("Host: " + host);
+
+        if (host.indexOf("nirmata.io") != -1) {
+        	console.log("Enable analytics");
+        	useAnalytics = true;
+        }
+
+		if(useAnalytics) {
+
+	        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'UA-40469060-2', 'auto', {'allowLinker': true});
+	        ga('require', 'linker');
+	        ga('linker:autoLink', ['nirmata.com'] );
+	        ga('send', 'pageview');
+
+	        (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;
+	        s.src='https://widget.intercom.io/widget/ljyqomr5';
+	        var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+	    <!-- Stop Intercom.io -->
+		}
+
+        </script>
+<!-- End Google Analytics -->
+
+		<!-- start: MAIN CSS -->
+		<link rel="preload" href="fonts/clip-font.woff" as="font" crossorigin="">
+		<link rel="stylesheet" href="icons8/css/styles.min.css">
+		<!-- end: MAIN CSS -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+
+		<!--  link rel="stylesheet" href="css/nirmata-color-style.css"/ -->
+		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+
+
+	<link href="vendors~webclient-bundle.c3208f6cddba8b092a99.css" rel="stylesheet"><link href="webclient-bundle.de0bf0645e6d2bcddd06.css" rel="stylesheet"><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style><style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+	from { opacity: 0.99; }
+	to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+	animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+	position: absolute;
+	direction: ltr;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+	position: absolute;
+	width: 1000000px;
+	height: 1000000px;
+	left: 0;
+	top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	left: 0;
+	top: 0;
+}
+</style></head>
+	<!-- end: HEAD -->
+	<!-- start: BODY -->
+	<body class="" style="overflow: hidden;">
+        <div class="navbar navbar-inverse navbar-fixed-top no-display" style="display: block;">
+	        <div class="header"><div><div class="container">
+	<div class="navbar-header">
+		<!-- start: RESPONSIVE MENU TOGGLER -->
+		<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+			<span class="fa fa-list"></span>
+		</button>
+		<!-- end: RESPONSIVE MENU TOGGLER -->
+		<!-- start: LOGO -->
+			<a class="navbar-brand" href="http://www.nirmata.com" target="_blank" style="font-size: 20px">
+				<img height="25" src="img/logo-white.png" style="margin-top: 1px">
+			</a>
+		<!-- end: LOGO -->
+		<div id="tenantLabelText"></div>
+	</div>
+	<div class="navbar-tools">
+		<!-- start: TOP NAVIGATION MENU -->
+		<ul class="nav navbar-right">
+			<li class="docs-menu">
+				<a href="https://docs.nirmata.io/" id="docs" target="_blank"><i class="fa fa-book"></i> docs</a>
+			</li>
+			<li class="support-menu">
+                <a id="Intercom" href="mailto:support@nirmata.com"><i class="fa fa-phone-square"></i> support</a>
+			</li>
+			<li class="dropdown current-user">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#" style="padding-top: 10px;">
+					<span class="username" style="margin-right:10px" id="loginName">nirmata-automation</span>
+					<span id="tenantName" style="float:right"><span id="tenant-name" class="tenant-name-badge" style="margin-right:-3px">nirmata</span></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="/security/login.html"><i class="fa fa-exchange"></i> &nbsp;Switch Accounts</a>
+					</li>
+					<li>
+						<a href="#profile"><i class="fa fa-user"></i> &nbsp;My Profile</a>
+					</li>
+					<li>
+						<a href="#logout"> <i class="fa fa-sign-out"></i> &nbsp;Log Out</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+</div></div>
+	        <div class="info-bar"><div><div class="info-message info-blue show-message">
+	<div class="info">Thanks for trying Nirmata! Your free trial ends <strong> in 30 days</strong>. <a href="mailto:sales@nirmata.com">Upgrade subscription.</a></div>
+	<button class="btn btn-link btn-info" style="backgroud-color:transparent" id="closeInfoBar"><i class="fa fa-times"></i></button>
+</div></div>
+	        </div>
+        </div>
+        <!-- start: This margin is to solve CSS margin collapsing due to async issue.-->
+        <div id="content-margin" class="main-container-margin show-message" style=""></div>
+        <!-- end -->
+        <div id="content" class="main-container show-message"><div><div id="main-navigation"><div><div class="navbar-content">
+	<!-- start: SIDEBAR -->
+	<div class="main-navigation navbar-collapse collapse" style="height: calc(100% - 44px) !important;">
+		<!-- start: MAIN MENU TOGGLER BUTTON -->
+		<div id="navigationToggler" class="navigation-toggler">
+			<i class="fa fa-angle-double-left"></i>
+		</div>
+		<!-- end: MAIN MENU TOGGLER BUTTON -->
+
+		<!-- start: MAIN NAVIGATION MENU -->
+		<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 782px;"><ul class="main-navigation-menu" style="height: 782px; overflow: hidden; width: auto;">
+            <li id="overview_menu" class=""><a href="#dashboards/overview"><i class="icons8-dashboard-1"></i>
+                    <span class="title"> Dashboards </span><i class="icons8-back"></i>
+                    <span class="selected"></span> </a>
+                    <ul class="sub-menu">
+                    	<li id="dashboard_overview_menu" class="active">
+                        	<a href="#dashboards/overview">
+                          	   Overview
+                        	</a>
+                    	</li>
+                    	<li id="dashboard_counts_menu">
+                      		<a href="#dashboards/counts">
+                      	        Counts
+                       	 	</a>
+                        </li>
+                        <li id="dashboard_inventory_menu">
+                            <a href="#dashboards/inventory">
+                                Inventory
+                            </a>
+                        </li>
+                        <li id="dashboard_Compliance_menu">
+                           <a href="#dashboards/policyReport">
+                                Compliance
+                            </a>
+                        </li>
+                   </ul>
+            </li>
+            <li id="activity_menu"><a href="#activity"><i class="icons8-log-3"></i>
+				<span class="title"> Activity </span>
+				<span class="selected"></span> </a>
+            </li>
+			<li id="alarms_menu"><a href="#alarms/currentAlarms"><i class="icons8-alarm-3"></i>
+				<span class="title"> Alarms </span>
+				<span class="selected"></span> </a>
+            </li>
+			<li id="applications_menu" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);" class="open active"><a href="#catalog"><i class="icons8-design-1"></i>
+				<span class="title"> Catalog</span><i class="icons8-back"></i>
+				<span class="selected"></span> </a>
+				<ul class="sub-menu" style="display: block;">
+					<li id="currentCatalog_menu" class="active">
+                    	 <a href="#catalog">
+                           	Catalogs
+                       	</a>
+                   	</li>
+                   	<li id="chartRepositories_menu">
+                   		<a href="#chartRepositories">
+                          	Helm Charts
+                       	</a>
+                   	</li>
+				</ul>
+            </li>
+			<li id="env_menu"><a href="#environments"><i class="icons8-personal-computer"></i>
+					<span class="title"> Environments </span>
+					<span class="selected"></span> </a>
+			</li>
+			<li id="policies_menu"><a href="#policies"><i class="icons8-umbrella"></i>
+				<span class="title"> Policies </span><i class="icons8-back"></i>
+				<span class="selected"></span> </a>
+ 				<ul class="sub-menu">
+					<li id="workloadPolicy_menu">
+                        <a href="#workloadPolicies">
+							Workload Policies
+                         <span class="badge alarm" style="float: right;margin-left: 5px;position:static">beta</span></a>
+                    </li>
+					<li id="configMapPolicy_menu">
+          	            <a href="#configMapPolicies">
+          		            Config Maps
+          	            </a>
+                    </li>
+                    <li id="secretPolicy_menu">
+                        <a href="#secretPolicies">
+                        Secrets
+                        </a>
+                    </li>
+                    <li id="resourcePatchPolicy_menu">
+                        <a href="#resourcePatchPolicies">
+                        Patch Policies
+                        </a>
+                    </li>
+                    <li id="environmentTypes_menu">
+                        <a href="#envtypes">
+                        Environment Types
+                        </a>
+                    </li>
+                    <li id="clusterPolicy_menu">
+                        <a href="#clusterPolicies">
+                        Cluster Policies
+                        </a>
+                    </li>
+				</ul>
+			</li>
+            <li id="hostClusters_menu"><a href="#clusters"><i class="icons8-neural-network-1"></i>
+            	<span class="title"> Clusters </span>
+                <span class="selected"></span></a>
+            </li>
+			<li id="hostgroups_menu"><a href="#hostGroups"><i class="icons8-storage-1"></i>
+				<span class="title"> Host Groups </span><i class="icons8-back"></i>
+				<span class="selected"></span> </a>
+                <ul class="sub-menu">
+                    <li id="aws_menu" class="hidden">
+                        <a href="#aws">
+                            <span class="title"> Amazon Web Services </span>
+                        </a>
+                    </li>
+                    <li id="azure_menu" class="hidden">
+                        <a href="#azure">
+                            <span class="title"> Microsoft Azure
+                        </span></a>
+                    </li>
+                    <li id="googlecloudplatform_menu" class="hidden">
+                        <a href="#googlecompute">
+                            <span class="title"> Google Cloud Platform </span>
+                        </a>
+                    </li>
+                    <li id="oraclecloudservices_menu" class="hidden">
+                        <a href="#oraclecloudservices">
+                            <span class="title"> Oracle Public Cloud </span>
+                        </a>
+                    </li>
+                    <li id="ibmcloud_menu" class="hidden">
+                        <a href="#ibmcloud">
+                            <span class="title"> IBM Cloud </span>
+                        </a>
+                    </li>
+                    <li id="digitalocean_menu" class="hidden">
+                        <a href="#digitalocean">
+                            <span class="title"> Digital Ocean </span>
+                        </a>
+                    </li>
+                    <li id="vsphere_menu" class="hidden">
+                        <a href="#vsphere">
+                            <span class="title"> VMware vSphere </span>
+                        </a>
+                    </li>
+                    <li id="nutanix_menu" class="hidden">
+                        <a href="#nutanix">
+                            <span class="title"> Nutanix </span>
+                        </a>
+                    </li>
+                    <li id="diamanti_menu" class="hidden">
+                        <a href="#diamanti">
+                            <span class="title"> Diamanti </span>
+                        </a>
+                    </li>
+                    <li id="pivotal_menu" class="hidden">
+                        <a href="#pivotal">
+                            <span class="title"> Pivotal </span>
+                        </a>
+                    </li>
+                    <li id="openstack_menu" class="hidden">
+                        <a href="#openstack">
+                            <span class="title"> OpenStack </span>
+                        </a>
+                    </li>
+                    <li id="hyperflex_menu" class="hidden">
+                        <a href="#hyperflex">
+                            <span class="title"> Cisco HyperFlex </span>
+                        </a>
+                    </li>
+                    <li id="other_host_groups_menu">
+                        <a href="#otherHostGroups">
+                            <span class="title"> Direct Connect </span>
+                        </a>
+                    </li>
+                    <li class="navigation-menu-divider" style="margin: 0px 15px;"></li>
+                    <li id="all_hosts_menu">
+                        <a href="#hosts">
+                            <span class="title"> All Hosts </span>
+                        </a>
+                    </li>
+                    <li id="all_containers_menu">
+                        <a href="#containers">
+                            <span class="title"> All Containers </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li id="providers_menu"><a href="#providers"><i class="icons8-cloud-host-1"></i>
+               <span class="title"> Cloud Providers </span>
+                <span class="selected"></span></a>
+            </li>
+            <li id="registries_menu"><a href="#registries"><i class="icons8-registry-editor"></i>
+               <span class="title"> Image Registries </span>
+                <span class="selected"></span></a>
+            </li>
+           <li id="iam_menu"><a href="#users"><i class="icons8-security-pass-1"></i>
+               <span class="title"> Identity &amp; Access </span><i class="icons8-back"></i>
+               <span class="selected"></span> </a>
+               <ul class="sub-menu">
+                   <li id="users_menu">
+                       <a href="#users">
+                           <span class="title"> Users </span>
+                       </a>
+                   </li>
+                   <li id="teams_menu">
+                       <a href="#teams">
+                           <span class="title"> Teams </span>
+                       </a>
+                   </li>
+                   <li id="saml_menu">
+                       <a href="#saml">
+                           <span class="title"> SAML </span>
+                       </a>
+                   </li>
+                   <li id="mfa_menu">
+                       <a href="#mfa">
+                           <span class="title"> MFA </span>
+                       </a>
+                   </li>
+               </ul>
+           </li>
+			<li id="settings_menu"><a href="#profile"><i class="icons8-gear-outline"></i>
+                <span class="title"> Settings </span><i class="icons8-back"></i>
+                <span class="selected"></span> </a>
+                <ul class="sub-menu">
+                    <li id="profile_menu">
+                        <a href="#profile">
+                            <span class="title"> Profile </span>
+                        </a>
+                    </li>
+                    <li id="account_menu">
+                        <a href="#account">
+                            <span class="title"> Account </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+		</ul><div class="slimScrollBar" style="background: rgb(51, 51, 51); width: 7px; position: absolute; top: -1px; opacity: 0.1; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 783.001px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+			<!-- end: MAIN NAVIGATION MENU -->
+	</div>
+	<!-- end: SIDEBAR -->
+</div>
+</div></div>
+<div class="main-content">
+	<div id="main-content-panel" class="container" style="min-height: 826px;"><div><div id="model-content-panel" model-id="11e4c891-fefb-45be-be1e-6b81b3f6bc55">
+
+	<div class="row" style="padding:0px 15px;background: #fff;">
+		<div class="row model-panel-header">
+			<div class="col-md-12">
+				<!-- start: PAGE HEADER -->
+				
+				<div id="model-crumbs"><ul class="nirmata-breadcrumb"> 			<li> 				 				<a href="#catalog"><b><i class="icons8-design-1" style="color: #2e5496;margin-left: 5px;"></i> Catalog</b></a> 			</li> 			<li> 				 					<span class="status-badge status-light-gray" style="background: #ddd;border-radius: 10px;margin-right: 5px;">Application</span> 				 				<a href="#applications/19155169-d414-483c-812b-9bff70aa1821">kyverno</a> 			</li><li id="active-crumb" class="active">kyverno</li></ul></div>
+				
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-10">
+								<div class="pull-left model-index-name">Catalog  Deployment</div>
+							<h1 style="display: inline-block;padding-right:10px;margin-bottom:5px;" id="model-content-panel-title">kyverno</h1>
+						</div>
+						<div id="model-content-panel-actions" class="col-md-2 text-right-md text-right-lg">
+							<span id="model-action-button"><div class="btn-group" style="width:55px;">       <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" style="padding:5px 15px">     <i class="fa fa-ellipsis-v"></i>   </a>   <ul role="menu" class="dropdown-menu pull-right">                     <li>           <a href="#" id="deleteComponent" data-id="11e4c891-fefb-45be-be1e-6b81b3f6bc55" action="deleteComponent">             <i class="icon-fixed-width icons8-delete-forever"></i> Delete  Deployment           </a>         </li>               </ul> </div></span>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="col-md-12" id="model-content-panel-header"></div>
+					</div>
+				</div>
+				<div id="status-bar" style="margin-top: -1px;border-top: 2px solid transparent;">
+					<div style="margin-top: -2px;" class="pull-left text-right-md text-right-lg">				
+						<div><span id="model-content-panel-status"></span></div>
+					</div>
+					<div id="page-subtitle" class="pull-left" style="max-width:75%"><button action="runApplication" data-id="19155169-d414-483c-812b-9bff70aa1821" class="btn btn-nirmata-xs btn-light-blue" style="margin-top: 1px;font-size: 11px;margin-right: 10px;float: left;"><i class="icons8-video-playback-1"></i> Run application</button></div>
+					<div id="page-subtitle-right" class="pull-right"><span class="subtitle" style="padding-right: 0px;font-size: 11px;">Created <b>an hour ago</b> by <b>Nirmata</b></span></div>
+				</div>
+		
+				<!-- end: PAGE PAGE HEADER -->
+		
+			</div>
+		</div>
+		<div class="row model-panel-stats" model-id="11e4c891-fefb-45be-be1e-6b81b3f6bc55" style="margin-right: -5px;margin-left: -5px;margin-top: -10px;margin-bottom: -5px;">
+			<div id="model-content-messages"></div>
+			<div id="model-content-stats" class="row" style="margin:0px;">
+				<div id="alarms" style="padding:0px"></div>
+				<div id="stats" style="padding:0px"></div>
+			</div>
+		</div>
+			<div class="row">
+				<div id="action-menu" style="padding-right:10px;margin-top:5px;">
+					<div id="search-section" style="width:200px;margin-right:0px;display:inline-block;"><div><div id="searchIconContainer" style="height:40px;">
+  <button id="sidebarOn" class="search-sidebar-on">
+    <i class="fa fa-search"> <span id="search-caret" class="caret caret-right"></span></i>
+  </button>
+</div>
+  <div id="searchSidebar" class="search-sidebar">
+    <div style="overflow:hidden;">
+      <a href="javascript:void(0)" id="sidebarOff" class="search-sidebar-off">×</a>
+      <span class="search">&nbsp;</span>
+      <div class="backgrid-filter form-search" style="margin-left: 20px;width:150px;"><span class="search">&nbsp;</span>
+        <input type="search" id="search-input" placeholder="search" autocomplete="off">
+        <a class="clear" id="clear-search" href="javascript:void(0)">
+         <span style="font-size: 14px;display: block;">
+           <i class="fa fa-times"></i>
+         </span>
+        </a>
+      </div>
+    </div>
+    <div id="expand-collapse-btn">
+      <a id="expand-all" href="javascript:void(0)"><i class="fa fa-plus-square"></i></a>
+      <a id="collapse-all" href="javascript:void(0)"><i class="fa fa-minus-square"></i></a>
+    </div>
+    <ul id="search-results-tree">
+
+    </ul>
+  </div>
+</div></div>
+					<div id="menu-section" class="pull-right" style="display:inline-block;"></div>
+				</div>
+			</div>
+	</div>
+
+	<div class="row model-panel-body" model-id="11e4c891-fefb-45be-be1e-6b81b3f6bc55">
+		<div id="model-content-panel-body" style="margin: 0px 10px;"><div class="row model-content-panel" id="catalog-component-details">
+	<div class="col-md-5" style="padding: 10px;">
+		<div class="info-section">
+			<div class="info-section-title">
+				<i class="icons8-documents-1"></i>  Deployment
+				<a href="#" action="editComponent">
+					<i class="icons8-create-1"></i>
+				</a>
+			</div>
+			<div id="component-info"><div> <form class="form-horizontal" role="form" onsubmit="return false" data-fieldsets=""><fieldset data-fields="">          <div class="form-group field-replicas" style="margin-bottom: 5px"> 			    <label class="col-sm-5 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="replicas"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Replicas:</span> 			    </label> 				<div class="col-sm-7" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="replicas" class="" name="replicas" step="1" max="2147483647">1</span></span> 				</div> 			</div><div class="form-group field-revisionHistoryLimit" style="margin-bottom: 5px"> 			    <label class="col-sm-5 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="revisionHistoryLimit"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Revision History Limit:</span> 			    </label> 				<div class="col-sm-7" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="revisionHistoryLimit" class="" name="revisionHistoryLimit" step="1" max="2147483647">5</span></span> 				</div> 			</div><div class="form-group field-minReadySeconds" style="margin-bottom: 5px"> 			    <label class="col-sm-5 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="minReadySeconds"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Minimum Ready Seconds:</span> 			    </label> 				<div class="col-sm-7" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="minReadySeconds" class="" name="minReadySeconds" step="1" max="2147483647"></span></span> 				</div> 			</div><div class="form-group field-progressDeadlineSeconds" style="margin-bottom: 5px"> 			    <label class="col-sm-5 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="progressDeadlineSeconds"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Progress Deadline Seconds:</span> 			    </label> 				<div class="col-sm-7" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="progressDeadlineSeconds" class="" name="progressDeadlineSeconds" step="1" max="2147483647"></span></span> 				</div> 			</div><div class="form-group field-type" style="margin-bottom: 5px"> 			    <label class="col-sm-5 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="type"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Strategy:</span> 			    </label> 				<div class="col-sm-7" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="type" class="" name="type">RollingUpdate</span></span> 				</div> 			</div><div class="form-group field-maxSurge" style="margin-bottom: 5px"> 			    <label class="col-sm-5 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="maxSurge"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Max Surge:</span> 			    </label> 				<div class="col-sm-7" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="maxSurge" class="" name="maxSurge">1</span></span> 				</div> 			</div><div class="form-group field-maxUnavailable" style="margin-bottom: 5px"> 			    <label class="col-sm-5 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="maxUnavailable"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Max Unavailable:</span> 			    </label> 				<div class="col-sm-7" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="maxUnavailable" class="" name="maxUnavailable">0</span></span> 				</div> 			</div></fieldset></form>     <p id="form-errors" class="text-danger text-center"></p> </div></div>
+			<div id="service-section"><div class="sub-section "> 			<div class="sub-section-title"> 				 				 					 						<a class="add-button" href="#" action="exposeComponent"> 							<i class="icons8-create-2"></i> 						</a> 					 					 					 						 					 				 			</div> 			 				<div class="info-section-content row" id="service-info"><table class="backgrid small-table no-border"><thead><tr><th class="sortable renderable name"><a>Services<b class="sort-caret"></b></a></th><th class="sortable renderable spec"><a>Type<b class="sort-caret"></b></a></th><th class="renderable id"> </th></tr></thead><tbody><tr><td class="string-url-name sortable renderable"><a href="#applications/service/9d8ea7de-34e9-45ec-9e5a-f8a26e7738a7">kyverno-svc</a></td><td class="relation-cell sortable renderable">ClusterIP</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="deleteService-group" class=" btn-group">          <button id="deleteService" data-id="9d8ea7de-34e9-45ec-9e5a-f8a26e7738a7" action="deleteService" title="Delete Service" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="icons8-delete-3"></i>          </button>      </div>    </div></td></tr></tbody></table></div> 			 			 		</div></div>
+			<div id="job-template-section"></div>
+			<div id="label-section"><div class="sub-section "> 			<div class="sub-section-title"> 				  Labels 				 					 					 						<a class="edit-button" href="#" action="editModelLabel" model-class="Catalog.Deployment" model-id="11e4c891-fefb-45be-be1e-6b81b3f6bc55"> 							<i class="icons8-create-1"></i> 						</a> 					 					 						 					 				 			</div> 			 				<div class="info-section-content row" id="label-info-11e4c891-fefb-45be-be1e-6b81b3f6bc55"><div> <form class="form-horizontal" role="form" onsubmit="return false" data-fieldsets=""><fieldset data-fields="">          <div class="form-group field-labels" style="margin-bottom: 5px">
+			<div class="col-sm-12" style="font-size:12px;padding-top: 1px;">
+				<span data-editor="" style="word-wrap: break-word;"><span id="labels" class="" name="labels"><span class="status-badge status-light-nirmata">app=kyverno</span><br><span class="status-badge status-light-nirmata">nirmata.io/component=kyverno</span></span></span>
+			</div>
+		</div></fieldset></form>     <p id="form-errors" class="text-danger text-center"></p> </div></div> 			 			 		</div></div>
+			<div id="selector-section"><div class="sub-section "> 			<div class="sub-section-title"> 				  Selector 				 					 					 						<a class="edit-button" href="#" action="editModelSelector" model-class="Catalog.DeploymentSpec" model-id="ff5c4611-3647-41a1-968c-6c553807408b"> 							<i class="icons8-create-1"></i> 						</a> 					 					 						 					 				 			</div> 			 				<div class="info-section-content row" id="selector-info-ff5c4611-3647-41a1-968c-6c553807408b"><div> <form class="form-horizontal" role="form" onsubmit="return false" data-fieldsets=""><fieldset data-fields="">          <div class="form-group field-selector" style="margin-bottom: 5px">
+			<div class="col-sm-12" style="font-size:12px;padding-top: 1px;">
+				<span data-editor="" style="word-wrap: break-word;"><span id="selector" class="" name="selector"><span class="status-badge status-blue-2">app=kyverno</span><br><span class="status-badge status-blue-2">nirmata.io/component=kyverno</span></span></span>
+			</div>
+		</div></fieldset></form>     <p id="form-errors" class="text-danger text-center"></p> </div></div> 			 			 		</div></div>
+			<div id="annotation-section"><div class="row sub-button-section " id="editModelAnnotation" action="editModelAnnotation" dataid="" model-class="Catalog.ObjectMeta" model-id="95dd696c-5e78-4b69-a015-a0045329fa40"> 				<div style="margin: -4px;"><i style="font-size: 28px;margin: 10px;" class="icons8-plus-math"></i></div> 				<span style="font-size: 14px;vertical-align: middle;display: inline-block;">Add Annotations</span> 			</div></div>
+		</div>
+	</div>
+
+	<div class="col-md-7" style="padding: 10px;">
+		<div class="info-section" id="pod-section">
+			<div class="info-section-title">
+				<i class="icons8-network-attached-storage-2"></i> Pod Template
+				<a href="#" action="editPod">
+					<i class="icons8-create-1"></i>
+				</a>
+			</div>
+			<div id="pod-info" style="padding: 10px;"><div> <form class="form-horizontal" role="form" onsubmit="return false" data-fieldsets=""><fieldset data-fields="">          <div class="form-group field-serviceAccountName" style="margin-bottom: 5px"> 			    <label class="col-sm-6 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="serviceAccountName"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Service Account:</span> 			    </label> 				<div class="col-sm-6" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="serviceAccountName" class="" name="serviceAccountName">kyverno-service-account</span></span> 				</div> 			</div><div class="form-group field-hostname" style="margin-bottom: 5px"> 			    <label class="col-sm-6 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="hostname"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Hostname:</span> 			    </label> 				<div class="col-sm-6" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="hostname" class="" name="hostname"></span></span> 				</div> 			</div><div class="form-group field-restartPolicy" style="margin-bottom: 5px"> 			    <label class="col-sm-6 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="restartPolicy"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Restart Policy:</span> 			    </label> 				<div class="col-sm-6" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="restartPolicy" class="" name="restartPolicy"></span></span> 				</div> 			</div><div class="form-group field-terminationGracePeriodSeconds" style="margin-bottom: 5px"> 			    <label class="col-sm-6 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="terminationGracePeriodSeconds"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Grace Period (Seconds):</span> 			    </label> 				<div class="col-sm-6" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="terminationGracePeriodSeconds" class="" name="terminationGracePeriodSeconds" step="1" max="2147483647">30</span></span> 				</div> 			</div><div class="form-group field-dnsPolicy" style="margin-bottom: 5px"> 			    <label class="col-sm-6 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="dnsPolicy"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">DNS Policy:</span> 			    </label> 				<div class="col-sm-6" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="dnsPolicy" class="" name="dnsPolicy"></span></span> 				</div> 			</div><div class="form-group field-priorityClassName" style="margin-bottom: 5px"> 			    <label class="col-sm-6 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="priorityClassName"> 			    	<span class="text-info" style="font-size:12px;font-weight:400">Priority Class:</span> 			    </label> 				<div class="col-sm-6" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="priorityClassName" class="" name="priorityClassName"></span></span> 				</div> 			</div></fieldset></form>     <p id="form-errors" class="text-danger text-center"></p> </div></div>
+			<div id="init-container-section"><div class="sub-section "> 			<div class="sub-section-title"> 				  Init Containers 				 					 						<a class="add-button" href="#" action="addInitContainer"> 							<i class="icons8-create-2"></i> 						</a> 					 					 					 						 					 				 			</div> 			 				<div class="info-section-content row" id="init-container-info"><table class="backgrid small-table no-border"><thead><tr><th class="sortable renderable name"><a>Name<b class="sort-caret"></b></a></th><th class="sortable renderable image"><a>Image<b class="sort-caret"></b></a></th><th class="sortable renderable ports"><a>Ports<b class="sort-caret"></b></a></th><th class="renderable id"> </th></tr></thead><tbody><tr><td class="string-url-name sortable renderable"><a href="#applications/container/93629ef9-5603-474d-9be5-654c791b7a24">kyverno-pre</a></td><td class="string-cell sortable renderable image">nirmata/kyvernopre:v1.1.3</td><td class="relation-cell multiline-cell sortable renderable">no ports</td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="editInitContainer-group" class=" btn-group">          <button id="editInitContainer" data-id="93629ef9-5603-474d-9be5-654c791b7a24" action="editInitContainer" title=" Edit Init Container" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="icons8-edit-2"></i>          </button>      </div>        <div id="deleteInitContainer-group" class=" btn-group">          <button id="deleteInitContainer" data-id="93629ef9-5603-474d-9be5-654c791b7a24" action="deleteInitContainer" title=" Delete Init Container" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="icons8-delete-3"></i>          </button>      </div>    </div></td></tr></tbody></table></div> 			 			 		</div></div>
+			<div id="container-section"><div class="sub-section "> 			<div class="sub-section-title"> 				  Containers 				 					 						<a class="add-button" href="#" action="addContainer"> 							<i class="icons8-create-2"></i> 						</a> 					 					 					 						 					 				 			</div> 			 				<div class="info-section-content row" id="container-info"><table class="backgrid small-table no-border"><thead><tr><th class="sortable renderable name"><a>Name<b class="sort-caret"></b></a></th><th class="sortable renderable image"><a>Image<b class="sort-caret"></b></a></th><th class="sortable renderable ports"><a>Ports<b class="sort-caret"></b></a></th><th class="renderable id"> </th></tr></thead><tbody><tr><td class="string-url-name sortable renderable"><a href="#applications/container/d1f2b888-6291-42eb-bc88-20de0b6a6e31">kyverno</a></td><td class="string-cell sortable renderable image">nirmata/kyverno:v1.1.3</td><td class="relation-cell multiline-cell sortable renderable"><span class="status-badge status-light-nirmata">443/TCP</span></td><td class="action-cell renderable" style="overflow: visible;"><div>        <div id="editContainer-group" class=" btn-group">          <button id="editContainer" data-id="d1f2b888-6291-42eb-bc88-20de0b6a6e31" action="editContainer" title=" Edit Container" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="icons8-edit-2"></i>          </button>      </div>        <div id="deleteContainer-group" class=" btn-group">          <button id="deleteContainer" data-id="d1f2b888-6291-42eb-bc88-20de0b6a6e31" action="deleteContainer" title=" Delete Container" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">              <i class="icons8-delete-3"></i>          </button>      </div>    </div></td></tr></tbody></table></div> 			 			 		</div></div>
+			<div id="volume-section"><div class="row sub-button-section " id="addVolume" action="addVolume" dataid=""> 				<div style="margin: -4px;"><i style="font-size: 28px;margin: 10px;" class="icons8-disk-drive-1"></i></div> 				<span style="font-size: 14px;vertical-align: middle;display: inline-block;">Add Volumes</span> 			</div></div>
+			<div id="affinity-section"><div class="row sub-button-section " id="addAffinityRule" action="addAffinityRule" dataid=""> 				<div style="margin: -4px;"><i style="font-size: 28px;margin: 10px;" class="icons8-group"></i></div> 				<span style="font-size: 14px;vertical-align: middle;display: inline-block;">Add Affinity Rule</span> 			</div></div>
+			<div id="pod-label-section"><div class="sub-section "> 			<div class="sub-section-title"> 				  Labels 				 					 					 						<a class="edit-button" href="#" action="editPodLabels"> 							<i class="icons8-create-1"></i> 						</a> 					 					 						 					 				 			</div> 			 				<div class="info-section-content row" id="pod-label-info"><div> <form class="form-horizontal" role="form" onsubmit="return false" data-fieldsets=""><fieldset data-fields="">          <div class="form-group field-labels" style="margin-bottom: 5px"> 				<div class="col-sm-12" style="font-size:12px;padding-top: 1px;"> 					<span data-editor="" style="word-wrap: break-word;"><span id="labels" class="" name="labels"><span class="status-badge status-blue-2"><b class="subbadge"><i class="icons8-link"></i></b>app=kyverno</span><br><span class="status-badge status-light-nirmata">nirmata.io/application.addon.type=Security</span><br><span class="status-badge status-light-nirmata">nirmata.io/application.type=cluster-addon</span><br><span class="status-badge status-blue-2"><b class="subbadge"><i class="icons8-link"></i></b>nirmata.io/component=kyverno</span></span></span> 				</div> 			</div></fieldset></form>     <p id="form-errors" class="text-danger text-center"></p> </div></div> 			 			 		</div></div>
+			<div id="pod-annotation-section"><div class="row sub-button-section " id="editModelAnnotation" action="editModelAnnotation" dataid="" model-class="Catalog.ObjectMeta" model-id="082694ed-fb15-45d9-8a13-19b349ab61b1"> 				<div style="margin: -4px;"><i style="font-size: 28px;margin: 10px;" class="icons8-plus-math"></i></div> 				<span style="font-size: 14px;vertical-align: middle;display: inline-block;">Add Annotations</span> 			</div></div>
+		</div>
+		<div id="volume-claim-template-section"></div>
+	</div>
+</div>
+</div>
+		<div id="event-feed"></div>
+	</div>
+
+</div>
+</div></div>
+	<div id="floating-content" class="floating-window hide" style="z-index: 1060; max-height: 766px;">
+		<div class="close" id="close-floating-content" style="position: absolute;right: 8px;top: 8px;font-size: 26px;z-index:1"><i class="icons8-multiply"></i></div>
+		<div id="floating-content-panel"></div>
+	</div>
+	<div id="floating-content-left" class="floating-window hide" style="z-index: 1061; left: 20px; width: calc(50% - 50px); max-height: 766px;">
+		<div class="close" id="close-floating-content-left" style="position: absolute;right: 8px;top: 8px;font-size: 26px;z-index:1"><i class="icons8-multiply"></i></div>
+		<div id="floating-content-panel-left"></div>
+	</div>
+</div>
+</div></div>
+		<div class="notifications top-right"></div>
+		<div class="notifications bottom-right"></div>
+		<div class="notifications top-left"></div>
+		<div class="notifications bottom-left"></div>
+		<!-- start: FOOTER
+		<div class="footer clearfix no-display">
+			<div class="footer-inner">
+				2017 &copy; Nirmata
+			</div>
+			<div class="footer-items">
+				<span class="go-top"><i class="fa fa-chevron-up"></i></span>
+			</div>
+		</div>
+		end: FOOTER -->
+
+		<!-- start: MAIN JAVASCRIPTS -->
+		<script type="text/javascript" src="js/product/product.js"></script>
+
+	<script type="text/javascript" src="vendors~webclient.c8032f9faefcd7cbf8a3.js"></script><script type="text/javascript" src="webclient-bundle.f111977ab70837115a22.js"></script>
+	<!-- end: BODY -->
+
+</body></html>

@@ -1,0 +1,141 @@
+<html lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><!-- start: HEAD --><head>
+<title>Nirmata | K8s Operations and Management</title>
+<link rel="shortcut icon" href="favicon.ico?v=2" type="image/x-icon">
+<link rel="icon" href="favicon.ico?v=2" type="image/x-icon">
+<!-- start: META -->
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="" name="description">
+<meta content="" name="author">
+
+<!-- end: META -->
+<script>
+		var host = window.location.host;
+        if (host === "www.nirmata.io" || host === "nirmata.io") {
+
+        } 
+</script>
+
+<!-- start: MAIN CSS -->
+<link rel="stylesheet" href="all.min.css">
+<link rel="stylesheet" href="css/bootstrap-social.css">
+<link rel="stylesheet" href="css/nirmata-styles.css">
+<!-- end: MAIN CSS -->
+
+<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+<!-- end: HEAD -->
+<!-- start: BODY -->
+<body>
+	<!-- start: HEADER -->
+	<div class="navbar navbar-inverse navbar-fixed-top no-display">
+		<div class="header"></div>
+	</div>
+	<!-- end: HEADER -->
+
+	<div>
+		<div id="content"><div><div class="row center-block" style="width: 640px">
+    <div class="nirmata-block">
+        <div class="logo" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);">
+            <a href="http://nirmata.com" target="_blank">
+                <img src="img/icon.png" width="90">
+            </a>
+        </div>
+		<div class="nirmata-title" style="margin:30px; margin-bottom:10px;text-align:center">  Nirmata Setup </div>
+        <div>
+            <div class="nirmata-body">
+                    <div class="nirmata-subtitle">
+                        <div id="setup-subtitle" style="font-size: 20px;color: #2E5596;font-weight:bold;text-align:center;margin-top: 10px;">
+                            <img src="img/icons8-superman.png" style="height: 30px;margin-top: -3px;margin-right: 3px;">
+							Create a System Administrator and Tenant
+                        </div>
+                    </div>
+                    <div id="setup-form" style="margin: 20px;"><form class="form-horizontal" role="form">      <div data-fieldsets=""><fieldset data-fields="">          <div class="form-group field-name" style="text-align:center"> 						
+							<div style="font-size: 13px;width: 100%;margin-bottom: 20px;">
+							<div>
+								Create a system administrator and the initial tenant.
+								
+								<br> System administrators can manage all users and tenants.
+							</div>
+						</div>
+	                	<div style="position:relative"> 							
+	                		<i class="fa fa-user" style="top: 6px;left: 8px;"></i> 
+	                		<span data-editor=""><input id="name" class="form-control" name="name" placeholder="Username" type="text"></span> 
+	                		<p style="margin:0px" class="help-block" data-error=""></p> 
+	                	</div>
+	                </div><div class="form-group field-company"> 
+					   	<div style="position:relative">
+							<i class="fa fa-building" style="top: 8px;left: 9px;font-size: 16px;"></i>
+							<span data-editor=""><input id="company" class="form-control" name="company" placeholder="Company name" type="text"></span>
+							<p style="margin:0px" class="help-block" data-error=""></p>
+						</div>
+					</div><div class="form-group field-email">
+	                	<div style="position:relative">
+							<i class="fa fa-envelope" style="font-size: 15px; top: 8px;left: 8px;"></i>
+	                		<span data-editor=""><input id="email" class="form-control" name="email" placeholder="Email" type="text"></span>
+	                		<p style="margin:0px" class="help-block" data-error=""></p>
+	                	</div>
+	                </div><div class="form-group field-password">
+	                	<div style="position:relative">
+							<i class="fa fa-key" style="font-size: 15px; top: 8px;left: 8px;"></i>
+	                		<span data-editor=""><input id="password" class="form-control" name="password" placeholder="Password" type="password"></span>
+	                		<p style="margin:0px" class="help-block" data-error=""></p>
+	                	</div>
+	                </div></fieldset></div>          </form></div>
+                    <p id="form-errors" class="text-danger" style="margin-bottom: 5px;text-align: center;font-size: 14px;margin-top: -5px;"></p>
+                    <div id="button-section">
+                        <button id="setupAdmin" type="submit" action="setupAdmin" class="btn btn-red" style="padding: 8px;width: 100%; border-radius:25px;font-size: 14px;font-weight: bold;">
+                            Create a System Administrator and Tenant
+                        </button>
+                    </div>
+                </div>
+<!-- 		  	<div class="block-footer"> -->
+<!-- 		 		<div style="color:#2E5596">
+					<div style="margin:10px 0px;text-align:center; font-size:16px; text-transform:uppercase; font-family:Nirmata Bold">Contact us</div>
+					<div style="text-align:center;margin-bottom: 5px;">
+						<span style="position: absolute;color:#777;font-size:12px;left: 0px;bottom:85px">
+							<a href="http://www.nirmata.com/terms-of-usage/" style="color:#777; padding-right:10px;"> Terms of Use</a>
+							<a href="http://www.nirmata.com/privacy-policy/" style="color:#777; padding-right:10px;"> Privacy Policy</a>
+						</span>
+						<span style="font-size:12px"><br>
+						</span>
+						<span style="position: absolute;color: #777;font-size: 12px;right: 0px;bottom: 85px;"><a href="mailto:info@nirmata.com"> info@nirmata.com </a></span>
+					</div>
+				</div>
+				<div style="height: 80px;padding:10px 0px;border-top: 1px solid #EAEAEA">
+					<span style="color:#2E5596; float:left; font-size:12px">&copy; Nirmata 2018, All Right Reserved.</span>
+				</div>
+			</div>
+        </div>
+    </div> -->
+</div></div></div></div></div>
+	</div>
+
+	<!-- start: FOOTER -->
+	<div class="footer clearfix no-display">
+		<div class="footer-inner">2017 © Nirmata</div>
+		<div class="footer-items">
+			<span class="go-top"><i class="clip-chevron-up"></i></span>
+		</div>
+	</div>
+	<!-- end: FOOTER -->
+
+	<!-- start: MAIN JAVASCRIPTS -->
+	<script src="vendor.min.js"></script>
+	<script src="js/vendor/theme/plugins/jquery-ui-1.10.2.custom.min.js"></script>
+	<script src="js/vendor/theme/plugins/less-1.5.0.min.js"></script>
+	<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+	<script src="nirmata-framework.min.js"></script>
+	<script src="js/tpl/HandlebarsHelpers.js"></script>
+	<script src="js/tpl/TemplateCache.js"></script>
+	<script src="js/setup/NirmataAdminSetup.js"></script>
+	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+	<!-- end: MAIN JAVASCRIPTS -->
+
+<!-- end: BODY -->
+</body></html>

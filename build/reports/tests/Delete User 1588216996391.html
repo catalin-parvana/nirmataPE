@@ -1,0 +1,221 @@
+<html lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><!-- start: HEAD --><head>
+<title>Nirmata | K8s Operations and Management</title>
+<link rel="shortcut icon" href="favicon.ico?v=2" type="image/x-icon">
+<link rel="icon" href="favicon.ico?v=2" type="image/x-icon">
+<!-- start: META -->
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="" name="description">
+<meta content="" name="author">
+
+<!-- end: META -->
+
+
+<!-- start: MAIN CSS -->
+<link rel="stylesheet" href="theme.min.css">
+<link rel="stylesheet" href="all.min.css">
+<!-- end: MAIN CSS -->
+<link rel="stylesheet" href="css/max-style.css">
+
+<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+<!-- end: HEAD -->
+<!-- start: BODY -->
+<body>
+	<!-- start: HEADER -->
+	<div class="navbar navbar-inverse navbar-fixed-top no-display" style="display: block;">
+	    <div class="header" id="main-header"><div><div class="container">
+	<div class="navbar-header">
+		<!-- start: RESPONSIVE MENU TOGGLER -->
+		<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+			<span class="fa fa-list"></span>
+		</button>
+		<!-- end: RESPONSIVE MENU TOGGLER -->
+		<!-- start: LOGO -->
+		<a class="navbar-brand" href="http://www.nirmata.com" target="_blank" style="font-size: 20px"> 
+			<img height="25" src="img/logo-white.png" style="margin-top: 1px;float: left;">
+			<span style="margin-left: 10px;margin-top: 3px;display: inline-block;float: left;">admin</span>
+		</a>
+		<!-- end: LOGO -->
+	</div>
+	<div class="navbar-tools">
+		<ul class="nav navbar-right">
+			<li class="docs-menu">
+				<a href="https://docs.nirmata.io/en/latest/" id="docs" target="_blank"><i class="fa fa-book"></i> docs</a>
+			</li>
+			<li class="support-menu">
+                <a id="Intercom" href="mailto:support@nirmata.com"><i class="fa fa-phone-square"></i> support</a>
+			</li>
+			<li class="dropdown current-user">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#" style="padding-top: 10px;"> 
+					<span class="username" style="margin-right:10px" id="loginName">nirmata-automation</span>
+					<span id="tenantName" style="float:right"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="/security/login.html"><i class="fa fa-exchange"></i> &nbsp;Switch Accounts</a>
+					</li>
+					<li>
+						<a href="#logout"> <i class="fa fa-sign-out"></i> &nbsp;Log Out</a>
+					</li>
+				</ul>
+			</li>
+		</ul>	
+	</div>
+</div></div></div>
+	    <div class="info-bar">
+	    </div>
+    </div>
+	<!-- end: HEADER -->
+
+	<div id="main-navigation" style="position: fixed;top: 42px;"><div><div class="navbar-content" style="min-height: 760px;width: 220px;">
+	<!-- start: SIDEBAR -->
+	<div class="main-navigation" style="width: 220px;height: calc(100% - 44px)!important;border-right: 1px solid #d9d9d9;">
+		<!-- start: MAIN NAVIGATION MENU -->
+		<ul class="main-navigation-menu" style="height: calc(100% - 36px);background: white;">
+			<li id="menu-tenant" class="active" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);">
+				<a href="#tenants">
+					<img src="img/icons8-user-account-480.png" height="30" style="float:left;border-radius:50%;border: 1px solid #f2575b;padding: 0px;background: rgba(242, 87, 91, 0.1);">
+					<span class="title" style=""> Tenants</span>
+				</a>
+            </li>
+            <li id="menu-admin" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);">
+				<a href="#administrators">
+					<img src="img/icons8-businessman-480.png" height="30" style="float:left;border-radius:50%;border: 1px solid #f2575b;padding: 0px;background: rgba(242, 87, 91, 0.1);">
+					<span class="title" style=""> Administrators</span>
+				</a>
+            </li>
+            
+            <li id="menu-smtp" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);">
+				<a href="#smtp">
+					<img src="img/icons8-email-480.png" height="30" style="float:left;border-radius:50%;border: 1px solid #f2575b;padding: 0px;background: rgba(242, 87, 91, 0.1);">
+					<span class="title" style=""> Email Service</span>
+				</a>
+            </li>
+            <li id="menu-license" __selenidehighlighting="done" style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);">
+				<a href="#license">
+					<img src="img/icons8-certificate-480.png" height="30" style="float:left;border-radius:50%;border: 1px solid #f2575b;padding: 0px;background: rgba(242, 87, 91, 0.1);">
+					<span class="title" style=""> License</span>
+				</a>
+            </li>
+            
+		</ul>
+		<!-- end: MAIN NAVIGATION MENU -->
+	</div>
+	<!-- end: SIDEBAR -->
+</div>
+</div></div>
+	<div id="main-content" style="position: absolute;left: 220px;top: 42px;width: calc(100% - 220px);min-height:720px;height: calc(100% - 42px);background-image: url(img/horizontal-background-faded.png);"><div><div class="main-content-container">
+	<div id="main-content-panel" class="container"><div><div id="model-content-panel" model-id="083b73a9-14ae-4783-b9aa-be9b63ceeac7">
+
+	<div class="row" style="padding:0px 15px;background: #fff;">
+		
+		<div class="row model-panel-header">
+	<div class="col-md-12">
+		<!-- start: PAGE HEADER -->
+		
+		<div id="model-crumbs">			<ul class="breadcrumb"> 				<a href="#tenants"><b><i class="fa fa-angle-double-left" style="color: #2e5496;"></i> Return to tenants list</b></a> 			</ul></div>
+		
+		<div class="page-header">
+			<div class="row">
+				<div class="col-md-10">
+					
+						<div class="pull-left model-index-name">Tenant</div>
+					
+					<h1 style="border: 1px solid green; border-style: dotted; transform: scale(1, 1.1);" id="model-content-panel-title" __selenidehighlighting="done">nirmata</h1>
+				</div>
+				<div id="model-content-panel-actions" class="col-md-2 text-right-md text-right-lg">
+					
+					<span id="model-action-button"></span>
+				</div>
+			</div>						
+			<div class="row">
+				<div class="col-md-12" id="model-content-panel-header"></div>
+			</div>
+		</div>
+		<div id="status-bar" style="margin-top: -1px;border-top: 2px solid transparent;">
+			<div style="margin-top: -2px;" class="pull-left text-right-md text-right-lg">				
+				<div><span id="model-content-panel-status"></span></div>
+			</div>
+			<div id="page-subtitle" class="pull-left" style="max-width:75%"></div>
+			<div id="page-subtitle-right" class="pull-right"><span class="subtitle" style="padding-right: 0px;font-size: 11px;">Created <b>2 minutes ago</b> by <b>Nirmata</b></span></div>
+		</div>
+
+		<!-- end: PAGE PAGE HEADER -->
+
+	</div>
+</div>
+
+		
+		<div class="row model-panel-stats" model-id="083b73a9-14ae-4783-b9aa-be9b63ceeac7" style="margin-right: -5px;margin-left: -5px;margin-top: -10px;margin-bottom:10px">
+			<div id="model-content-messages"></div>
+			<div id="model-content-stats" class="row" style="margin:0px;">
+				<div id="alarms" style="padding:0px"></div>
+				<div id="stats" style="padding:0px"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row model-panel-body" model-id="083b73a9-14ae-4783-b9aa-be9b63ceeac7">
+		<div id="model-content-panel-body" style="margin: 0px 10px;"><div class="row model-content-panel" id="tenant-details">
+	<div class="col-md-4" style="padding: 10px;">
+		<div class="info-section">
+			<div class="info-section-title">
+				<i class="icons8-documents-2"></i> Tenant Summary
+				<a href="#" action="editTenant"> 
+					<i class="icons8-edit-2"></i>
+				</a>
+			</div>
+			<div id="tenant-info"><div> <form class="form-horizontal" role="form" onsubmit="return false" data-fieldsets=""><fieldset data-fields="">          <div class="form-group field-name" style="margin-bottom: 5px"><label class="col-sm-4 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="name"><span class="text-info" style="font-size:12px;font-weight:400">Name:</span></label><div class="col-sm-8" style="font-size:12px;padding-top: 1px;"><span data-editor="" style="word-wrap: break-word;"><span id="name" class="" name="name">nirmata</span></span></div></div><div class="form-group field-ownerEmail" style="margin-bottom: 5px"><label class="col-sm-4 control-label" style="text-align:right;padding-top: 0px;padding-right:0px" for="ownerEmail"><span class="text-info" style="font-size:12px;font-weight:400">Admin Email:</span></label><div class="col-sm-8" style="font-size:12px;padding-top: 1px;"><span data-editor="" style="word-wrap: break-word;"><span id="ownerEmail" class="" name="ownerEmail">automation@nirmata.com</span></span></div></div></fieldset></form>     <p id="form-errors" class="text-danger text-center"></p> </div></div>
+		</div>
+	</div>
+
+	<div class="col-md-8" style="padding: 10px;">
+		<div id="user-section"><div class="info-section "> 					<div class="info-section-title"> 						 <i class="icons8-group-2"></i> Users 						 							 								<a class="add-button" href="#" action="addUser"> 									<i class="icons8-create-3"></i> 								</a> 							 							 							 								 							 						 					</div> 					 						<div class="info-section-content row" id="user-info"><table class="backgrid small-table no-border"><thead><tr><th class="sortable renderable name"><a>Name<b class="sort-caret"></b></a></th><th class="sortable renderable email"><a>Email<b class="sort-caret"></b></a></th><th class="sortable renderable lastLogin"><a>Last Login<b class="sort-caret"></b></a></th><th class="renderable id"> </th></tr></thead><tbody><tr><td class="link-cell sortable renderable"><span class="status-badge status-dark" style="margin-right: 3px;font-size: 10px;">Administrator</span> nirmata-automation</td><td class="string-cell sortable renderable email">automation@nirmata.com</td><td class="string-cell sortable renderable lastLogin">4/30/20, 3:22 AM</td><td class="action-cell renderable" style="overflow: visible;"><div>            <div id="editUser-group" class=" btn-group">            <button id="editUser" data-id="d9bb7780-f93b-4db7-8bf5-408c44708a2e" action="editUser" title="Edit User" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">                <i class="icons8-edit-4"></i>            </button>        </div>            <div id="deleteUser-group" class=" btn-group">            <button id="deleteUser" data-id="d9bb7780-f93b-4db7-8bf5-408c44708a2e" action="deleteUser" title="Delete User" type="button" class="btn btn-xs btn-default" data-toggle="tooltip">                <i class="icons8-delete-5"></i>            </button>        </div>        </div></td></tr></tbody></table></div> 					 					 				</div></div>
+	</div>
+</div></div>
+		<div id="event-feed"></div>
+	</div>
+
+</div>
+</div></div>
+	<div id="floating-content" class="floating-window hide" style="z-index:1030">
+		<div class="close" id="close-floating-content" style="position: absolute;right: 8px;top: 8px;font-size: 26px;z-index:1"><i class="icons8-multiply"></i></div>
+		<div id="floating-content-panel"></div>
+	</div>
+	<div id="floating-content-left" class="floating-window hide" style="z-index: 1031;left: 20px;width: calc(50% - 50px);">
+		<div class="close" id="close-floating-content-left" style="position: absolute;right: 8px;top: 8px;font-size: 26px;z-index:1"><i class="icons8-multiply"></i></div>
+		<div id="floating-content-panel-left"></div>
+	</div>
+</div>
+</div></div>
+
+	<!-- start: FOOTER -->
+	<div class="footer clearfix no-display">
+		<div class="footer-inner">2017 © Nirmata</div>
+		<div class="footer-items">
+			<span class="go-top"><i class="clip-chevron-up"></i></span>
+		</div>
+	</div>
+	<!-- end: FOOTER -->
+
+	<!-- start: MAIN JAVASCRIPTS -->
+	<script src="vendor.min.js"></script>
+	
+	<script src="js/vendors/theme/plugins/jquery-ui-1.10.2.custom.min.js"></script>
+	<script src="js/vendors/theme/plugins/less-1.5.0.min.js"></script>
+	<script src="js/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
+	
+	<script src="nirmata-framework.js"></script>
+	<script src="nirmata.min.js"></script>
+	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+	<!-- end: MAIN JAVASCRIPTS -->
+
+<!-- end: BODY -->
+</body></html>

@@ -27,6 +27,18 @@ public class LibraryUtils extends NirmataSetup{
         }
     }
 
+    public static void scrollIntoView(String element, SelenideElement selector) {
+
+            selector.scrollIntoView(false);
+        try {
+            selector.shouldBe(visible);
+            test.log(Status.PASS, "<b>"+element+"</b>" + " is visible.");
+        } catch (com.codeborne.selenide.ex.ElementNotFound e) {
+            test.log(Status.FAIL, "Element : " + "<b>"+element+"</b>"+" is not visible.");
+            throw(e);
+        }
+    }
+
     public static void waitFor(String element, SelenideElement selector) {
         try {
             selector.shouldBe(visible);
