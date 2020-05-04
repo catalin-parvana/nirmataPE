@@ -18,7 +18,7 @@ public class AwsHostGroupTests extends NirmataSetup {
     @Parameters({"awsHostGroupName"})
     public void testAddHostGroup(String awsHostGroupName){
         login();
-        amazonWebServicesPage=overviewPage.clickHostGroups();
+  //      amazonWebServicesPage=overviewPage.clickHostGroups();
         amazonWebServicesPage
                 .clickAddHostGroupButton()
                 .setNameInputField(awsHostGroupName)
@@ -54,7 +54,7 @@ public class AwsHostGroupTests extends NirmataSetup {
     @Parameters({ "awsHostGroupName"})
     public void testDeleteHostGroup(String awsHostGroupName){
         login();
-        amazonWebServicesPage=overviewPage.clickHostGroups();
+    //    amazonWebServicesPage=overviewPage.clickHostGroups();
         insideHostGroupPage=amazonWebServicesPage.clickOnHostGroupWithName(awsHostGroupName);
         insideHostGroupPage
                 .clickActionButton()

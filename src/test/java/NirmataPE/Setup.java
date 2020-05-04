@@ -39,7 +39,6 @@ public class Setup extends NirmataSetup {
 
     @Test(description = "Add Private Docker Registry ")
     public void addPrivateDockerRegistry() {
-       //ec2InstanceID = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceID");
         login();
         imageRegistriesPage=overviewPage.clickImageRegistries()
                 .clickAddImageRegistryButton()
