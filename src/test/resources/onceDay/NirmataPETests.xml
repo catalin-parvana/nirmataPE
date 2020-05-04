@@ -5,8 +5,10 @@
 <!--        <listener class-name="utils.NirmataReportListener"></listener>-->
 <!--    </listeners>-->
 <parameter name="clusterPolicyName" value="qualys-direct-connect" />
-
+    <parameter name="dcTemplateName" value="DirectConnect" />
     <parameter name="templateName" value="NirmataPE-template" />
+    <parameter name="dcHostGroupName" value="qualys-dc" />
+    <parameter name="clusterName" value="qualys-dc1" />
 
 <test name="Create EC2 Instance From Template">
     <classes>
@@ -65,6 +67,55 @@
         </class>
     </classes>
 </test>
+
+    <test name="Create EC2 Instance for Direct Connect Cluster From Template">
+        <classes>
+            <class name="NirmataPE.DCEC2Instance">
+                <methods>
+                    <include name = "createDCInstanceFromTemplate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Get EC2 Instance IP for Direct Connect Cluster">
+        <classes>
+            <class name="NirmataPE.DCEC2Instance">
+                <methods>
+                    <include name = "getDCInstanceIP"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Add Host Group">
+        <classes>
+            <class name="NirmataPE.DirectConnectCluster">
+                <methods>
+                    <include name = "addHostGroup"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Remote Login to EC2 for Direct Connect Cluster">
+        <classes>
+            <class name="NirmataPE.StartNirmataAgent">
+
+
+            </class>
+        </classes>
+    </test>
+
+        <test name="Create Direct Connect Cluster">
+            <classes>
+                <class name="NirmataPE.DirectConnectCluster">
+                    <methods>
+                     <include name = "addDirectConnectCluster"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
 
 <test name="Delete EC2 Instance">
     <classes>

@@ -1,6 +1,8 @@
 package pages.cluster;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import utils.LibraryUtils;
 
@@ -15,14 +17,15 @@ public class ClustersPage extends LibraryUtils {
     private final SelenideElement toggleCardView=$x("//img[@id='toggleCardView']");
     private final SelenideElement toggleTableView=$x("//img[@id='toggleTableView']");
     private final SelenideElement addClusterButton= $x("//button[contains(.,'Add Cluster')]");
+    private final SelenideElement createClusterButton= $x("//div[contains(.,'Create a Cluster')]");
     private final SelenideElement actionButton=$x("//div[@class='btn-group']");
     private final SelenideElement modelContentPanelTitle= $x("//h1[@id='model-content-panel-title']");
     private final SelenideElement filterButton= $x("//span[@id='filter-toggle-button']");
     private final SelenideElement setupButton= $x("(//button[contains(.,'Setup')])[1]");
     private final SelenideElement nextButton = $x("//button[contains(text(),'Next')]");
     private final SelenideElement nextButtonEnabled=$x("//button[contains(text(),'Next')][not(@disabled)]");
-
-
+    private final SelenideElement acceptSelfSignedCertificate=$x("//input[@id='acceptAnyCert']");
+    private final SelenideElement acceptText=$x("//span[contains(text(),'Accept Self-signed Certificate')]");
     //manage existing cluster
     private final SelenideElement manageExistingKubernetesClusterOption= $x("//div[contains(text(),'Manage an existing Kubernetes cluster')]");
     private final SelenideElement inputNameForDiscoveredCluster= $x("//div[@id='k8sDiscoveredCluster']//input[@id='name']");
@@ -33,8 +36,8 @@ public class ClustersPage extends LibraryUtils {
     private final SelenideElement importKubernetesClusterButton= $x("//button[contains(.,'Import Kubernetes Cluster')]");
 
     //install and manage cluster
-//    private SelenideElement installNewKubernetesClusterOption= $x("//div[contains(text(),'Install a new  Kubernetes cluster')]");
-    private final SelenideElement installNewKubernetesClusterOption= $("div[data-id='managed']");
+    private final SelenideElement installNewKubernetesClusterOption= $x("//div[contains(text(),'Install a new Kubernetes cluster')]");
+  //  private final SelenideElement installNewKubernetesClusterOption= $("div[data-id='managed']");
     private final SelenideElement inputNameForManagedCluster= $x("//div[@id='k8sManagedCluster']//input[@id='name']");
     private final SelenideElement hostGroupDropdown= $x("//*[@id='hostGroups']");
     private final SelenideElement clusterPolicyDropdown= $x("//div[@id='k8sManagedCluster']//select[@id='policySelector']");
@@ -50,8 +53,8 @@ public class ClustersPage extends LibraryUtils {
     private final SelenideElement gkeNextButton= $x("//div[@class='modal-footer']//button[contains(.,'Next')]");
     private final SelenideElement gkeMachineTypeDropdown= $x("//select[@id='machineType']");
     private final SelenideElement inputNameForGKENodeCount= $x("//div[@id='k8sManagedGkeworkerCluster']//input[@id='nodeCount']");
-    private final SelenideElement createClusterButton= $x("//button[contains(.,'Create Cluster')]");
-
+  //  private final SelenideElement createClusterButton= $x("//button[contains(.,'Create Cluster')]");
+    private final SelenideElement installationButton=$x("//button[contains(text(),'Create Cluster and Start the Installation')]");
     //create eks cluster
     private final SelenideElement createEKSClusterOption= $x("//div[contains(text(),'Create an EKS cluster')]");
     private final SelenideElement inputNameForEKSCluster= $x("//div[@id='k8sManagedEksUserCluster']//input[@id='name']");
@@ -110,6 +113,7 @@ public class ClustersPage extends LibraryUtils {
     private final SelenideElement loadingAWSAuthConfigMapLabel=$x("//span[@class='subtitle'][contains(.,'Loading AWS Auth Config Map')]");
     private final SelenideElement deployingMetricsServerLabel=$x("//span[@class='subtitle'][contains(.,'Deploying Metrics Server')]");
 
+
     private SelenideElement cluster, readyClusterState,unknownCLusterState,shuttingDownCLusterState,deletedCLusterState;
     private final WebDriver driver;
 
@@ -117,7 +121,7 @@ public class ClustersPage extends LibraryUtils {
 
     public ClustersPage(WebDriver driver){
         this.driver=driver;
-        addClusterButton.shouldBe(visible);
+        createClusterButton.shouldBe(visible);
         modelContentPanelTitle.shouldBe(visible);
         assertEquals(modelContentPanelTitle.getText(), "Clusters", "Incorrect Panel Title");
 //        assertEquals(title(), "Nirmata | Clusters", "Incorrect Page Title");
@@ -170,6 +174,23 @@ public class ClustersPage extends LibraryUtils {
 
     public ClustersPage clickImportKubernetesClusterButton(){
         click("Import Kubernetes Cluster Button",importKubernetesClusterButton);
+        return this;
+    }
+/*
+    public ClustersPage clickAcceptSelfSignedCertificate() {
+
+        findElement("//div[@class='icheckbox_square-blue']",acceptSelfSignedCertificate);
+     //   scrollIntoView("Accept Self Signed Certificate",acceptSelfSignedCertificate);
+
+        acceptText.scrollIntoView(false);
+        acceptSelfSignedCertificate.click();
+      //  click("Accept Self Signed Certificate",acceptSelfSignedCertificate);
+        return this;
+    }
+    */
+
+    public ClustersPage clickInstallationButton() {
+        click("Accept Self Signed Certificate",installationButton);
         return this;
     }
 

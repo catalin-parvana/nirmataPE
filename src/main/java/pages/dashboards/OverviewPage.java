@@ -9,6 +9,7 @@ import pages.cloudProviders.CloudProvidersPage;
 import pages.cluster.ClustersPage;
 import pages.environment.EnvironmentsPage;
 import pages.hostGroups.AmazonWebServicesPage;
+import pages.hostGroups.DirectConnectHostGroupsPage;
 import pages.imageRegistries.ImageRegistriesPage;
 import pages.policies.WorkloadPoliciesPage;
 import pages.settings.ProfilePage;
@@ -80,9 +81,9 @@ public class OverviewPage extends LibraryUtils {
         return new ClustersPage(driver);
     }
 
-    public AmazonWebServicesPage clickHostGroups(){
+    public DirectConnectHostGroupsPage clickHostGroups(){
         click("Host Groups Page",hostGroupsPage);
-        return new AmazonWebServicesPage(driver);
+        return new DirectConnectHostGroupsPage(driver);
     }
 
     public AmazonWebServicesPage clickAmazonWebServices(){
