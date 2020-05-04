@@ -54,7 +54,7 @@ public class ClustersPage extends LibraryUtils {
     private final SelenideElement gkeMachineTypeDropdown= $x("//select[@id='machineType']");
     private final SelenideElement inputNameForGKENodeCount= $x("//div[@id='k8sManagedGkeworkerCluster']//input[@id='nodeCount']");
   //  private final SelenideElement createClusterButton= $x("//button[contains(.,'Create Cluster')]");
-    private final SelenideElement installationButton=$x("//button[contains(text(),'Create Cluster and Start the Installation')]");
+    private final SelenideElement installationButton=$x("//*[contains(text(),'Start the Installation')]");
     //create eks cluster
     private final SelenideElement createEKSClusterOption= $x("//div[contains(text(),'Create an EKS cluster')]");
     private final SelenideElement inputNameForEKSCluster= $x("//div[@id='k8sManagedEksUserCluster']//input[@id='name']");
@@ -190,7 +190,7 @@ public class ClustersPage extends LibraryUtils {
     */
 
     public ClustersPage clickInstallationButton() {
-        click("Accept Self Signed Certificate",installationButton);
+        click("Installation button",installationButton);
         return this;
     }
 
