@@ -6,6 +6,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import pages.cluster.PEClustersPage;
 import pages.hostGroups.DirectConnectHostGroupsPage;
 import pages.cluster.ClustersPage;
 import utils.NirmataApplicationProperties;
@@ -17,7 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class DirectConnectCluster extends NirmataSetup {
 
     private DirectConnectHostGroupsPage directConnectHostGroupsPage;
-    private ClustersPage clustersPage;
+    private PEClustersPage peClustersPage;
     private String hostAgentKey;
     private PropertiesConfiguration config;
   //  private final SelenideElement hostAgentLink=$x("//div[contains(text(),'sudo curl')]");
@@ -53,10 +54,10 @@ public class DirectConnectCluster extends NirmataSetup {
     @Parameters({"clusterName","dcHostGroupName","clusterPolicyName"})
     public void addDirectConnectCluster(String clusterName, String dcHostGroupName, String clusterPolicyName) {
         login();
-        clustersPage=overviewPage.clickClusters();
-        clustersPage.clickCreateClusterButton()
+        peClustersPage=overviewPage.clickPEClusters();
+        peClustersPage.clickCreateClusterButton()
                 .clickInstallNewKubernetesClusterOption()
-                .setInputNameForInstallAndManageCluster(clusterName)
+                .setInputName(clusterName)
                 .selectHostGroupFromDropdown(dcHostGroupName)
                 .selectClusterPolicyFromDropdown(clusterPolicyName)
                 .clickInstallationButton()

@@ -7,6 +7,7 @@ import pages.catalog.catalog.CatalogsPage;
 import pages.catalog.helmRepo.HelmChartsPage;
 import pages.cloudProviders.CloudProvidersPage;
 import pages.cluster.ClustersPage;
+import pages.cluster.PEClustersPage;
 import pages.environment.EnvironmentsPage;
 import pages.hostGroups.AmazonWebServicesPage;
 import pages.hostGroups.DirectConnectHostGroupsPage;
@@ -37,12 +38,13 @@ public class OverviewPage extends LibraryUtils {
     private final SelenideElement catalogsPage = $x("//*[@id='applications_menu']");
     private final SelenideElement helmChartsPage = $x("//*[@id='chartRepositories_menu']");
     private final SelenideElement environmentsPage = $x("//*[@id='env_menu']");
-    private final SelenideElement clustersPage = $x("//*[@id='hostClusters_menu']");
+    private final SelenideElement peClustersPage = $x("//*[@id='hostClusters_menu']");
     private final SelenideElement hostGroupsPage = $x("//*[@id='hostgroups_menu']");
     private final SelenideElement awsPage = $x("//*[@id='aws_menu']");
     private final SelenideElement workloadPoliciesPage = $x("//*[@id='policies_menu']");
     private final SelenideElement tenantName = $x("//span[@id='tenant-name']");
     private final SelenideElement logOutButton = $x("//a[contains(.,'Log Out')]");
+    private final SelenideElement ClustersPage = $x("//*[@id='hostClusters_menu']");
 
     public OverviewPage(WebDriver driver){
         this.driver=driver;
@@ -76,8 +78,18 @@ public class OverviewPage extends LibraryUtils {
         return new EnvironmentsPage(driver);
     }
 
-    public ClustersPage clickClusters(){
+  /*  public ClustersPage clickClusters(){
         click("Clusters Page",clustersPage);
+        return new ClustersPage(driver);
+    }*/
+
+    public PEClustersPage clickPEClusters(){
+        click("Clusters Page",peClustersPage);
+        return new PEClustersPage(driver);
+    }
+
+    public ClustersPage clickClusters(){  //disable cluster
+        click("Clusters Page",peClustersPage);
         return new ClustersPage(driver);
     }
 
