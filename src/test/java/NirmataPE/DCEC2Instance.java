@@ -85,7 +85,7 @@ public class DCEC2Instance extends NirmataSetup {
     }
 
 
-    @Test(description = "Delete EC2 Instance")
+    @Test(description = "Delete Direct Connect EC2 Instance")
     public void deleteDCInstance(){
         dcInstanceID = (new NirmataApplicationProperties()).properties.getProperty("dcInstanceID");
         System.out.println("dcInstanceID= "+dcInstanceID);

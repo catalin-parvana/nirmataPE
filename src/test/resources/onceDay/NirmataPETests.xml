@@ -4,11 +4,11 @@
 <!--    <listeners>-->
 <!--        <listener class-name="utils.NirmataReportListener"></listener>-->
 <!--    </listeners>-->
-<parameter name="clusterPolicyName" value="qualys-direct-connect" />
+    <parameter name="clusterPolicyName" value="qualys-direct-connect" />
     <parameter name="dcTemplateName" value="DirectConnect" />
     <parameter name="templateName" value="NirmataPE-template" />
     <parameter name="dcHostGroupName" value="qualys-dc" />
-    <parameter name="clusterName" value="qualys-dc1" />
+    <parameter name="clusterName" value="qualys-dc-cluster" />
 
 <test name="Create EC2 Instance From Template">
     <classes>
@@ -101,9 +101,7 @@
     <test name="Remote Login to EC2 for Direct Connect Cluster">
         <classes>
             <class name="NirmataPE.StartNirmataAgent">
-
-
-            </class>
+                </class>
         </classes>
     </test>
 
@@ -117,13 +115,23 @@
             </classes>
         </test>
 
-<!--<test name="Delete EC2 Instance">-->
-<!--    <classes>-->
-<!--        <class name="NirmataPE.EC2Instance">-->
-<!--            <methods>-->
-<!--                <include name = "deleteEC2Instance"/>-->
-<!--            </methods>-->
-<!--        </class>-->
-<!--    </classes>-->
-<!--</test>-->
+        <test name="Delete EC2 Instance for Direct Connect Cluster">
+            <classes>
+                <class name="NirmataPE.DCEC2Instance">
+                    <methods>
+                        <include name = "deleteDCInstance"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+
+    <test name="Delete EC2 Instance">
+        <classes>
+            <class name="NirmataPE.EC2Instance">
+                <methods>
+                    <include name = "deleteEC2Instance"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

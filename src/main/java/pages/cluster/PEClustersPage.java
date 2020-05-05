@@ -12,7 +12,10 @@ import static org.testng.Assert.*;
 
 public class PEClustersPage extends LibraryUtils {
 
-    private final SelenideElement installNewKubernetesClusterOption= $x("//div[contains(text(),'Install and manage a new Kubernetes cluster')]");
+    private final SelenideElement installNewKubernetesClusterOption= $x("//*[@data-id='managed']");
+  //  private final SelenideElement installNewKubernetesClusterOption= $x("//div[contains(text(),'Add Cluster')]");
+  //  private final SelenideElement installNewKubernetesClusterOption= $x("//div[contains(text(),'Install and manage a new Kubernetes cluster')]");
+  //  private final SelenideElement installNewKubernetesClusterOption= $x("//div[contains(text(),'Install a new Kubernetes cluster')]");
     private final SelenideElement inputName= $x("//div[@id='k8sManagedCluster']//input[@id='name']");
     private final SelenideElement toggleCardView=$x("//img[@id='toggleCardView']");
     private final SelenideElement toggleTableView=$x("//img[@id='toggleTableView']");
