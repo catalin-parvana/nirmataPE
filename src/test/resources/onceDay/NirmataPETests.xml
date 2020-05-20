@@ -62,31 +62,13 @@
                 <include name="initilization" />
                 <include name="addPrivateDockerRegistry" />
                 <include name="kyvernoAddOn" />
-                <include name="clustePolicy" />
+<!--                <include name="clustePolicy" />-->
             </methods>
         </class>
     </classes>
 </test>
 
-    <test name="Create EC2 Instance for Direct Connect Cluster From Template">
-        <classes>
-            <class name="NirmataPE.DCEC2Instance">
-                <methods>
-                    <include name = "createDCInstanceFromTemplate"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
 
-    <test name="Get EC2 Instance IP for Direct Connect Cluster">
-        <classes>
-            <class name="NirmataPE.DCEC2Instance">
-                <methods>
-                    <include name = "getDCInstanceIP"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
 
     <test name="Add Host Group">
         <classes>
@@ -115,23 +97,13 @@
             </classes>
         </test>
 
-        <test name="Delete EC2 Instance for Direct Connect Cluster">
-            <classes>
-                <class name="NirmataPE.DCEC2Instance">
-                    <methods>
-                        <include name = "deleteDCInstance"/>
-                    </methods>
-                </class>
-            </classes>
-        </test>
-
-    <test name="Delete EC2 Instance">
-        <classes>
-            <class name="NirmataPE.EC2Instance">
-                <methods>
-                    <include name = "deleteEC2Instance"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="Delete EC2 Instance">-->
+<!--        <classes>-->
+<!--            <class name="NirmataPE.EC2Instance">-->
+<!--                <methods>-->
+<!--                    <include name = "deleteEC2Instance"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

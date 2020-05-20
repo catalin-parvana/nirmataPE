@@ -20,11 +20,11 @@ public class StartNirmataAgent extends NirmataSetup {
 
     @Test(description = "Start Nirmata Agent")
     public void startNirmataAgent()  {
-        String dcInstanceIP = (new NirmataApplicationProperties()).properties.getProperty("dcInstanceIP");
+   //     String dcInstanceIP = (new NirmataApplicationProperties()).properties.getProperty("dcInstanceIP");
         String ec2InstanceIP = (new NirmataApplicationProperties()).properties.getProperty("ec2InstanceIP");
         String hostAgentKey = (new NirmataApplicationProperties()).properties.getProperty("hostAgentKey");
         System.out.println(" ================ Install Nirmata PE ======================");
-        System.out.println("++ Last Update: 3rd May ++" );
+        System.out.println("++ Last Update: 12th May ++" );
         System.out.println("ec2InstanceIP= "+ec2InstanceIP);
 
 
@@ -34,7 +34,7 @@ public class StartNirmataAgent extends NirmataSetup {
             JSch jsch=new JSch();
             UserInfo ui=new MyUserInfo();
             jsch.addIdentity(keyPair);
-            String host="ubuntu@"+dcInstanceIP;
+            String host="ubuntu@"+ec2InstanceIP;
             //      String urladdress="urladdress="+ec2InstanceIP;
 
             String user=host.substring(0, host.indexOf('@'));
@@ -47,7 +47,7 @@ public class StartNirmataAgent extends NirmataSetup {
             session.connect();
             System.out.println("Connected");
             System.out.println("isCoonnect? " + session.isConnected());
-            System.out.println("IP address: " +dcInstanceIP );
+            System.out.println("IP address: " +ec2InstanceIP );
             System.out.println("hostAgentKey: " +hostAgentKey);
             String installAgentCommand="sudo curl -k -sSL https://" +ec2InstanceIP +"/nirmata-host-agent/setup-nirmata-agent.sh | sudo sh -s -- --cloud other --hostgroup "
                     + hostAgentKey + " --insecure";
@@ -58,10 +58,10 @@ public class StartNirmataAgent extends NirmataSetup {
             channel.setInputStream(System.in);
             channel.setOutputStream(System.out);
 
-            System.out.println(dcInstanceIP);
+            System.out.println(ec2InstanceIP);
             capturer.start();
             channel.connect();
-            System.out.println(dcInstanceIP);
+            System.out.println(ec2InstanceIP);
 
             String script = "sudo swapoff -a\n" +
                     "sudo apt-get update && sudo apt-get install -y docker.io \n" +

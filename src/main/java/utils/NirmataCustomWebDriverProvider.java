@@ -24,7 +24,7 @@ public class NirmataCustomWebDriverProvider implements WebDriverProvider {
     @Override
     public WebDriver createDriver(DesiredCapabilities capabilities) {
         Configuration.baseUrl = url;
-        Configuration.headless = true;
+ //       Configuration.headless = true;
         Configuration.screenshots = false;
         Configuration.downloadsFolder = absolutePath + "/resources/download/";
         Configuration.reportsFolder = absolutePath + "/build/reports/tests/";
@@ -57,7 +57,7 @@ public class NirmataCustomWebDriverProvider implements WebDriverProvider {
                 else{System.setProperty("webdriver.chrome.driver", absolutePath + "/resources/driver/linux/chromedriver");}
                 ChromeOptions chromeOptions;
                 chromeOptions = new ChromeOptions()
-                        .setHeadless(true)
+       //                 .setHeadless(true)
                         .addArguments("--disable-infobars")
                         .addArguments("--no-sandbox")
                         .addArguments("--disable-dev-shm-usage")
